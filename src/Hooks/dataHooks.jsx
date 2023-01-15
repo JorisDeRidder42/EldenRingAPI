@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
-export const useGetItemIds = (endpoint, pageNumber) => {
+export const useGetItemIds = (endpoint, page) => {
     return useQuery(
-        ['endpoint',endpoint,pageNumber],
-        async () => (await getItems(endpoint,pageNumber))?.data.data,
+        ['endpoint',endpoint,page],
+        async () => (await getItems(endpoint,page)).data.data,
         {
             staleTime: Infinity,
             cacheTime: Infinity
@@ -33,11 +33,11 @@ const client = axios.create({
 })
 
 /**
- * @param {string} endpoint @param {number} pageNumber 
+ * @param {string} endpoint @param {number} page 
  */
-const getItems = (endpoint, pageNumber) => {
+const getItems = (endpoint, page) => {
     return client.get(
-        `${endpoint}?limit=20&page=${pageNumber}`
+        `${endpoint}?limit=20&page=${page}`
         )
     }
     

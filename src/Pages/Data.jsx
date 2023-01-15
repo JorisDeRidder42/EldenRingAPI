@@ -4,12 +4,13 @@ import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({endpoint ,pageNumber}) => {
-      const {data: cardsData, isLoading} = useGetItemIds(endpoint,pageNumber);
+const Data = ({endpoint, page}) => {
+      const [pageNumber, setPageNumber] = useState(0)
+      const {data: cardsData, isLoading} = useGetItemIds(endpoint,page = pageNumber);
 
       console.log(cardsData)
-      console.log(pageNumber)
-      console.log(endpoint)
+      console.log("page",page)
+      console.log('endpoint',endpoint)
 
       if(isLoading){
         return <h1>Loading....</h1>
@@ -22,7 +23,9 @@ const Data = ({endpoint ,pageNumber}) => {
             <ContentCard {...d}/>
               </Col>)}
             </Row>
-          {/* <PaginationWrapper pageNumber={pageNumber}/> */}
+            <Row>
+                <PaginationWrapper page={pageNumber} setPageNumber={setPageNumber} data={cardsData}/>
+            </Row>
           </Container>
     )
 }
