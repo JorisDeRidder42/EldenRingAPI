@@ -11,18 +11,21 @@ const PaginationWrapper = ({page: pageNumber, setPageNumber}) => {
   const countDown = () => {
     setPageNumber( page => page - 1)
   }
-  const goTo0 = () => {
+  const goToBegin = () => {
     setPageNumber(page => page = 0)
+  }
+  const goToEnd = () => {
+    setPageNumber(page => page = 10)
   }
 
   return (
     <div className='d-flex justify-content-center'>
     <Pagination size='lg'>
-      <Pagination.First onClick={goTo0} />
+      <Pagination.First onClick={goToBegin} />
       <Pagination.Prev onClick={countDown} />
       <Pagination.Item active>{pageNumber}</Pagination.Item>
       <Pagination.Next onClick={countUp}/>
-      <Pagination.Last />
+      <Pagination.Last onClick={goToEnd} />
     </Pagination>
     </div>
   );
