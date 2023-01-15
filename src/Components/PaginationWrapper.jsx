@@ -1,26 +1,33 @@
+import { Container } from 'react-bootstrap';
 import Pagination from 'react-bootstrap/Pagination';
 
-const PaginationWrapper = ({pageNumber: currentPage, nbPages}) => {
+const PaginationWrapper = ({page: pageNumber, setPageNumber}) => {
+  console.log('page',pageNumber)
 
-  const pageButtons = [];
-  for(let i = currentPage - 2; i <= currentPage + 2; i++){
-    if(i >= 1 && i <= nbPages){
-      pageButtons.push(<Pagination.Item key={i}>{i}</Pagination.Item>)
-    }
+
+  const countUp = () => {
+      setPageNumber( page => page + 1)
+  }
+  const countDown = () => {
+    setPageNumber( page => page - 1)
+  }
+  const goToBegin = () => {
+    setPageNumber(page => page = 0)
+  }
+  const goToEnd = () => {
+    setPageNumber(page => page = 10)
   }
 
   return (
-    <Pagination>
-      <Pagination.First />
-      <Pagination.Prev />
-      {currentPage > 3 && nbPages > 3 && <Pagination.Ellipsis />}
-      {pageButtons}
-
-      {nbPages > 3 && currentPage < nbPages	- 2 && <Pagination.Ellipsis />}
-
-      <Pagination.Next />
-      <Pagination.Last />
+    <div className='d-flex justify-content-center'>
+    <Pagination size='lg'>
+      <Pagination.First onClick={goToBegin} />
+      <Pagination.Prev onClick={countDown} />
+      <Pagination.Item active>{pageNumber}</Pagination.Item>
+      <Pagination.Next onClick={countUp}/>
+      <Pagination.Last onClick={goToEnd} />
     </Pagination>
+    </div>
   );
 }
 
