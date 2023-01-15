@@ -1,21 +1,25 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-// const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
-export const useGetItems = (endpoint) => {
+export const useGetItemIds = (endpoint, pageNumber) => {
     return useQuery(
-        ['endpoint', endpoint],
-        () => getItems(endpoint),
+        ['endpoint',endpoint,pageNumber],
+        async () => (await getItems(endpoint,pageNumber))?.data.data,
         {
-            
+            staleTime: Infinity,
+            cacheTime: Infinity
         } 
     )
 }
 
-export const useGetItemById = (id) => {
+export const useGetItem = (endpoint,id) => {
     return useQuery(
-        ['id', id],
-        async () => await getItemsById(id),
+        ['id',id, endpoint],
+        async () => (await getItemById(endpoint,id))?.data.data,
+        {
+            staleTime: Infinity,
+            cacheTime: Infinity
+        }
     )
 }
 
@@ -25,24 +29,23 @@ export const useGetItemById = (id) => {
 */
 
 const client = axios.create({
-    baseURL: `https://eldenring.fanapis.com/api`,
+    baseURL: `https://eldenring.fanapis.com/api/`,
 })
 
 /**
- * @param {string} endpoint 
+ * @param {string} endpoint @param {number} pageNumber 
  */
-
-const getItems = ({endpoint}) => {
+const getItems = (endpoint, pageNumber) => {
     return client.get(
-        `${endpoint}`
-    )
-}
-
+        `${endpoint}?limit=20&page=${pageNumber}`
+        )
+    }
+    
 /**
  * @param {number} id 
  */
 
-const getItemsById = (id, endpoint) => {
+const getItemById = (endpoint,id) => {
     return client.get(
         `${endpoint}/${id}`
     )
