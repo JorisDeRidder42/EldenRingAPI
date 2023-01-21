@@ -16,7 +16,7 @@ const Routing = () => {
             <Route exact path={'/'} element={<Home/>}/>
                 {endpoints.map(r => (
                     <Route key={r.id} path={r.endpoint} element={<Outlet/>}>
-                        <Route index element={<Data endpoint={r.endpoint}/>}/>
+                        <Route index element={<Data endpoint={r.endpoint} page={r.page}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}

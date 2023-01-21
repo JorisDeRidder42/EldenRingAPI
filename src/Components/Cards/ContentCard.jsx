@@ -11,18 +11,13 @@ const ContentCard = ({image, name, description, id}) => {
   const themeClassBg = lightTheme === true ? 'light' : "dark"
   const themeClassText = lightTheme === true ? 'dark' : "light"
 
-
-  const readMoreDescription = (
-    description.slice(0,description.indexOf('.')) + '...'
-  )
-
     return( 
     <Card className="my-3" bg={themeClassBg} text={themeClassText} style={{ height: '33rem' }}>
     <Card.Title className='m-3 text-center'>{name}</Card.Title>
     <Card.Img variant="top" className='p-3' src={image} />
     <Card.Body>
       <Card.Text>
-      {!moreContent ? readMoreDescription : description} {!moreContent && <p className='link' onClick={() => setMoreContent(o => !o)}>Read More</p>}
+      {description.slice(0,description.indexOf('.')) + '...'}
       </Card.Text>
     </Card.Body>
     <Link to={`${id}`}>

@@ -1,20 +1,20 @@
 import Pagination from 'react-bootstrap/Pagination';
 
 const PaginationWrapper = ({page: pageNumber, setPageNumber}) => {
-  console.log('page',pageNumber)
+  console.log('pageNumber',pageNumber)
 
 
   const countUp = () => {
-      setPageNumber( page => page + 1)
+    setPageNumber( x => x + 1)
   }
   const countDown = () => {
-    setPageNumber( page => page - 1)
+    setPageNumber( x => x - 1)
   }
   const goToBegin = () => {
-    setPageNumber(page => page = 0)
+    setPageNumber(x => x = 0)
   }
   const goToEnd = () => {
-    setPageNumber(page => page = 10)
+    setPageNumber(x => x = 10)
   }
 
   return (
