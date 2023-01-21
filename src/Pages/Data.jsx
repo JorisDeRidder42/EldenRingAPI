@@ -9,6 +9,7 @@ const Data = ({endpoint,page}) => {
       const {data: cardsData} = useGetItemIds(endpoint, page = pageNumber);
       console.log("pageNR", page)
 
+
       return(
         <Container>
           <Row className="m-2">
@@ -17,7 +18,7 @@ const Data = ({endpoint,page}) => {
               </Col>)}
             </Row>
             <Row>
-              <PaginationWrapper page={pageNumber} setPageNumber={setPageNumber}/>
+              <PaginationWrapper page={pageNumber} setPageNumber={setPageNumber} cardsData={cardsData}/>
             </Row>
           </Container>
     )

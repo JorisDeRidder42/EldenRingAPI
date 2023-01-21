@@ -1,12 +1,16 @@
 import Pagination from 'react-bootstrap/Pagination';
 
-const PaginationWrapper = ({page: pageNumber, setPageNumber}) => {
+const PaginationWrapper = ({page: pageNumber, setPageNumber, cardsData}) => {
   console.log('pageNumber',pageNumber)
+  console.log('cardsData',cardsData)
 
 
   const countUp = () => {
-    setPageNumber( x => x + 1)
+    if(cardsData.length === 20){
+      setPageNumber( x => x + 1)
+    }
   }
+
   const countDown = () => {
     setPageNumber( x => x - 1)
   }
