@@ -12,6 +12,9 @@ const Data = ({endpoint,page}) => {
 
       return(
         <Container>
+          <Row>
+            <PaginationWrapper page={pageNumber} setPageNumber={setPageNumber} cardsData={cardsData}/>
+          </Row>
           <Row className="m-2">
             {cardsData?.map(d => <Col xs={12} sm={6} md={4} lg={3} xl={3} key={d.id}>
                 <ContentCard {...d}/>

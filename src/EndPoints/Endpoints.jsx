@@ -17,6 +17,7 @@ const endpoints = [
         id: 1,
         title: 'Shields',
         endpoint: 'shields',
+        page:1,
         detail: <WeaponDetailCard endpoint={'shields'}/>
     },
     {
