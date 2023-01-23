@@ -1,14 +1,23 @@
+import { useContext } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
+import ThemeContext from '../Context/themeContext';
 
-const PaginationWrapper = ({page: pageNumber, setPageNumber, cardsData}) => {
-  const lastPage = cardsData.length !== 20;
-  console.log('l',lastPage)
+const PaginationWrapper = ({page: pageNumber, setPageNumber, total, count}) => {
+  const {lightTheme} = useContext(ThemeContext);
+  const themeClass = lightTheme === true ? 'light' : 'dark'
+  console.log(pageNumber)
+  console.log(total)
+  const result = total/count;
+
+  const lastPage = Math.floor(result);
+  console.log('lastpage',lastPage);
 
 
   const countUp = () => {
     if(!lastPage){
       setPageNumber( x => x + 1)
     }
+
   }
 
   const countDown = () => {
@@ -25,12 +34,12 @@ const PaginationWrapper = ({page: pageNumber, setPageNumber, cardsData}) => {
 
   return (
     <div className='d-flex justify-content-center'>
-    <Pagination size='lg'>
+    <Pagination size='lg' bg={themeClass}>
       <Pagination.First onClick={goToBegin} />
       <Pagination.Prev onClick={countDown} />
       <Pagination.Item active>{pageNumber }</Pagination.Item>
-      <Pagination.Next onClick={countUp} disabled={lastPage}/>
-      <Pagination.Last onClick={goToEnd} disabled={lastPage} />
+      <Pagination.Next onClick={countUp} />
+      <Pagination.Last onClick={goToEnd} />
     </Pagination>
     </div>
   );
