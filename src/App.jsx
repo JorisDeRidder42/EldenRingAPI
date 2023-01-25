@@ -21,8 +21,8 @@ function App() {
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
 
     return (
-        <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
           <QueryClientProvider client={queryClient}>
+          <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <Container fluid className={`${themeClass}`}>
               <Container>
                 <NavBarBootstrap/>
@@ -31,8 +31,8 @@ function App() {
                 <Routing />
               </Suspense>
             </Container>
+          </ThemeContext.Provider>
           </QueryClientProvider>
-        </ThemeContext.Provider>
     )
 }
 

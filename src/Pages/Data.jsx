@@ -5,8 +5,9 @@ import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
 const Data = ({endpoint,page}) => {
-      const [pageNumber, setPageNumber] = useState(0);
-      const {data: cardsData} = useGetItemIds(endpoint, page = pageNumber);
+  const [pageNumber, setPageNumber] = useState(0);
+  const {data: cardsData} = useGetItemIds(endpoint, page = pageNumber);
+      console.log(pageNumber)
 
       return(
         <Container>

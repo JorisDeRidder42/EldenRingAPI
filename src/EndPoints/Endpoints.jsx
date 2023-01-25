@@ -10,28 +10,28 @@ const endpoints = [
         id: 0,
         title: 'Weapons',
         endpoint: 'weapons',
-        page:1,
+        page:0,
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {
         id: 1,
         title: 'Shields',
         endpoint: 'shields',
-        page:1,
+        page:0,
         detail: <WeaponDetailCard endpoint={'shields'}/>
     },
     {
         id: 3,
         title: 'Sorceries',
         endpoint: 'sorceries',
-        page: 1,
+        page: 0,
         detail: <WeaponDetailCard endpoint={'sorceries'}/>
     },
     {
         id: 4,
         title: 'Ashes of war',
         endpoint: 'ashes',
-        page: 1,
+        page: 0,
         detail: <WeaponDetailCard endpoint={'ashes'}/>
         
     }

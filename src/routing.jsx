@@ -1,10 +1,6 @@
 import {Route, Routes, Outlet} from 'react-router-dom';
 import PageNotFound from './Pages/PageNotFound';
 import Home from './Pages/Home';
-import WeaponDetailCard from './Details/WeaponDetailCard';
-import BossesDetailCard from './Details/BossesDetailCard';
-import { Suspense } from 'react';
-import PageLoader from './Loader/PageLoader';
 
 import Data from './Pages/Data';
 import { getAllEndpoints } from './EndPoints/Endpoints';
