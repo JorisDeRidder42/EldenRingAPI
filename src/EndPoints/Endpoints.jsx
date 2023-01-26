@@ -11,6 +11,7 @@ const endpoints = [
         title: 'Weapons',
         endpoint: 'weapons',
         page:0,
+        linkEndpoint: 'weapons&page=0',
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {
@@ -18,6 +19,7 @@ const endpoints = [
         title: 'Shields',
         endpoint: 'shields',
         page:0,
+        linkEndpoint: 'shields&page=0',
         detail: <WeaponDetailCard endpoint={'shields'}/>
     },
     {
@@ -25,6 +27,7 @@ const endpoints = [
         title: 'Sorceries',
         endpoint: 'sorceries',
         page: 0,
+        linkEndpoint: 'sorceries&page=0',
         detail: <WeaponDetailCard endpoint={'sorceries'}/>
     },
     {
@@ -32,6 +35,7 @@ const endpoints = [
         title: 'Ashes of war',
         endpoint: 'ashes',
         page: 0,
+        linkEndpoint: 'ashes&page=0',
         detail: <WeaponDetailCard endpoint={'ashes'}/>
         
     }

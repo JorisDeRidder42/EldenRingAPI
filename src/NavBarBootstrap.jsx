@@ -21,10 +21,13 @@ const NavBarBootstrap = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        {endpoints.map(e => <LinkContainer to={e.endpoint} key={e.id}>
+                         {endpoints.map(e => <LinkContainer to={e.linkEndpoint} key={e.id}>
                             <Nav.Link>{e.title}</Nav.Link>
-                        </LinkContainer>)}       
-                    </Nav>
+                        </LinkContainer>)}    
+                        {/* <LinkContainer to="weapons&page=0">
+                            <Nav.Link>{"Weapons"}</Nav.Link>
+                        </LinkContainer> */}
+                        </Nav>
                     <Form.Check 
                         type="switch" checked={!lightTheme} 
                         onChange={() => setLightTheme(o => !o)} />
