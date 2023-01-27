@@ -11,7 +11,6 @@ const endpoints = [
         title: 'Weapons',
         endpoint: 'weapons',
         page:0,
-        linkEndpoint: 'weapons&page=0',
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {
