@@ -9,33 +9,30 @@ const endpoints = [
     {
         id: 0,
         title: 'Weapons',
-        endpoint: 'weapons',
+        endpoint: '/weapons',
         page:0,
-        detail: <WeaponDetailCard endpoint={'weapons'}/>
+        detail: <WeaponDetailCard endpoint={'/weapons'}/>
     },
     {
         id: 1,
         title: 'Shields',
-        endpoint: 'shields',
+        endpoint: '/shields',
         page:0,
-        linkEndpoint: 'shields&page=0',
-        detail: <WeaponDetailCard endpoint={'shields'}/>
+        detail: <WeaponDetailCard endpoint={'/shields'}/>
     },
     {
         id: 3,
         title: 'Sorceries',
-        endpoint: 'sorceries',
+        endpoint: '/sorceries',
         page: 0,
-        linkEndpoint: 'sorceries&page=0',
-        detail: <WeaponDetailCard endpoint={'sorceries'}/>
+        detail: <WeaponDetailCard endpoint={'/sorceries'}/>
     },
     {
         id: 4,
         title: 'Ashes of war',
-        endpoint: 'ashes',
+        endpoint: '/ashes',
         page: 0,
-        linkEndpoint: 'ashes&page=0',
-        detail: <WeaponDetailCard endpoint={'ashes'}/>
+        detail: <WeaponDetailCard endpoint={'/ashes'}/>
         
     }
 ]

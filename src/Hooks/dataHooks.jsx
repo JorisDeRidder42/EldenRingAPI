@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetItemIds = (endpoint, page) => {
     return useQuery(
-        ['items',page],
+        ['items',endpoint],
         async () => (await getItems(endpoint, page))?.data,
         {
             staleTime: Infinity,
@@ -14,7 +14,7 @@ export const useGetItemIds = (endpoint, page) => {
 
 export const useGetItem = (endpoint, id) => {
     return useQuery(
-        ['id',endpoint, id],
+        ['id', id],
         async () => (await getItemById(endpoint, id))?.data.data,
         {
             staleTime: Infinity,
@@ -29,7 +29,7 @@ export const useGetItem = (endpoint, id) => {
 */
 
 const client = axios.create({
-    baseURL: `https://eldenring.fanapis.com/api/`,
+    baseURL: `https://eldenring.fanapis.com/api`,
 })
 
 /**

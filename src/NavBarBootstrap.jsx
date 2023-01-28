@@ -21,7 +21,7 @@ const NavBarBootstrap = ({page,endpoint}) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                         {endpoints.map(e => <LinkContainer to={`${e.endpoint }&page=${page}`} key={e.id}>
+                         {endpoints.map(e => <LinkContainer to={e.endpoint } key={e.id}>
                             <Nav.Link>{e.title}</Nav.Link>
                         </LinkContainer>)}    
                         {/* <LinkContainer to="weapons&page=0">
