@@ -2,7 +2,6 @@ import NavBarBootstrap from './NavBarBootstrap';
 import Routing from './routing';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import { Container } from 'react-bootstrap';
-
 import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
 import ThemeContext from './Context/themeContext';

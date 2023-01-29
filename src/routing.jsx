@@ -11,12 +11,12 @@ const Routing = () => {
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
                 {endpoints.map(r => (
-                    <Route key={r.id} path={r.endpoint} element={<Outlet/>}>
+                    <Route key={r.id} path={`${r.endpoint}&page=${r.page}`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} page={r.page}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
-            <Route path={'*'} element={<PageNotFound/>}/>
+            {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>
     )
 }

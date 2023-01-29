@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import ThemeContext from '../../Context/themeContext';
 
 const ContentCard = ({image, name, description, id}) => {
-  const [moreContent, setMoreContent] = useState(false);
   const {lightTheme} = useContext(ThemeContext)
   const themeClassBg = lightTheme === true ? 'light' : "dark"
   const themeClassText = lightTheme === true ? 'dark' : "light"
