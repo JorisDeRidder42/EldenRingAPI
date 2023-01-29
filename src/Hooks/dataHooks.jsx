@@ -34,11 +34,11 @@ const client = axios.create({
 
 /**
  * @param {string} endpoint
- * @param {number} pageParam
+ * @param {number} page
  */
-const getItems = (endpoint, pageParam) => {
+const getItems = (endpoint, page) => {
     return client.get(
-        `${endpoint}?limit=20&page=${pageParam}`
+        `${endpoint}?limit=20&page=${parseInt(page)}`
     )
 }
 

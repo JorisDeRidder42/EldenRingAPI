@@ -7,7 +7,7 @@ const PaginationWrapper = ({page, setPageNumber, total, count}) => {
   const themeClass = lightTheme === true ? 'light' : 'dark'
   const result = total/count;
   const lastPage = Math.floor(result);
-  console.log(page)
+  console.log('page',page)
 
 
   const pages = [];
