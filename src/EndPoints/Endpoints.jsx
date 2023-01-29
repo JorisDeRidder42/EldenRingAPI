@@ -24,14 +24,14 @@ const endpoints = [
         id: 3,
         title: 'Sorceries',
         endpoint: '/sorceries',
-        page: 0,
+        page:0,
         detail: <WeaponDetailCard endpoint={'sorceries'}/>
     },
     {
         id: 4,
         title: 'Ashes of war',
         endpoint: 'ashes',
-        page: 0,
+        page:0,
         detail: <WeaponDetailCard endpoint={'ashes'}/>
         
     }

@@ -14,7 +14,7 @@ export const useGetItemIds = (endpoint, page) => {
 
 export const useGetItem = (endpoint, id) => {
     return useQuery(
-        ['id', endpoint],
+        ['id','endpoint',id, endpoint],
         async () => (await getItemById(endpoint, id))?.data.data,
         {
             staleTime: Infinity,
@@ -34,11 +34,11 @@ const client = axios.create({
 
 /**
  * @param {string} endpoint
- * @param {number} page
+ * @param {number} pageParam
  */
-const getItems = (endpoint, page) => {
+const getItems = (endpoint, pageParam) => {
     return client.get(
-        `${endpoint}?limit=20&page=${page}`
+        `${endpoint}?limit=20&page=${pageParam}`
     )
 }
 

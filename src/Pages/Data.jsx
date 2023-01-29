@@ -6,7 +6,7 @@ import { useGetItemIds } from "../Hooks/dataHooks";
 
 const Data = ({endpoint,page}) => {
   const [pageNumber, setPageNumber] = useState(0);
-  const {data: cardsData} = useGetItemIds(endpoint, page = pageNumber);
+  const {data: cardsData} = useGetItemIds(endpoint,page = pageNumber);
 
       return(
         <Container>
@@ -18,9 +18,9 @@ const Data = ({endpoint,page}) => {
                 <ContentCard {...d}/>
               </Col>)}
             </Row>
-            <Row>
-              <PaginationWrapper page={page} setPageNumber={setPageNumber} cardsData={cardsData} total={cardsData.total} count={cardsData.count}/>
-            </Row>
+            {/* <Row>
+              <PaginationWrapper page={page} setPage={setPage} cardsData={cardsData} total={cardsData.total} count={cardsData.count}/>
+            </Row> */}
           </Container>
     )
 }
