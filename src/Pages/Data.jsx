@@ -4,14 +4,13 @@ import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({endpoint,page}) => {
-  const [pageNumber, setPageNumber] = useState(0);
-  const {data: cardsData} = useGetItemIds(endpoint,page = pageNumber);
-
+const Data = ({endpoint}) => {
+  const [page, setPage] = useState(0)
+  const {data: cardsData} = useGetItemIds(endpoint,page);
       return(
         <Container>
           <Row>
-            <PaginationWrapper page={page} setPageNumber={setPageNumber} cardsData={cardsData} total={cardsData.total} count={cardsData.count}/>
+            <PaginationWrapper page={page} setPage={setPage} cardsData={cardsData} total={cardsData.total} count={cardsData.count}/>
           </Row>
           <Row className="m-2">
             {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} xl={3} key={d.id}>
