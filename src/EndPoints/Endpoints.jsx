@@ -1,3 +1,4 @@
+import { useState } from "react"
 import BossesDetailCard from "../Details/BossesDetailCard"
 import WeaponDetailCard from "../Details/WeaponDetailCard"
 
@@ -5,12 +6,12 @@ import WeaponDetailCard from "../Details/WeaponDetailCard"
 export const getAllEndpoints = () => {
     return endpoints.map(e => ({...e}))
 }
+
 const endpoints = [
     {
         id: 0,
         title: 'Weapons',
         endpoint: `/weapons`,
-        page:0,
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {

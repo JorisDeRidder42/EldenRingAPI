@@ -4,8 +4,7 @@ import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({endpoint}) => {
-  const [page, setPage] = useState(0)
+const Data = ({endpoint, page, setPage}) => {
   const {data: cardsData} = useGetItemIds(endpoint,page);
       return(
         <Container>

@@ -18,16 +18,17 @@ const queryClient = new QueryClient({
 function App() {
     const [lightTheme, setLightTheme] = useState(true);
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
+    const [page, setPage] = useState(5);
 
     return (
           <QueryClientProvider client={queryClient}>
           <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap/>
+                <NavBarBootstrap page={page}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing />
+                <Routing page={page} setPage={setPage} />
               </Suspense>
             </Container>
           </ThemeContext.Provider>
