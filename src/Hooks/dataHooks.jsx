@@ -6,8 +6,8 @@ export const useGetItemIds = (endpoint, page) => {
         ['items','page',page, endpoint],
         async () => (await getItems(endpoint, page))?.data,
         {
-            staleTime: Infinity,
-            cacheTime: Infinity
+            // staleTime: Infinity,
+            // cacheTime: Infinity
         }
     )
 }

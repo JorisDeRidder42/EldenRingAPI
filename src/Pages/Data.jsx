@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
+import PageContext from "../Context/pageContext";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({endpoint, page, setPage}) => {
+const Data = ({endpoint}) => {
+  const {page,setPage} = useContext(PageContext);
   const {data: cardsData} = useGetItemIds(endpoint,page);
       return(
         <Container>

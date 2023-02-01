@@ -1,4 +1,3 @@
-import { useState } from "react"
 import BossesDetailCard from "../Details/BossesDetailCard"
 import WeaponDetailCard from "../Details/WeaponDetailCard"
 
@@ -11,7 +10,7 @@ const endpoints = [
     {
         id: 0,
         title: 'Weapons',
-        endpoint: `/weapons`,
+        endpoint: '/weapons',
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {
