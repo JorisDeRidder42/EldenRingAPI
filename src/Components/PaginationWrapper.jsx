@@ -1,13 +1,17 @@
 import { useContext } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import ThemeContext from '../Context/themeContext';
 
-const PaginationWrapper = ({page,setPage, total, count}) => {
+const PaginationWrapper = ({setPage, total, count}) => {
   const {lightTheme} = useContext(ThemeContext);
   const themeClass = lightTheme === true ? 'light' : 'dark'
   const result = total/count;
   const lastPage = Math.floor(result);
-  console.log('page',page)
+  const { page }  = useParams(); // from react-router, this is the `:page` parameter defined on the route. 
+  const navigate = useNavigate();
+  console.log('page', page)
 
 
   const pages = [];

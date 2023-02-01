@@ -5,7 +5,6 @@ import { Container } from 'react-bootstrap';
 import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
 import ThemeContext from './Context/themeContext';
-import PageContext from './Context/pageContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,23 +17,21 @@ const queryClient = new QueryClient({
 
 function App() {
     const [lightTheme, setLightTheme] = useState(true);
-    const [page, setPage] = useState(0);
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
+    const [page, setPage] = useState(0);
 
     return (
           <QueryClientProvider client={queryClient}>
-            <PageContext.Provider value={{page, setPage}}>
           <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <Container fluid className={`${themeClass}`}>
               <Container>
                 <NavBarBootstrap/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing/>
+                <Routing page={page} setPage={setPage}/>
               </Suspense>
             </Container>
           </ThemeContext.Provider>
-          </PageContext.Provider>
           </QueryClientProvider>
     )
 }
