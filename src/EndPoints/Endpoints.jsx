@@ -28,7 +28,7 @@ const endpoints = [
     {
         id: 4,
         title: 'Ashes of war',
-        endpoint: 'ashes',
+        endpoint: '/ashes',
         detail: <WeaponDetailCard endpoint={'ashes'}/>
         
     }

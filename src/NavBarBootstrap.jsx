@@ -1,11 +1,11 @@
-import { React, useContext, useState } from 'react';
+import { React, useContext } from 'react';
 import { Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
 import ThemeContext from './Context/themeContext';
 import { getAllEndpoints } from './EndPoints/Endpoints';
 
-const NavBarBootstrap = () => {
+const NavBarBootstrap = ({page}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
     const themeClass = lightTheme === true ? 'light' : 'dark'
     const endpoints = getAllEndpoints();
@@ -20,7 +20,7 @@ const NavBarBootstrap = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                         {endpoints.map(e => <LinkContainer key={e.id} to={`${e.endpoint}`}>
+                         {endpoints.map(e => <LinkContainer key={e.id} to={`${e.endpoint}&page=${page}`}>
                             <Nav.Link>{e.title}</Nav.Link>
                         </LinkContainer>)}   
                         </Nav>

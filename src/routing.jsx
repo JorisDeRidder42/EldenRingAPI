@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
+import WeaponDetailCard from './Details/WeaponDetailCard';
 import { getAllEndpoints } from './EndPoints/Endpoints';
 import Data from './Pages/Data';
 import Home from './Pages/Home';
@@ -10,10 +11,9 @@ const Routing = ({page,setPage}) => {
             <Route exact path={'/'} element={<Home/>}/>
                 {endpoints.map(r => (
                     <Route key={r.id}>
-                        <Route path={`${r.endpoint}&page=${':page'}`} element={<Outlet/>}>
-                            <Route index element={<Data endpoint={r.endpoint}/>}/>
+                        <Route path={`${r.endpoint}&page=:page`} element={<Data endpoint={r.endpoint} page={page}/>}>
                         </Route>
-                        <Route exact path={`${r.endpoint}/:id`} element={r.detail}/>
+                    <Route path={`${r.endpoint}&page=:page/:id`} element={r.detail}/>
                     </Route>
                 ))}
             {/* <Route path={'*'} element={<PageNotFound/>}/> */}
