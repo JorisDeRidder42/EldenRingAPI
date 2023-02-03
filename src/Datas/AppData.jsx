@@ -2,11 +2,11 @@ import BossesDetailCard from "../Details/BossesDetailCard"
 import WeaponDetailCard from "../Details/WeaponDetailCard"
 
 
-export const getAllEndpoints = () => {
-    return endpoints.map(e => ({...e}))
+export const getAllAppData = () => {
+    return appData.map(e => ({...e}))
 }
 
-const endpoints = [
+const appData = [
     {
         id: 0,
         title: 'Weapons',
