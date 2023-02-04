@@ -10,8 +10,9 @@ const PaginationWrapper = ({setCurrentPage, total, count}) => {
   const result = total/count;
   const lastPage = Math.floor(result);
   const navigate = useNavigate();
-  const {currentPage}  = useParams(); // from react-router, this is the `:currentPage` parameter defined on the route. 
-  const page = parseInt(currentPage); 
+  const {currentPage}  = useParams(); // from react-router, this is the `:currentPage` parameter defined on the route.
+  const page = parseInt(currentPage);
+  console.log('page',page) 
 
 
   const pages = [];
@@ -22,16 +23,15 @@ const PaginationWrapper = ({setCurrentPage, total, count}) => {
           {i}
         </Pagination.Item>)
     }
-  
   }
   return (
     <div className='d-flex justify-content-center'>
     <Pagination size='lg' bg={themeClass}>
       <Pagination.First onClick={() => setCurrentPage(0)} />
       <Pagination.Prev onClick={() => setCurrentPage(p => Math.max(0, p - 1))} />
-        {page > 3 && lastPage > 3 && <Pagination.Ellipsis/>}
+        {page > 3 && page > 3 && <Pagination.Ellipsis/>}
         {pages}
-        {lastPage > 3 && page > lastPage && <Pagination.Ellipsis/>}
+        {lastPage > 3 && page > page && <Pagination.Ellipsis/>}
       <Pagination.Next onClick={() => setCurrentPage(p => Math.min(lastPage, p + 1))} />
       <Pagination.Last onClick={() => setCurrentPage(lastPage)}  />
     </Pagination>
