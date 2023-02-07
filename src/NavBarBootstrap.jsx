@@ -1,11 +1,11 @@
 import { React, useContext } from 'react';
-import { Form, Image, Nav, Navbar } from 'react-bootstrap';
+import { Button, Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
 import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
 
-const NavBarBootstrap = ({currentPage}) => {
+const NavBarBootstrap = ({currentPage, setCurrentPage}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
     const themeClass = lightTheme === true ? 'light' : 'dark'
     const allData = getAllAppData();
@@ -28,6 +28,7 @@ const NavBarBootstrap = ({currentPage}) => {
                         type="switch" checked={!lightTheme} 
                         onChange={() => setLightTheme(o => !o)} />
                 </Navbar.Collapse>
+                <Button onClick={() => setCurrentPage(count => count + 1)}>IncrementPage</Button>
         </Navbar>
     )
 }

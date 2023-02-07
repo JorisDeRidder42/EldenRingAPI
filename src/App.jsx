@@ -25,7 +25,7 @@ function App() {
           <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap currentPage={currentPage}/>
+                <NavBarBootstrap currentPage={currentPage} setCurrentPage={setCurrentPage}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
                 <Routing currentPage={currentPage} setCurrentPage={setCurrentPage}/>

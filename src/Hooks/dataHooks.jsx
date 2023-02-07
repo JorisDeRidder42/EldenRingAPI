@@ -3,11 +3,11 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetItemIds = (endpoint, page) => {
     return useQuery(
-        ['items',page, endpoint],
+        ['items','page',page, endpoint],
         async () => (await getItems(endpoint, page))?.data,
         {
-            // staleTime: Infinity,
-            // cacheTime: Infinity
+            staleTime: Infinity,
+            cacheTime: Infinity
         }
     )
 }

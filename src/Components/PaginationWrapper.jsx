@@ -4,14 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import ThemeContext from '../Context/themeContext';
 
-const PaginationWrapper = ({setCurrentPage, total, count}) => {
+const PaginationWrapper = ({page, setCurrentPage, total, count}) => {
   const {lightTheme} = useContext(ThemeContext);
   const themeClass = lightTheme === true ? 'light' : 'dark'
   const result = total/count;
   const lastPage = Math.floor(result);
   const navigate = useNavigate();
-  const {currentPage}  = useParams(); // from react-router, this is the `:currentPage` parameter defined on the route.
-  const page = parseInt(currentPage);
   console.log('page',page) 
 
 
