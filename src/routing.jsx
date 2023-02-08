@@ -10,7 +10,7 @@ const Routing = ({setCurrentPage, currentPage}) => {
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
             {allData.map(r => (
-                    <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Data endpoint={r.endpoint} currentPage={currentPage} setCurrentPage={setCurrentPage}/>}/>
+                    <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Data endpoint={r.endpoint} setCurrentPage={setCurrentPage}/>}/>
                 ))}
             {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>

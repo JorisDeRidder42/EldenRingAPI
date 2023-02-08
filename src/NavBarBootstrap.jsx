@@ -5,7 +5,7 @@ import logo from "./assets/Elden_Ring_logo.png";
 import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
 
-const NavBarBootstrap = ({currentPage, setCurrentPage}) => {
+const NavBarBootstrap = ({currentPage}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
     const themeClass = lightTheme === true ? 'light' : 'dark'
     const allData = getAllAppData();
@@ -28,7 +28,6 @@ const NavBarBootstrap = ({currentPage, setCurrentPage}) => {
                         type="switch" checked={!lightTheme} 
                         onChange={() => setLightTheme(o => !o)} />
                 </Navbar.Collapse>
-                <Button onClick={() => setCurrentPage(count => count + 1)}>IncrementPage</Button>
         </Navbar>
     )
 }
