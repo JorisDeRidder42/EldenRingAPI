@@ -14,7 +14,7 @@ const PaginationWrapper = ({currentPage, setCurrentPage, total, count}) => {
 
 
   const pages = [];
-  for(let i = page - 2 ; i <= lastPage + 2; i++){
+  for(let i = page - 2; i <= page + 2; i++){
     if(i >= 0 && i <= lastPage){
       pages.push(<Pagination.Item key={i} onClick={() => setCurrentPage(i)} active={i === page}>
         {i}
@@ -25,13 +25,13 @@ const PaginationWrapper = ({currentPage, setCurrentPage, total, count}) => {
   return (
     <div className='d-flex justify-content-center'>
     <Pagination size='lg' bg={themeClass}>
-      <Pagination.First onClick={(evt) => setCurrentPage(evt,0)} />
+      <Pagination.First onClick={() => setCurrentPage(0)} />
       <Pagination.Prev onClick={() => setCurrentPage(p => Math.max(0, p - 1))} />
-        {page > 3 && lastPage > 3 && <Pagination.Ellipsis/>}
+        {lastPage > 3 && page > 3 && <Pagination.Ellipsis/>}
           {pages}
-        {lastPage > 3 && page > lastPage && <Pagination.Ellipsis/>}
+        {lastPage > 3 && page < lastPage && <Pagination.Ellipsis/>}
       <Pagination.Next onClick={() => setCurrentPage(p => Math.min(lastPage, p + 1))} />
-      <Pagination.Last onClick={(evt) => setCurrentPage(evt,lastPage)}  />
+      <Pagination.Last onClick={() => setCurrentPage(lastPage)}  />
     </Pagination>
     </div>
   );
