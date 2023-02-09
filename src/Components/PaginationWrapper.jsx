@@ -12,6 +12,7 @@ const PaginationWrapper = ({currentPage, setCurrentPage, total, count}) => {
   const navigate = useNavigate();
   const page = parseInt(currentPage);
 
+
   const pages = [];
   for(let i = page - 2 ; i <= lastPage + 2; i++){
     if(i >= 0 && i <= lastPage){
