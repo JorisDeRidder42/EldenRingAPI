@@ -5,11 +5,9 @@ import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({endpoint, setCurrentPage}) => {
-  const {currentPage} = useParams();
-  const page = parseInt(currentPage); 
+const Data = ({currentPage, endpoint, setCurrentPage}) => {
+  const page = parseInt(currentPage);
   const endpointStr = endpoint.slice(1);
-  console.log('pagina', page)
   const {data: cardsData} = useGetItemIds(endpoint, page);
   
 
@@ -22,7 +20,7 @@ const Data = ({endpoint, setCurrentPage}) => {
         <Container>
           <h1>All {endpointStr}</h1>
           <Row>
-            <PaginationWrapper page={page} setCurrentPage={setCurrentPage} total={cardsData.total} count={cardsData.count}/>
+            <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} total={cardsData.total} count={cardsData.count}/>
           </Row>
           <Row className="m-2">
             {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} xl={3} key={d.id}>
