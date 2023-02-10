@@ -1,26 +1,21 @@
-import {Route, Routes, Outlet} from 'react-router-dom';
-import PageNotFound from './Pages/PageNotFound';
-import Home from './Pages/Home';
+import { Outlet, Route, Routes } from 'react-router-dom';
 import WeaponDetailCard from './Details/WeaponDetailCard';
-import BossesDetailCard from './Details/BossesDetailCard';
-import { Suspense } from 'react';
-import PageLoader from './Loader/PageLoader';
-
+import { getAllAppData } from './Datas/AppData';
+import Home from './Pages/Home';
 import Data from './Pages/Data';
-import { getAllEndpoints } from './EndPoints/Endpoints';
 
-const Routing = () => {
-    const endpoints = getAllEndpoints();
+const Routing = ({currentPage, setCurrentPage}) => {
+    const allData = getAllAppData();
     return (
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
-                {endpoints.map(r => (
-                    <Route key={r.id} path={r.endpoint} element={<Outlet/>}>
-                        <Route index element={<Data endpoint={r.endpoint}/>}/>
+            {allData.map(r => (
+                    <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Outlet/>}>
+                        <Route index element={<Data currentPage={currentPage} endpoint={r.endpoint} setCurrentPage={setCurrentPage}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
-            <Route path={'*'} element={<PageNotFound/>}/>
+            {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>
     )
 }

@@ -1,36 +1,34 @@
 import BossesDetailCard from "../Details/BossesDetailCard"
 import WeaponDetailCard from "../Details/WeaponDetailCard"
 
-export const getAllEndpoints = () => {
-    return endpoints.map(e => ({...e}))
+
+export const getAllAppData = () => {
+    return appData.map(e => ({...e}))
 }
 
-const endpoints = [
+const appData = [
     {
         id: 0,
         title: 'Weapons',
-        endpoint: 'weapons',
-        page:1,
+        endpoint: '/weapons',
         detail: <WeaponDetailCard endpoint={'weapons'}/>
     },
     {
         id: 1,
         title: 'Shields',
-        endpoint: 'shields',
+        endpoint: '/shields',
         detail: <WeaponDetailCard endpoint={'shields'}/>
     },
     {
-        id: 3,
+        id: 2,
         title: 'Sorceries',
-        endpoint: 'sorceries',
-        page: 1,
+        endpoint: '/sorceries',
         detail: <WeaponDetailCard endpoint={'sorceries'}/>
     },
     {
-        id: 4,
+        id: 3,
         title: 'Ashes of war',
-        endpoint: 'ashes',
-        page: 1,
+        endpoint: '/ashes',
         detail: <WeaponDetailCard endpoint={'ashes'}/>
         
     }
