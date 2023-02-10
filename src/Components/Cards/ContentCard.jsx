@@ -16,7 +16,7 @@ const ContentCard = ({image, name, description, id}) => {
     <Card.Img variant="top" className='p-3' src={image} />
     <Card.Body>
       <Card.Text>
-      {description.slice(0,description.indexOf('.')) + '...'}
+      {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf(' ', 100)) + '...'}
       </Card.Text>
     </Card.Body>
     <Link to={`${id}`}>
