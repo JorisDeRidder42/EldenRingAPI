@@ -30,6 +30,11 @@ const appData = [
         title: 'Ashes of war',
         endpoint: '/ashes',
         detail: <WeaponDetailCard endpoint={'ashes'}/>
-        
+    },
+    {
+        id: 4,
+        title: 'Bosses',
+        endpoint: '/bosses',
+        detail: <BossesDetailCard endpoint={'bosses'}/>
     }
 ]
