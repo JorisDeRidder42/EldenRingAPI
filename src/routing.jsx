@@ -3,6 +3,7 @@ import WeaponDetailCard from './Details/WeaponDetailCard';
 import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
 import Data from './Pages/Data';
+import { useState } from 'react';
 
 const Routing = ({currentPage, setCurrentPage}) => {
     const allData = getAllAppData();

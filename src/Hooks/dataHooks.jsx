@@ -22,7 +22,16 @@ export const useGetItem = (endpoint, id) => {
         }
     )
 }
-
+export const useSearchItems = (endpoint, search) => {
+    return useQuery(
+        ['items',search, endpoint],
+        async () => (await getItemById(endpoint, search))?.data.data,
+        {
+            staleTime: Infinity,
+            cacheTime: Infinity
+        }
+    )
+}
 
 /*
 * ______________________________________________________
@@ -41,7 +50,6 @@ const getItems = (endpoint, page) => {
         `${endpoint}?limit=20&page=${page}`
     )
 }
-
 /**
  * @param {string} endpoint
  * @param {number} id 
@@ -50,5 +58,11 @@ const getItems = (endpoint, page) => {
 const getItemById = (endpoint, id) => {
     return client.get(
         `${endpoint}/${id}`
+    )
+}
+
+const getSearchItems = (endpoint, search) => {
+    return client.get(
+        `${endpoint}?name=${search}`
     )
 }

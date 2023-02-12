@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
-import { useGetItemIds } from "../Hooks/dataHooks";
+import { useGetItemIds, useSearchItems } from "../Hooks/dataHooks";
+import SearchWrapper from "../Components/SearchWrapper";
 
 const Data = ({ currentPage, endpoint, setCurrentPage }) => {
   const page = parseInt(currentPage);
