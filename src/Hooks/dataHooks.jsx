@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export const useGetItemIds = (endpoint, page,limit) => {
     return useQuery(
@@ -22,15 +22,9 @@ export const useGetItem = (endpoint, id) => {
         }
     )
 }
-export const useSearchItems = (endpoint, search) => {
-    return useQuery(
-        ['items',search, endpoint],
-        async () => (await getItemById(endpoint, search))?.data.data,
-        {
-            staleTime: Infinity,
-            cacheTime: Infinity
-        }
-    )
+
+export const useAddItem = () => {
+    return useMutation(addItem)
 }
 
 /*
@@ -61,8 +55,6 @@ const getItemById = (endpoint, id) => {
     )
 }
 
-const getSearchItems = (endpoint, search) => {
-    return client.get(
-        `${endpoint}?name=${search}`
-    )
+const addItem = (item) => {
+    return client.post(`${item}`)
 }

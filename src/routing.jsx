@@ -3,7 +3,7 @@ import WeaponDetailCard from './Details/WeaponDetailCard';
 import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
 import Data from './Pages/Data';
-import { useState } from 'react';
+import AddItem from './Pages/AddItem';
 
 const Routing = ({currentPage, setCurrentPage, limit, setLimit}) => {
     const allData = getAllAppData();
@@ -18,6 +18,7 @@ const Routing = ({currentPage, setCurrentPage, limit, setLimit}) => {
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
+                <Route path={'/add'} element={<AddItem/>}/>
             {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>
     )

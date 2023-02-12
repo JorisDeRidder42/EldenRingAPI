@@ -29,7 +29,8 @@ function App() {
                 <NavBarBootstrap currentPage={currentPage}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} setLimit={setLimit}/>
+                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} 
+                          limit={limit} setLimit={setLimit}/>
               </Suspense>
             </Container>
           </ThemeContext.Provider>
