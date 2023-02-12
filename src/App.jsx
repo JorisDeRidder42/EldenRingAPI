@@ -19,6 +19,7 @@ function App() {
     const [lightTheme, setLightTheme] = useState(true);
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
     const [currentPage, setCurrentPage] = useState(0);
+    const [limit, setLimit] = useState(20);
 
     return (
           <QueryClientProvider client={queryClient}>
@@ -28,7 +29,7 @@ function App() {
                 <NavBarBootstrap currentPage={currentPage}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} setLimit={setLimit}/>
               </Suspense>
             </Container>
           </ThemeContext.Provider>

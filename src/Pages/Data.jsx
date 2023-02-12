@@ -2,15 +2,14 @@ import { useNavigate } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
-import { useGetItemIds, useSearchItems } from "../Hooks/dataHooks";
-import SearchWrapper from "../Components/SearchWrapper";
+import { useGetItemIds } from "../Hooks/dataHooks";
+import CardSlider from "../Components/Cards/CardSlider";
 
-const Data = ({ currentPage, endpoint, setCurrentPage }) => {
+const Data = ({ currentPage, endpoint, setCurrentPage, limit, setLimit }) => {
   const page = parseInt(currentPage);
   const endpointStr = endpoint.slice(1);
-  const { data: cardsData } = useGetItemIds(endpoint, page);
-  const pageCount = 20;
-  const result = cardsData.total / pageCount;
+  const { data: cardsData } = useGetItemIds(endpoint, page, limit);
+  const result = cardsData.total / limit;
   const lastPage = Math.floor(result);
 
 
@@ -20,6 +19,7 @@ const Data = ({ currentPage, endpoint, setCurrentPage }) => {
 
   return (
     <Container>
+      <CardSlider limit={limit} setLimit={setLimit}/>
       <h1>All {endpointStr}</h1>
       <Row>
         <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />

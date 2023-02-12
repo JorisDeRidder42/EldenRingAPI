@@ -5,14 +5,16 @@ import Home from './Pages/Home';
 import Data from './Pages/Data';
 import { useState } from 'react';
 
-const Routing = ({currentPage, setCurrentPage}) => {
+const Routing = ({currentPage, setCurrentPage, limit, setLimit}) => {
     const allData = getAllAppData();
     return (
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
             {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Outlet/>}>
-                        <Route index element={<Data currentPage={currentPage} endpoint={r.endpoint} setCurrentPage={setCurrentPage}/>}/>
+                        <Route index element={<Data endpoint={r.endpoint} 
+                                                    currentPage={currentPage} setCurrentPage={setCurrentPage} 
+                                                    limit={limit} setLimit={setLimit}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
