@@ -20,16 +20,18 @@ function App() {
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
     const [currentPage, setCurrentPage] = useState(0);
     const [limit, setLimit] = useState(20);
+    const [search, setSearch] = useState("");
 
     return (
       <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <QueryClientProvider client={queryClient}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap currentPage={currentPage} limit={limit} setLimit={setLimit}/>
+                <NavBarBootstrap currentPage={currentPage} limit={limit} setLimit={setLimit} search={search}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} />
+                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} 
+                          search={search} setSearch={setSearch} />
               </Suspense>
               </Container>
             </QueryClientProvider>

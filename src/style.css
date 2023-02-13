@@ -1,33 +1,29 @@
-:root{
-    margin: 0;
-    padding: 0;
-}
 /* themes */
-.light{
-    background-color: #f7f7f7;
-    color: #292b2c;
-    transition: 0.5s ease-in-out;
+.light {
+  background-color: #f7f7f7;
+  color: #2c2c29;
+  transition: 0.5s ease-in-out;
 }
-.dark{
-    background-color: #292b2c;
-    color: #f7f7f7;
-    transition: 0.5s ease-in-out;
+.dark {
+  background-color: #292b2c;
+  color: #f7f7f7;
+  transition: 0.5s ease-in-out;
 }
 
-.logo{
-    width: 8em;
+.logo {
+  width: 10em;
 }
-.loader{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.loader {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.backLink{
-    cursor: pointer;
-    text-decoration: underline;
-    color: #007BFF;
-    margin-left: 1em;
-    margin-top: 1em;
-    font-size: 1.2em;
+.backLink {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #007bff;
+  margin-left: 1em;
+  margin-top: 1em;
+  font-size: 1.2em;
 }

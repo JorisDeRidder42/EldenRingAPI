@@ -1,11 +1,9 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
-import WeaponDetailCard from './Details/WeaponDetailCard';
 import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
 import Data from './Pages/Data';
-import AddItem from './Pages/AddItem';
 
-const Routing = ({currentPage, setCurrentPage, limit}) => {
+const Routing = ({currentPage, setCurrentPage, limit, search, setSearch}) => {
     const allData = getAllAppData();
     return (
         <Routes>
@@ -14,11 +12,11 @@ const Routing = ({currentPage, setCurrentPage, limit}) => {
                     <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} 
                                                     currentPage={currentPage} setCurrentPage={setCurrentPage} 
-                                                    limit={limit}/>}/>
+                                                    limit={limit} setSearch={setSearch} search={search}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
-                <Route path={'/add'} element={<AddItem/>}/>
+                {/* <Route path={'/add'} element={<AddItem/>}/> */}
             {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>
     )
