@@ -22,19 +22,18 @@ function App() {
     const [limit, setLimit] = useState(20);
 
     return (
-          <QueryClientProvider client={queryClient}>
-          <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
+      <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
+            <QueryClientProvider client={queryClient}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap currentPage={currentPage}/>
+                <NavBarBootstrap currentPage={currentPage} limit={limit} setLimit={setLimit}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} 
-                          limit={limit} setLimit={setLimit}/>
+                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} />
               </Suspense>
-            </Container>
+              </Container>
+            </QueryClientProvider>
           </ThemeContext.Provider>
-          </QueryClientProvider>
     )
 }
 

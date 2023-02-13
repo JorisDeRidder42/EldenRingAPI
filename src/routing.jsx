@@ -5,7 +5,7 @@ import Home from './Pages/Home';
 import Data from './Pages/Data';
 import AddItem from './Pages/AddItem';
 
-const Routing = ({currentPage, setCurrentPage, limit, setLimit}) => {
+const Routing = ({currentPage, setCurrentPage, limit}) => {
     const allData = getAllAppData();
     return (
         <Routes>
@@ -14,7 +14,7 @@ const Routing = ({currentPage, setCurrentPage, limit, setLimit}) => {
                     <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} 
                                                     currentPage={currentPage} setCurrentPage={setCurrentPage} 
-                                                    limit={limit} setLimit={setLimit}/>}/>
+                                                    limit={limit}/>}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}

@@ -5,21 +5,21 @@ import { useAddItem } from "../Hooks/dataHooks";
 const AddItem = () => {
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [endpoint, setEndpoint] = useState({});
+    const [chosenEndpoint, setChosenEndpoint] = useState({});
     const allData = getAllAppData();
 
     const { mutate: addItem } = useAddItem();
 
     const handleChange = (e) => {
         console.log("Item Selected!!");
-        console.log('item', endpoint);
-        setEndpoint({ endpoint: e.target.value });
+        console.log('item', chosenEndpoint);
+        setEndpoint({ 'endpoint': e.target.value });
     }
 
     const handleAddItemClick = () => {
         console.log('clicked')
-        console.log({name, description, endpoint})
-        const item = {name, description, endpoint}
+        console.log({name, description, chosenEndpoint})
+        const item = {name, description, chosenEndpoint}
         console.log(item )
         addItem(item)
     }

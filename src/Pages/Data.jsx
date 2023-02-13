@@ -8,7 +8,7 @@ import SearchCard from "../Components/SearchCard";
 import { Navigate } from "react-router-dom";
 import { LinkContainer } from "react-router-bootstrap";
 
-const Data = ({ currentPage, endpoint, setCurrentPage, limit, setLimit}) => {
+const Data = ({ currentPage, endpoint, setCurrentPage, limit}) => {
   const page = parseInt(currentPage);
   const endpointStr = endpoint.slice(1);
   const { data: cardsData } = useGetItemIds(endpoint, page, limit);
@@ -22,7 +22,6 @@ const Data = ({ currentPage, endpoint, setCurrentPage, limit, setLimit}) => {
 
   return (
     <Container>
-      <CardSlider limit={limit} setLimit={setLimit}/>
       <h1>All {endpointStr}</h1>
       <Row>
         <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />
