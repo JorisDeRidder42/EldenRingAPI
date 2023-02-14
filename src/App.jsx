@@ -16,7 +16,7 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-    const [lightTheme, setLightTheme] = useState(true);
+    const [lightTheme, setLightTheme] = useState(false);
     const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
     const [currentPage, setCurrentPage] = useState(0);
     const [limit, setLimit] = useState(20);
@@ -27,11 +27,10 @@ function App() {
             <QueryClientProvider client={queryClient}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap currentPage={currentPage} limit={limit} setLimit={setLimit} search={search}/>
+                <NavBarBootstrap currentPage={currentPage}/>
               </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} limit={limit} 
-                          search={search} setSearch={setSearch} />
+                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} />
               </Suspense>
               </Container>
             </QueryClientProvider>

@@ -7,7 +7,7 @@ import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 
-const NavBarBootstrap = ({currentPage, limit, setLimit, search}) => {
+const NavBarBootstrap = ({currentPage}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
     const themeClass = lightTheme === true ? 'light' : 'dark'
     const allData = getAllAppData();
@@ -27,9 +27,7 @@ const NavBarBootstrap = ({currentPage, limit, setLimit, search}) => {
                                 <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
                     </Nav>
-                            <Button variant='tertiary' className={lightTheme ? 'text-dark': 'text-light'} onClick={() => setLightTheme(o => !o)}>{lightTheme ? <BsFillMoonFill/> : <BsSunFill/>}</Button>
-
-                            <CardSlider limit={limit} setLimit={setLimit}/>
+                        <Button variant='tertiary' className={lightTheme ? 'text-dark': 'text-light'} onClick={() => setLightTheme(o => !o)}>{lightTheme ? <BsFillMoonFill/> : <BsSunFill/>}</Button>
                 </Navbar.Collapse>
         </Navbar>
     )

@@ -3,7 +3,7 @@ import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
 import Data from './Pages/Data';
 
-const Routing = ({currentPage, setCurrentPage, limit, search, setSearch}) => {
+const Routing = ({currentPage, setCurrentPage}) => {
     const allData = getAllAppData();
     return (
         <Routes>
@@ -11,8 +11,7 @@ const Routing = ({currentPage, setCurrentPage, limit, search, setSearch}) => {
             {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}&page=:currentPage`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} 
-                                                    currentPage={currentPage} setCurrentPage={setCurrentPage} 
-                                                    limit={limit} setSearch={setSearch} search={search}/>}/>
+                                                    currentPage={currentPage} setCurrentPage={setCurrentPage} />}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
