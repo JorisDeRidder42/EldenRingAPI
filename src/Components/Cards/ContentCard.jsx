@@ -13,7 +13,7 @@ const ContentCard = ({image, name, description, id}) => {
 
     return( 
     <LinkContainer to={id}>
-      <Card className="my-3" bg={themeClassBg} text={themeClassText} style={{ height: '33rem' }}>
+      <Card className="my-3" bg={themeClassBg} text={themeClassText} border="primary" style={{ height: '33rem' }}>
         <Card.Title className='m-3 text-center'>{name}</Card.Title>
         <Card.Img variant="top" className='p-3' src={image} />
         <Card.Body>
