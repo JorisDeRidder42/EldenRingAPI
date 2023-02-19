@@ -70,4 +70,10 @@
 .text-dark .btn-tertiary:hover{
   color: #0044ff!important;
 }
-
+.text-light .page-link{
+  background-color: #292b2c;
+  border:#2c2c29 solid 1px;
+}
+.active>.page-link, .page-link.active{
+  background-color: #0044ff;
+}
