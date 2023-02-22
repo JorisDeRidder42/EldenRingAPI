@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({ currentPage, endpoint, setCurrentPage }) => {
+const Data = ({currentPage, endpoint, setCurrentPage}) => {
   const page = parseInt(currentPage);
   const endpointStr = endpoint.slice(1);
   const { data: cardsData } = useGetItemIds(endpoint, page);
-  const pageCount = 20;
-  const result = cardsData.total / pageCount;
+  const amount = 20;
+  const result = cardsData.total / amount;
   const lastPage = Math.floor(result);
 
 
@@ -24,13 +24,13 @@ const Data = ({ currentPage, endpoint, setCurrentPage }) => {
         <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />
       </Row>
       <Row className="m-2">
-        {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} xl={3} key={d.id}>
+        {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>
           <ContentCard {...d} />
         </Col>)}
       </Row>
-      {/* <Row>
-              <PaginationWrapper page={page} setPage={setPage} cardsData={cardsData} total={cardsData.total} count={cardsData.count}/>
-            </Row> */}
+      <Row>
+        <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />
+      </Row>
     </Container>
   )
 }

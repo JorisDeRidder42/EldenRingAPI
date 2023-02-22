@@ -6,12 +6,12 @@ const PageLoader = () => {
             <Oval
                 height={100}
                 width={100}
-                color="#0a58ca"
+                color="#978000"
                 wrapperStyle={{}}
                 wrapperClass=""
                 visible={true}
                 ariaLabel='oval-loading'
-                secondaryColor="#0d6efd"
+                secondaryColor="#d7b700"
                 strokeWidth={3}
                 strokeWidthSecondary={3}
             />

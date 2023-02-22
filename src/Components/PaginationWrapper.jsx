@@ -1,14 +1,7 @@
-import { useContext } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
-import { useNavigate } from 'react-router-dom';
-import ThemeContext from '../Context/themeContext';
 
 const PaginationWrapper = ({currentPage, setCurrentPage, lastPage}) => {
-  const {lightTheme} = useContext(ThemeContext);
-  const themeClass = lightTheme === true ? 'light' : 'dark'
-  const navigate = useNavigate();
   const page = parseInt(currentPage);
-
 
   const pages = [];
   for(let i = page - 1; i <= page + 1; i++){
@@ -21,7 +14,7 @@ const PaginationWrapper = ({currentPage, setCurrentPage, lastPage}) => {
 
   return (
     <div className='d-flex justify-content-center'>
-    <Pagination bg={themeClass}>
+    <Pagination>
       <Pagination.First onClick={() => setCurrentPage(0)} />
       <Pagination.Prev onClick={() => setCurrentPage(p => Math.max(0, p - 1))} />
         {lastPage > 3 && page > 3 && <Pagination.Ellipsis/>}

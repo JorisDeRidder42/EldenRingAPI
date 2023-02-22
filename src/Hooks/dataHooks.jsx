@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 
 export const useGetItemIds = (endpoint, page) => {
     return useQuery(
-        ['items',page, endpoint],
+        ['items', page, endpoint],
         async () => (await getItems(endpoint, page))?.data,
         {
             staleTime: Infinity,
@@ -14,7 +14,7 @@ export const useGetItemIds = (endpoint, page) => {
 
 export const useGetItem = (endpoint, id) => {
     return useQuery(
-        ['id',id, endpoint],
+        ['id', id, endpoint],
         async () => (await getItemById(endpoint, id))?.data.data,
         {
             staleTime: Infinity,
@@ -22,7 +22,6 @@ export const useGetItem = (endpoint, id) => {
         }
     )
 }
-
 
 /*
 * ______________________________________________________
@@ -38,10 +37,9 @@ const client = axios.create({
  */
 const getItems = (endpoint, page) => {
     return client.get(
-        `${endpoint}?limit=20&page=${page}`
+        `${endpoint}?page=${page}`
     )
 }
-
 /**
  * @param {string} endpoint
  * @param {number} id 

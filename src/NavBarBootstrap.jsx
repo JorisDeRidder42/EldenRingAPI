@@ -2,8 +2,10 @@ import { React, useContext } from 'react';
 import { Button, Form, Image, Nav, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
+import CardSlider from './Components/Cards/CardSlider';
 import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
+import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 
 const NavBarBootstrap = ({currentPage}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
@@ -25,9 +27,7 @@ const NavBarBootstrap = ({currentPage}) => {
                                 <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
                     </Nav>
-                        <Form.Check 
-                            type="switch" checked={!lightTheme} 
-                            onChange={() => setLightTheme(o => !o)} />
+                        <Button variant='tertiary' className={lightTheme ? 'text-dark': 'text-light'} onClick={() => setLightTheme(o => !o)}>{lightTheme ? <BsFillMoonFill/> : <BsSunFill/>}</Button>
                 </Navbar.Collapse>
         </Navbar>
     )

@@ -28,7 +28,7 @@ const WeaponDetailCard = ({endpoint}) => {
     }
     
     return(
-    <Card className={"m-4"} bg={`${themeClassBg}`} variant={`${themeClassText}`}>
+    <Card className={"mx-4"} bg={`${themeClassBg}`} variant={`${themeClassText}`}>
         <div className='backLink' onClick={() => history(-1)}>Back</div>
       <Card.Img variant="top" src={weaponData?.image} className="w-25 center"/>
     <Card.Body>
