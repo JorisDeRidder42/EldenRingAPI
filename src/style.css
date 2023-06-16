@@ -1,3 +1,4 @@
+
 /* themes */
 .light {
   background-color: #f7f7f7;
@@ -58,7 +59,7 @@
  }
   
  .navbar-light .navbar-nav .nav-link.active{
-  color: #0066ff
+  color: #0044ff
  }
 
 .nav-link:hover::after {
@@ -72,8 +73,21 @@
 }
 .text-light .page-link{
   background-color: #292b2c;
-  border:#2c2c29 solid 1px;
+  border:#484848 solid 1px;
+  color: #ffee00;
 }
-.active>.page-link, .page-link.active{
-  background-color: #0044ff;
+.text-light .page-link{
+  z-index: 3;
+    color: #ffee00;
+    border-color:  #4a4a4a;
+}
+.text-light .page-link:hover{
+  background-color: #484848;
+}
+.text-light h6 a{
+  color: #ffee00;
+}
+.text-light .active>.page-link, .page-link.active{
+  background-color: #ffee00;
+  color: #292b2c;
 }
