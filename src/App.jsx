@@ -5,6 +5,7 @@ import { Container } from 'react-bootstrap';
 import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
 import ThemeContext from './Context/themeContext';
+import NavbarUser from './NavbarUser';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,13 +22,13 @@ function App() {
     const [currentPage, setCurrentPage] = useState(0);
     const [limit, setLimit] = useState(20);
     const [search, setSearch] = useState("");
-
+    const user = true;
     return (
       <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <QueryClientProvider client={queryClient}>
             <Container fluid className={`${themeClass}`}>
               <Container>
-                <NavBarBootstrap currentPage={currentPage}/>
+                {user ? <NavbarUser/> : <NavBarBootstrap/>} 
               </Container>
               <Suspense fallback={<PageLoader/>}>
                 <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} />
