@@ -16,40 +16,43 @@ const Home = () => {
     
     return(
             <Container fluid className="bground">
-                <div class="flex justify-center items-center h-screen">
-  <div class="bg-gray-200 p-6">
-    <p>This div is centered using Tailwind CSS</p>
-  </div>
-</div>
-                    {/* <div className="form flex justify-center items-center h-screen">
-                       <Image src={logoBig} className="logoBig" />
-                       <h2>Sign in</h2>
-                       <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                        <Row className="mb-3">
-                            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
-                            <Form.Control
-                                required
-                                type="text"
-                                placeholder="Username"
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                            </Form.Group>
-                        </Row>
-                        <Row>
-                            <Form.Group as={Col} md="4" controlId="validationCustom01">
-                            <Form.Control
-                                required
-                                type="password"
-                                placeholder="Password"
-                            />
-                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-                            </Form.Group>
-                        </Row>
-                        <Button type="submit" className="cta-button">LOGIN --</Button>
-                            <p>Cant sign in</p>
-                            <p>Create account</p>
-                        </Form>
-                    </div> */}
+                <Container>
+                    <div className="form-box">
+                        <div className="text-center">
+                            <Image src={logoBig} className="logoBig mt-5" />
+                            <h2 className="m-5">Sign in</h2>
+                             <Form noValidate validated={validated} onSubmit={handleSubmit} className="box">
+                                <Row className="mb-3">
+                                    <Form.Group md="4" controlId="validationCustomUsername">
+                                    <Form.Control
+                                        as={'input'}
+                                        className="inputField"
+                                        required
+                                        type="text"
+                                        placeholder="Username"
+                                    />
+                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                    </Form.Group>
+                                </Row>
+                                <Row>
+                                    <Form.Group md="4" controlId="validationCustom01">
+                                    <Form.Control
+                                        as={'input'}
+                                        className="inputField"
+                                        required
+                                        type="password"
+                                        placeholder="Password"
+                                    />
+                                    <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                                    </Form.Group>
+                                </Row>
+                                <Button type="submit" className="cta-button mt-3">LOGIN --</Button>
+                                    <p>Cant sign in</p>
+                                    <p>Create account</p>
+                                </Form>
+                        </div>
+                    </div>
+                </Container> 
             </Container>
     )
 }
