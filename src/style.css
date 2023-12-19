@@ -1,5 +1,9 @@
 /* themes */
-.light {
+.app{
+  margin: 0px;
+  padding: 0px;
+}
+/* .light {
   background-color: #f7f7f7;
   color: #2c2c29;
   transition: 0.5s ease-in-out;
@@ -8,72 +12,44 @@
   background-color: #292b2c;
   color: #f7f7f7;
   transition: 0.5s ease-in-out;
+} */
+.nav{
+  background-color: transparent;
 }
-
 .logo {
-  width: 10em;
+  width: 15em;
 }
-.loader {
-  height: 100vh;
+.bground{
+  background: url(./assets/login.jpg) no-repeat top center black; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    max-height: 100vh;
+    height: 100vh;
+}
+.cta-button{
+  background-color: #C19D53;
+  padding: 0.6em;
+  text-transform: uppercase;
+  color:#fff;
+  border:solid #C19D53 2px;
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+}
+.cta-button:hover{
+  background-color: transparent;
+  padding: 0.6em;
+  color:#C19D53;
+  border:solid #C19D53 2px;
+  transition: all 0.5s ease-in-out;
+}
+.form{
+  background-color: rgba(6, 6, 6, 0.6);
+  border: solid 3px #C19D53;
+}
+.logoBig{
+  width: 20em;
   display: flex;
-  align-items: center;
   justify-content: center;
-}
-.backLink {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #007bff;
-  margin-left: 1em;
-  margin-top: 1em;
-  font-size: 1.2em;
-}
-.nav-link::after{
-  content: '';
-  display: block;
-  width: 0%;  
-  height: 2px;
-  transition: 0.4s
-}
-.navbar-dark .nav-link::after {
-  background: #fec400;
-}
-.navbar-light .nav-link::after {
-  background: #0066ff;
-}
- .navbar-dark .navbar-nav .nav-link.show,
- .navbar-dark .navbar-nav .show>.nav-link,
- .navbar-dark .navbar-nav .nav-link:focus,
- .navbar-dark .navbar-nav .nav-link:hover {
-     color: #fec400
- }
-  
- .navbar-dark .navbar-nav .nav-link.active{
-  color: #ffee00
- }
- .navbar-light .navbar-nav .nav-link.show,
- .navbar-light .navbar-nav .show>.nav-link,
- .navbar-light .navbar-nav .nav-link:focus,
- .navbar-light .navbar-nav .nav-link:hover {
-     color: #0044ff
- }
-  
- .navbar-light .navbar-nav .nav-link.active{
-  color: #0066ff
- }
-
-.nav-link:hover::after {
-  width: 100%
-}
-.text-light .btn-tertiary:hover{
-  color: #fec400!important;
-}
-.text-dark .btn-tertiary:hover{
-  color: #0044ff!important;
-}
-.text-light .page-link{
-  background-color: #292b2c;
-  border:#2c2c29 solid 1px;
-}
-.active>.page-link, .page-link.active{
-  background-color: #0044ff;
 }

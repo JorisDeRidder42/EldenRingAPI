@@ -24,18 +24,20 @@ function App() {
     const [search, setSearch] = useState("");
     const user = true;
     return (
-      <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
+      <div className='app'>
+        <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
             <QueryClientProvider client={queryClient}>
             <Container fluid className={`${themeClass}`}>
-              <Container>
-                {user ? <NavbarUser/> : <NavBarBootstrap/>} 
-              </Container>
               <Suspense fallback={<PageLoader/>}>
-                <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                <Container>
+                  {user ? <NavbarUser/> : <NavBarBootstrap/>} 
+                </Container>
+                  <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} />
               </Suspense>
               </Container>
             </QueryClientProvider>
           </ThemeContext.Provider>
+        </div>
     )
 }
 

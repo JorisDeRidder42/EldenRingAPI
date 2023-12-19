@@ -1,21 +1,55 @@
-import { Container, Row } from "react-bootstrap";
-import dragonImage from '../assets/392397.jpg'
+import { Container, Form, Image,Row, Col,Button } from "react-bootstrap";
+import logoBig from '../assets/Elden_Ring_logo.png';
+import { useState } from "react";
 
 const Home = () => {
+    const [validated, setValidated] = useState(false);
+
+    const handleSubmit = (event) => {
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        setValidated(true);
+      };
+    
     return(
-            <Container className="py-5">
-                <Row>
-                    <h1>This is the home page</h1>
-                    <h4>Here you can find all the data from the game 'Elden Ring' from 'fromSoftware' here</h4>
-                    {/*<h6>This is made in <a href='https://reactjs.org/' target="_blank" rel="noopener noreferrer">react</a> and 
-                    <a href='https://react-bootstrap.github.io/' target="_blank" rel="noopener noreferrer">react bootstrap</a> with the 
-                    <a href='https://tanstack.com/query/latest' target="_blank" rel="noopener noreferrer">tanstack query</a> 
-                    library and <a href='https://axios-http.com/docs/intro' target="_blank" rel="noopener noreferrer">axios</a> for fetching the 
-                    <a href="https://docs.eldenring.fanapis.com/" target="_blank" rel="noopener noreferrer">Elden ring</a> data.</h6> */}
-
-                    <img src={dragonImage} className='mt-5' />
-                </Row>
-
+            <Container fluid className="bground">
+                <div class="flex justify-center items-center h-screen">
+  <div class="bg-gray-200 p-6">
+    <p>This div is centered using Tailwind CSS</p>
+  </div>
+</div>
+                    {/* <div className="form flex justify-center items-center h-screen">
+                       <Image src={logoBig} className="logoBig" />
+                       <h2>Sign in</h2>
+                       <Form noValidate validated={validated} onSubmit={handleSubmit}>
+                        <Row className="mb-3">
+                            <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+                            <Form.Control
+                                required
+                                type="text"
+                                placeholder="Username"
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Row>
+                            <Form.Group as={Col} md="4" controlId="validationCustom01">
+                            <Form.Control
+                                required
+                                type="password"
+                                placeholder="Password"
+                            />
+                            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+                            </Form.Group>
+                        </Row>
+                        <Button type="submit" className="cta-button">LOGIN --</Button>
+                            <p>Cant sign in</p>
+                            <p>Create account</p>
+                        </Form>
+                    </div> */}
             </Container>
     )
 }
