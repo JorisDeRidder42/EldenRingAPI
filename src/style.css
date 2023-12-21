@@ -43,6 +43,33 @@
   border:solid #C19D53 2px;
   transition: all 0.5s ease-in-out;
 }
+.google-button{
+  background-color: #ffffff;
+  padding: 0.6em;
+  text-transform: uppercase;
+  color:#000000;
+  border:solid #ffffff 2px;
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+}
+.logout-button{
+  background-color: #ff0000;
+  padding: 0.6em;
+  text-transform: uppercase;
+  color:#ffffff;
+  border:solid #ff0000 2px;
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+}
+.logout-button:hover{
+  background-color: #aa0000;
+  padding: 0.6em;
+  text-transform: uppercase;
+  color:#ffffff;
+  border:solid #aa0000 2px;
+  border-radius: 0;
+  transition: all 0.5s ease-in-out;
+}
 .form-box{
   background-color: rgba(6, 6, 6, 0.6);
   border: solid 3px #C19D53;

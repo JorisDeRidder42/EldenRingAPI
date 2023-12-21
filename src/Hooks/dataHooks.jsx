@@ -28,7 +28,7 @@ export const useGetItem = (endpoint, id) => {
 */
 
 const client = axios.create({
-    baseURL: `https://eldenring.fanapis.com/api`,
+    baseURL: import.meta.env.VITE_APP_BASE_URL,
 })
 
 /**
