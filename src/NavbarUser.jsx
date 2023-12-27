@@ -5,10 +5,20 @@ import logo from "./assets/Elden_Ring_logo.png";
 import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
 import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import {signInAnonymously } from 'firebase/auth';
+import { auth } from './config/firebase';
 
 const NavbarUser = () => {
     // const {lightTheme, setLightTheme} = useContext(ThemeContext);
     // const themeClass = lightTheme === true ? 'light' : 'dark'
+  const signInAsQuest = async () => {
+    try {
+      await signInAnonymously(auth)
+      console.log('clicked and logged in...')
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
     return (
       <Navbar expand="lg" className="nav">
@@ -18,7 +28,7 @@ const NavbarUser = () => {
                        <Image src={logo} fluid className="logo"/>
                      </Navbar.Brand>              
                 </LinkContainer>
-                <button className='cta-button' onClick={() => console.log('clicked')}>LOGIN AS GUEST</button>
+                <button className='cta-button' onClick={signInAsQuest}>LOGIN AS GUEST</button>
         </Container>
       </Navbar>
 

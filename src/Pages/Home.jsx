@@ -7,6 +7,7 @@ import { FaGoogle } from "react-icons/fa";
 
 import { auth, googleProvider } from "../config/firebase";
 import{ createUserWithEmailAndPassword,signInWithPopup, signOut } from 'firebase/auth';
+import { Navigate } from "react-router-dom";
 
 const Home = () => {
     const [user, setUser] = useState(false);
@@ -29,7 +30,7 @@ const Home = () => {
         try {
             await createUserWithEmailAndPassword(auth, email,password)
             setUser(true)
-            window.alert('user is created');
+            return <Navigate to={'/data'}/>
         } catch (error) {
             console.error(error)
         }
@@ -49,6 +50,7 @@ const Home = () => {
         try {
             await signInWithPopup(auth, googleProvider)
             setUser(true)
+            return <Navigate to={'/data'}/>
         } catch (error) {
             console.error(error)
         }
@@ -89,7 +91,9 @@ const Home = () => {
                                     <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
                                     </Form.Group>
                                 </Row>
-                                <Button onClick={signIn} className="cta-button m-3">LOGIN <FaArrowRightLong/></Button>
+                                <Button onClick={signIn} className="cta-button m-3">LOGIN <FaArrowRightLong/>
+                                    
+                                </Button>
                                 <Button onClick={signInWithGoogle} className="google-button m-3"><FaGoogle/>  Sign In with Google</Button>
 
                                 {user && <Button onClick={logOut} className="logout-button m-3">LOGOUT</Button>}
