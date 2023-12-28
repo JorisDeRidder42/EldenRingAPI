@@ -4,8 +4,8 @@ import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import { Container } from 'react-bootstrap';
 import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
-import ThemeContext from './Context/themeContext';
 import NavbarUser from './NavbarUser';
+import AuthContext from './Context/authContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,26 +17,22 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-    const [lightTheme, setLightTheme] = useState(false);
-    const themeClass = lightTheme === true ? 'bg-light text-dark' : 'bg-dark text-light'
-    const [currentPage, setCurrentPage] = useState(0);
     const [limit, setLimit] = useState(20);
-    const [search, setSearch] = useState("");
     const user = true;
     return (
       <div className='app'>
-        <ThemeContext.Provider value={{lightTheme, setLightTheme}}>
+        <>
             <QueryClientProvider client={queryClient}>
-            <Container fluid className={`${themeClass}`}>
+            <Container fluid>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
                   {user ? <NavbarUser/> : <NavBarBootstrap/>} 
                 </Container>
-                  <Routing currentPage={currentPage} setCurrentPage={setCurrentPage} />
+                  <Routing />
               </Suspense>
               </Container>
             </QueryClientProvider>
-          </ThemeContext.Provider>
+          </>
         </div>
     )
 }
