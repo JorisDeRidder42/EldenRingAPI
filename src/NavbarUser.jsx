@@ -5,7 +5,7 @@ import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
 import {signInAnonymously } from 'firebase/auth';
 import { auth } from './config/firebase';
-import {logo} from './assets/Elden_Ring_logo.png';
+import logo from "./assets/Elden_Ring_logo.png";
 
 const NavbarUser = () => {
     // const {lightTheme, setLightTheme} = useContext(ThemeContext);
