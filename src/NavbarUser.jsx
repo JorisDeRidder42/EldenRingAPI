@@ -1,12 +1,11 @@
 import { React, useContext } from 'react';
 import { Navbar, Container, Image, Button } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import logo from "./assets/Elden_Ring_logo.png";
 import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 import {signInAnonymously } from 'firebase/auth';
 import { auth } from './config/firebase';
+import {logo} from './assets/Elden_Ring_logo.png';
 
 const NavbarUser = () => {
     // const {lightTheme, setLightTheme} = useContext(ThemeContext);

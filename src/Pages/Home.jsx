@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert } from "react-bootstrap"
+import { Form, Button, Card, Alert, Container, Image } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 
@@ -29,7 +29,33 @@ const Home = () => {
 
   return (
     <>
-      <Card>
+      <Container fluid className="bground">
+        <Image src={logoBig} className="logoBig mt-5" />
+        <h2 className="text-center">Log in</h2>
+        <h2 className="text-center mb-4">Log In</h2>
+          {loggedIn && <Alert variant="info">{loggedIn}</Alert>}
+          {error && <Alert variant="danger">{error}</Alert>}
+          <Form onSubmit={handleSubmit}>
+            <Form.Group id="email">
+              <Form.Label>Email</Form.Label>
+              <Form.Control type="email" ref={emailRef} required />
+            </Form.Group>
+            <Form.Group id="password">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" ref={passwordRef} required />
+            </Form.Group>
+            <Button disabled={loading} className="w-100" type="submit">
+              Log In
+            </Button>
+          </Form>
+          <div className="w-100 text-center mt-3">
+            <Link to="/forgot-password">Forgot Password?</Link>
+          </div>
+          <div className="w-100 text-center mt-2">
+            Need an account? <Link to="/signup">Sign Up</Link>
+          </div>
+      </Container>
+      {/* <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
           {loggedIn && <Alert variant="info">{loggedIn}</Alert>}
@@ -54,7 +80,7 @@ const Home = () => {
             Need an account? <Link to="/signup">Sign Up</Link>
           </div>
         </Card.Body>
-      </Card>
+      </Card> */}
     </>
   )
 }

@@ -22,7 +22,7 @@ function App() {
       <div className='app'>
         <AuthProvider>
             <QueryClientProvider client={queryClient}>
-            <Container fluid>
+            <Container>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
                   {user ? <NavbarUser/> : <NavBarBootstrap/>} 

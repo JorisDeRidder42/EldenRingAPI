@@ -9,13 +9,17 @@
   color: #f7f7f7;
   transition: 0.5s ease-in-out;
 } */
+
 .nav{
   background-color: transparent;
 }
 .logo {
-  width: 15em;
+  width: 10em;
 }
 .bground{
+  position: absolute;
+  top: 0%;
+  left: 0%;
   background: url(./assets/login.jpg) no-repeat top center black; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -26,6 +30,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: -1;
 }
 .cta-button{
   background-color: #C19D53;
