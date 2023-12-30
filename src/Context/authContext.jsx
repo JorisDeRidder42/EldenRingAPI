@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import { auth } from '../config/firebase';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from 'firebase/auth';
 
 // Create a new context for authentication
 const AuthContext = createContext();
@@ -13,8 +14,8 @@ export const useAuth = () => {
 
 // AuthProvider component to manage authentication state
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   // Sign-up function
   const signUp = (email, password) => {
@@ -36,7 +37,6 @@ export const AuthProvider = ({ children }) => {
       setCurrentUser(user);
       setLoading(false);
     });
-
     return unsubscribe;
   }, []);
 
@@ -49,7 +49,7 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider value={value}>
-      {!loading && children}
+      {children}
     </AuthContext.Provider>
   );
 };

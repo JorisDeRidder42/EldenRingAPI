@@ -1,14 +1,25 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
-import Data from './Pages/Data';
+import Dashboard from './Pages/Dashboard';
+import PageNotFound from './Pages/PageNotFound'
+import {ProtectedRoute} from './ProtectedRoute';
+import { useAuth } from './Context/authContext';
 
-const Routing = ({currentPage, setCurrentPage}) => {
+const Routing = () => {
+    const {currentUser} = useAuth();
     const allData = getAllAppData();
     return (
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
-            <Route path={'/data'} element={<Data/>}/>
+            <Route path="dashboard" 
+             element={
+            <ProtectedRoute currentUser={currentUser}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route path={'*'} element={<PageNotFound/>}/>
             {/* {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} />}/>

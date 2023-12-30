@@ -1,16 +1,16 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
-import { Link } from "react-router-dom"
-import AuthContext, {useAuth } from '../Context/authContext';
-import { object } from "prop-types";
+import { Link, useNavigate } from "react-router-dom"
+import { useAuth } from '../Context/authContext';
 
 const Home = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { currentUser, signUp, signIn, signOut } = useAuth(AuthContext) || {}
+  const { signUp, signIn, signOut } = useAuth()
   const [error, setError] = useState("")
+  const [loggedIn, setLoggedIn] = useState(false);
   const [loading, setLoading] = useState(false)
-
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -18,14 +18,13 @@ const Home = () => {
       setError("")
       setLoading(true)
       await signIn(emailRef.current.value, passwordRef.current.value)
-      alert('logged in');
-      // Route to dashboard.
-      history.push("/")
+      setLoggedIn(true)
+      navigate('/dashboard');
     } catch {
-      setError("Failed to log in")
+      setError("Failed to sign up")
     }
-
     setLoading(false)
+    setLoggedIn(false)
   }
 
   return (
@@ -33,9 +32,9 @@ const Home = () => {
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4">Log In</h2>
+          {loggedIn && <Alert variant="info">{loggedIn}</Alert>}
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            {JSON.stringify(currentUser)}
             <Form.Group id="email">
               <Form.Label>Email</Form.Label>
               <Form.Control type="email" ref={emailRef} required />
@@ -51,11 +50,11 @@ const Home = () => {
           <div className="w-100 text-center mt-3">
             <Link to="/forgot-password">Forgot Password?</Link>
           </div>
+          <div className="w-100 text-center mt-2">
+            Need an account? <Link to="/signup">Sign Up</Link>
+          </div>
         </Card.Body>
       </Card>
-      <div className="w-100 text-center mt-2">
-        Need an account? <Link to="/signup">Sign Up</Link>
-      </div>
     </>
   )
 }
