@@ -5,6 +5,7 @@ import Dashboard from './Pages/Dashboard';
 import PageNotFound from './Pages/PageNotFound'
 import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
+import Register from './Pages/Register';
 
 const Routing = () => {
     const {currentUser} = useAuth();
@@ -12,9 +13,10 @@ const Routing = () => {
     return (
         <Routes>
             <Route exact path={'/'} element={<Home/>}/>
+            <Route path={'/register'} element={<Register/>}/>
             <Route path="dashboard" 
              element={
-            <ProtectedRoute currentUser={currentUser}>
+                 <ProtectedRoute currentUser={currentUser}>
               <Dashboard />
             </ProtectedRoute>
           }
@@ -27,7 +29,6 @@ const Routing = () => {
                     </Route>
                 ))} */}
                 {/* <Route path={'/add'} element={<AddItem/>}/> */}
-            {/* <Route path={'*'} element={<PageNotFound/>}/> */}
         </Routes>
     )
 }
