@@ -27,7 +27,7 @@ const NavbarUser = () => {
                        <Image src={logo} fluid className="logo"/>
                      </Navbar.Brand>              
                 </LinkContainer>
-                <button className='cta-button' onClick={signInAsQuest}>LOGIN AS GUEST</button>
+                <Button className='cta-button' onClick={signInAsQuest}>LOGIN AS GUEST</Button>
         </Container>
       </Navbar>
 
