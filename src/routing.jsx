@@ -6,21 +6,22 @@ import PageNotFound from './Pages/PageNotFound'
 import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
+import SignIn from './Pages/SignIn';
 
 const Routing = () => {
     const {currentUser} = useAuth();
     const allData = getAllAppData();
     return (
         <Routes>
-            <Route exact path={'/'} element={<Home/>}/>
-            <Route path={'/register'} element={<Register/>}/>
-            <Route path="dashboard" 
+            <Route exact path="/" 
              element={
                  <ProtectedRoute currentUser={currentUser}>
-              <Dashboard />
+              <Home />
             </ProtectedRoute>
           }
         />
+            <Route path={'/signIn'} element={<SignIn/>}/>
+            <Route path={'/register'} element={<Register/>}/>
         <Route path={'*'} element={<PageNotFound/>}/>
             {/* {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
