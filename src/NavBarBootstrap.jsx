@@ -9,7 +9,7 @@ import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
 const NavBarBootstrap = ({currentPage}) => {
     const {lightTheme, setLightTheme} = useContext(ThemeContext);
     const themeClass = lightTheme === true ? 'light' : 'dark'
-    const allData = getAllAppData();
+    // const allData = getAllAppData();
 
     return (
         <Navbar collapseOnSelect expand="md" bg={themeClass} variant={themeClass}>
@@ -20,13 +20,13 @@ const NavBarBootstrap = ({currentPage}) => {
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ms-auto">
+                    {/* <Nav className="ms-auto">
                          {allData.map(e => 
                             <LinkContainer key={e.id} to={`${e.endpoint}&page=${currentPage}`}>
                                 <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
-                    </Nav>
-                        <Button variant='tertiary' className={lightTheme ? 'text-dark': 'text-light'} onClick={() => setLightTheme(o => !o)}>{lightTheme ? <BsFillMoonFill/> : <BsSunFill/>}</Button>
+                    </Nav> */}
+                        <Button variant='tertiary'>Button</Button>
                 </Navbar.Collapse>
         </Navbar>
     )

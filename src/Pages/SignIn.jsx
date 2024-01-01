@@ -8,9 +8,9 @@ import videobg from '../assets/elden-ring-bg.webm'
 const SignIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { signUp, signIn, signOut } = useAuth()
-  const [error, setError] = useState("")
+  const { signIn, signOut } = useAuth()
   const [loggedIn, setLoggedIn] = useState(false);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
@@ -21,9 +21,9 @@ const SignIn = () => {
       setLoading(true)
       await signIn(emailRef.current.value, passwordRef.current.value)
       setLoggedIn(true)
-      navigate('/dashboard');
+      navigate('/');
     } catch {
-      setError("Failed to sign up")
+      setError("Failed to sign in")
     }
     setLoading(false)
     setLoggedIn(false)

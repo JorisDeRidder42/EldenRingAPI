@@ -5,7 +5,7 @@ import { Container } from 'react-bootstrap';
 import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
 import NavbarUser from './NavbarUser';
-import AuthContext, { AuthProvider } from './Context/authContext';
+import { useAuth } from './Context/authContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,21 +17,19 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-    const user = true;
+    const { currentUser } = useAuth();
     return (
       <div className='app'>
-        <AuthProvider>
             <QueryClientProvider client={queryClient}>
             <Container>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
-                  {user ? <NavbarUser/> : <NavBarBootstrap/>} 
+                  {currentUser ? <NavbarUser/> : <NavBarBootstrap/>} 
                 </Container>
                   <Routing />
               </Suspense>
               </Container>
             </QueryClientProvider>
-          </AuthProvider>
         </div>
     )
 }
