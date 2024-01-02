@@ -10,7 +10,7 @@ import SignIn from './Pages/SignIn';
 import Data from './Pages/Data';
 
 const Routing = () => {
-    const {currentUser} = useAuth();
+    const { currentUser } = useAuth();
     const allData = getAllAppData();
     return (
         <Routes>

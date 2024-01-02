@@ -23,7 +23,7 @@ const SignIn = () => {
       setLoggedIn(true)
       navigate('/');
     } catch {
-      setError("Failed to sign in")
+      setError("Failed to sign in, try again later")
     }
     setLoading(false)
     setLoggedIn(false)

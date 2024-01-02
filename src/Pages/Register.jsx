@@ -10,7 +10,7 @@ const Register = () => {
   const passwordRef = useRef()
   const { signUp, signOut } = useAuth()
   const [error, setError] = useState("")
-  const [signedIn, setSignedIn] = useState(false);
+  const [signedIn, setSignedIn] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
@@ -20,13 +20,15 @@ const Register = () => {
       setError("")
       setLoading(true)
       await signUp(emailRef.current.value, passwordRef.current.value)
-      setLoggedIn(true)
-      navigate('/dashboard');
+      setSignedIn("User is created and you will be directed to the homepage")
+      // setTimeout(() => {
+      //   navigate('/');
+      // }, 2000);
     } catch {
-      setError("Failed to sign up")
+      setError("Failed to sign up, try again later")
     }
     setLoading(false)
-    setLoggedIn(false)
+    setSignedIn(false)
   }
 
   return (
@@ -37,31 +39,25 @@ const Register = () => {
         <Container className="box mt-5">
           <Card className='card' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
-                <ProgressBar className="progress mb-5 w-100">
-                    <ProgressBar className="custom-progress" now={20} key={1} />
-                    <ProgressBar className="disabled-progress" now={20} key={2} />
-                    <ProgressBar className="disabled-progress" now={20} key={3} />
-                    <ProgressBar className="disabled-progress" now={20} key={4} />
-                    <ProgressBar className="disabled-progress" now={20} key={5} />
-                </ProgressBar>
                 <Card.Img variant="top" src={logoBig} />
                 <h2 className="text-center text-white">Sign up</h2>
-                {signedIn && <Alert variant="info">{signedIn}</Alert>}
+                {signedIn && <Alert variant="success">{signedIn}</Alert>}
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
-                  <Form.Group id="email">
+                <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>
                     <Form.Control type="email" placeholder="EMAIL" className="inputField" ref={emailRef} required />
                   </Form.Group>
-                  <div className="links">
-                    <p className="offer text-white mt-2">Recieve news, special offers, feedback surveys, and playtest invitations from 'fromsoftware'</p>
-                  </div>
+                  <Form.Group id="password">
+                    <Form.Label>PASSWORD</Form.Label>
+                    <Form.Control type="password" placeholder="PASSWORD" className="inputField" ref={passwordRef} required />
+                  </Form.Group>
                   <Button disabled={loading} className="cta-button w-100 mt-3" type="submit">
                    SIGN UP
                   </Button>
                   <div className="links">
                     <p className="w-100 text-center mt-2">
-                      Already have an account? <Link to="/signin">Sign in</Link>
+                      Already have an account? <Link to="/signIn">Sign in</Link>
                     </p> 
                   </div>
                 </Form>
