@@ -6,14 +6,14 @@ import { getAllAppData } from './Datas/AppData';
 import {signInAnonymously } from 'firebase/auth';
 import { auth } from './config/firebase';
 import logo from "./assets/Elden_Ring_logo.png";
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const NavbarUser = () => {
-    // const {lightTheme, setLightTheme} = useContext(ThemeContext);
-    // const themeClass = lightTheme === true ? 'light' : 'dark'
+  const navigate = useNavigate();
   const signInAsQuest = async () => {
     try {
       await signInAnonymously(auth)
-      console.log('clicked and logged in...')
+      navigate('/');
     } catch (error) {
       console.error(error)
     }
