@@ -17,14 +17,14 @@ const queryClient = new QueryClient({
 })
 
 function App() {
-    const { currentUser } = useAuth();
+    const { authenticated } = useAuth();
     return (
       <div className='app'>
             <QueryClientProvider client={queryClient}>
             <Container>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
-                  {currentUser ? <NavbarUser/> : <NavBarBootstrap/>} 
+                  {!authenticated ? <NavbarUser/> : <NavBarBootstrap/>} 
                 </Container>
                   <Routing />
               </Suspense>

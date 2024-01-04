@@ -14,7 +14,7 @@ export const useAuth = () => {
 
 // AuthProvider component to manage authentication state
 export const AuthProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(false);
+  const [authenticated, setAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false)
 
   // Sign-up function
@@ -34,14 +34,14 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
-      setCurrentUser(user);
+      setAuthenticated(user);
       setLoading(false);
     });
     return unsubscribe;
   }, []);
 
   const value = {
-    currentUser,
+    authenticated,
     signUp,
     signIn,
     signOut,

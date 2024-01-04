@@ -1,18 +1,30 @@
-import { React, useContext } from 'react';
-import { Button, Form, Image, Nav, Navbar } from 'react-bootstrap';
+import { React } from 'react';
+import { Button, Image, Nav, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
-import ThemeContext from './Context/themeContext';
 import { getAllAppData } from './Datas/AppData';
-import { BsFillMoonFill, BsSunFill } from "react-icons/bs";
+import { useAuth } from './Context/authContext';
+import { auth } from './config/firebase';
+import { useNavigate } from 'react-router-dom';
 
-const NavBarBootstrap = ({currentPage}) => {
-    const {lightTheme, setLightTheme} = useContext(ThemeContext);
-    const themeClass = lightTheme === true ? 'light' : 'dark'
-    // const allData = getAllAppData();
+const NavBarBootstrap = () => {
+    const { authenticated, signOut } = useAuth();
+    const navigate = useNavigate();
+    const allData = getAllAppData();
+
+    const handleSignOut = async () => {
+        try {
+          await signOut(auth);
+          console.log('User signed out');
+          navigate('/signUp');
+        } catch (error) {
+          // Handle sign-out errors
+          console.error('Error signing out:', error);
+        }
+      };
 
     return (
-        <Navbar collapseOnSelect expand="md" bg={themeClass} variant={themeClass}>
+        <Navbar collapseOnSelect expand="sm">
                 <LinkContainer to={"/"}>
                     <Navbar.Brand>
                         <Image src={logo} fluid className="logo"/>
@@ -20,14 +32,14 @@ const NavBarBootstrap = ({currentPage}) => {
                 </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    {/* <Nav className="ms-auto">
+                    <Nav className="ms-auto">
                          {allData.map(e => 
-                            <LinkContainer key={e.id} to={`${e.endpoint}&page=${currentPage}`}>
-                                <Nav.Link>{e.title}</Nav.Link>
+                            <LinkContainer key={e.id} to={`${e.endpoint}`}>
+                                <Nav.Link className='text-white'>{e.title}</Nav.Link>
                             </LinkContainer>)}   
-                    </Nav> */}
-                        <Button variant='tertiary'>Button</Button>
+                    </Nav>
                 </Navbar.Collapse>
+                {authenticated && <button className='cta-button' onClick={handleSignOut}>Logout</button>}
         </Navbar>
     )
 }

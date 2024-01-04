@@ -7,16 +7,14 @@ import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
 import SignIn from './Pages/SignIn';
-import Data from './Pages/Data';
 
 const Routing = () => {
-    const { currentUser } = useAuth();
+    const { authenticated } = useAuth();
     const allData = getAllAppData();
     return (
         <Routes>
             <Route exact path="/" 
-             element={
-                 <ProtectedRoute currentUser={currentUser}>
+             element={<ProtectedRoute authenticated={authenticated}>
               <Home />
             </ProtectedRoute>
           }
