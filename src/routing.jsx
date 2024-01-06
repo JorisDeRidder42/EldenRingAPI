@@ -13,12 +13,13 @@ const Routing = () => {
     const allData = getAllAppData();
     return (
         <Routes>
-            <Route exact path="/" 
+            {/* <Route exact path="/" 
              element={<ProtectedRoute authenticated={authenticated}>
               <Home />
             </ProtectedRoute>
           }
-        />
+        /> */}
+            <Route exact path={'/'} element={<Home/>}/>
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
             <Route path={'*'} element={<PageNotFound/>}/>

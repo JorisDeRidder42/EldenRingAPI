@@ -21,14 +21,12 @@ function App() {
     return (
       <div className='app'>
             <QueryClientProvider client={queryClient}>
-            <Container>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
                   {!authenticated ? <NavbarUser/> : <NavBarBootstrap/>} 
                 </Container>
                   <Routing />
               </Suspense>
-              </Container>
             </QueryClientProvider>
         </div>
     )

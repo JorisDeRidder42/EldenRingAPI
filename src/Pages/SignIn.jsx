@@ -36,7 +36,7 @@ const SignIn = () => {
       </video>
         <Container className="box mt-5">
         {loggedIn && <Alert className="alert-info" variant="info">{loggedIn }</Alert>}
-                {error && <Alert className="alert-danger" variant="danger">{error}</Alert>}
+        {error && <Alert className="alert-danger" variant="danger">{error}</Alert>}
           <Card className='card' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
