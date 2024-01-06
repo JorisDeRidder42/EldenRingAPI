@@ -27,11 +27,6 @@ export const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Sign-out function
-  const signOut = () => {
-    return signOut(auth);
-  };
-
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, user => {
       setAuthenticated(user);
@@ -44,7 +39,6 @@ export const AuthProvider = ({ children }) => {
     authenticated,
     signUp,
     signIn,
-    signOut,
   };
 
   return (

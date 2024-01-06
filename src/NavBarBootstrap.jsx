@@ -6,9 +6,10 @@ import { getAllAppData } from './Datas/AppData';
 import { useAuth } from './Context/authContext';
 import { auth } from './config/firebase';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const NavBarBootstrap = () => {
-    const { authenticated, signOut } = useAuth();
+    const { authenticated } = useAuth();
     const navigate = useNavigate();
     const allData = getAllAppData();
 
@@ -16,7 +17,7 @@ const NavBarBootstrap = () => {
         try {
           await signOut(auth);
           console.log('User signed out');
-          navigate('/signUp');
+          navigate('/signIn');
         } catch (error) {
           // Handle sign-out errors
           console.error('Error signing out:', error);
@@ -35,11 +36,11 @@ const NavBarBootstrap = () => {
                     <Nav className="ms-auto">
                          {allData.map(e => 
                             <LinkContainer key={e.id} to={`${e.endpoint}`}>
-                                <Nav.Link className='text-white'>{e.title}</Nav.Link>
+                                <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
                     </Nav>
                 </Navbar.Collapse>
-                {authenticated && <button className='cta-button' onClick={handleSignOut}>Logout</button>}
+                {authenticated && <button className='logout-button' onClick={handleSignOut}>Logout</button>}
         </Navbar>
     )
 }

@@ -43,23 +43,22 @@
   transition: all 0.5s ease-in-out;
 }
 .logout-button{
-  background-color: #ff0000;
+  background-color: #66532c;
   padding: 0.6em;
   text-transform: uppercase;
-  color:#ffffff;
-  border:solid #ff0000 2px;
+  color:#fff;
+  border:solid #66532c 2px;
   border-radius: 0;
   transition: all 0.5s ease-in-out;
 }
 .logout-button:hover{
-  background-color: #aa0000;
+  background-color: transparent;
   padding: 0.6em;
-  text-transform: uppercase;
-  color:#ffffff;
-  border:solid #aa0000 2px;
-  border-radius: 0;
+  color:#C19D53;
+  border:solid #66532c 2px;
   transition: all 0.5s ease-in-out;
 }
+
 .form-box{
   background-color: rgba(33, 33, 33, 0.5);
   border: solid 3px #C19D53;
@@ -110,18 +109,4 @@
 }
 .offer{
   font-size: 0.75rem;
-}
-.progress{
-  border-radius: 0;
-  background-color: transparent; 
-}
-.progress-bar{
-  border-radius: 0;
-  margin-left: 0.5em;
-}
-.custom-progress{
-  background-color: #C19D53;
-}
-.disabled-progress{
-  background-color: rgba(24, 24, 24, 0.7);
 }
