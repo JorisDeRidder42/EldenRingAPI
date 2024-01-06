@@ -8,9 +8,9 @@ import videobg from '../assets/elden-ring-bg.webm'
 const Register = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { signUp, signOut } = useAuth()
+  const { signUp } = useAuth()
   const [error, setError] = useState("")
-  const [signedIn, setSignedIn] = useState("");
+  const [registered, setRegistered] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
@@ -20,10 +20,10 @@ const Register = () => {
       setError("")
       setLoading(true)
       await signUp(emailRef.current.value, passwordRef.current.value)
-      setSignedIn("User is created and you will be directed to the homepage")
-      // setTimeout(() => {
-      //   navigate('/');
-      // }, 2000);
+      setRegistered("User is created and you will be directed to the homepage")
+      setTimeout(() => {
+        navigate('/');
+      }, 2000);
     } catch {
       setError("Failed to sign up, try again later")
     }
@@ -41,7 +41,7 @@ const Register = () => {
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
                 <h2 className="text-center text-white">Sign up</h2>
-                {signedIn && <Alert variant="success">{signedIn}</Alert>}
+                {registered && <Alert variant="info">{registered}</Alert>}
                 {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">

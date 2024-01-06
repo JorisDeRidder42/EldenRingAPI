@@ -20,7 +20,7 @@ const SignIn = () => {
       setError("")
       setLoading(true)
       await signIn(emailRef.current.value, passwordRef.current.value)
-      setLoggedIn(true)
+      setLoggedIn("User wil be navigated to the homepage");
       navigate('/');
     } catch {
       setError("Failed to sign in, try again later")
@@ -35,12 +35,12 @@ const SignIn = () => {
         <source data-src={videobg} type="video/webm" src={videobg}/>
       </video>
         <Container className="box mt-5">
+        {loggedIn && <Alert className="alert-info" variant="info">{loggedIn }</Alert>}
+                {error && <Alert className="alert-danger" variant="danger">{error}</Alert>}
           <Card className='card' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
                 <h2 className="text-center text-white">Log in</h2>
-                {loggedIn && <Alert variant="info">{loggedIn}</Alert>}
-                {error && <Alert variant="danger">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>

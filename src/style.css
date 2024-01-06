@@ -110,3 +110,20 @@
 .offer{
   font-size: 0.75rem;
 }
+.alert{
+  width: 18vw;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  border:none;
+  border-radius:0%;
+}
+.alert-danger{
+  background-color: rgb(134, 0, 0);
+  color: rgb(47, 0, 0);
+}
+.alert-info{
+  background-color: rgb(0, 60, 134);
+  color: rgb(0, 2, 47);
+}
