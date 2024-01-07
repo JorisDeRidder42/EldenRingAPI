@@ -9,8 +9,8 @@ const SignIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
   const { signIn, signOut } = useAuth()
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [error, setError] = useState(false);
+  const [loggedIn, setLoggedIn] = useState("");
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
 
