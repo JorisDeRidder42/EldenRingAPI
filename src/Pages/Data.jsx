@@ -20,16 +20,12 @@ const Data = ({currentPage, endpoint, setCurrentPage}) => {
   return (
     <Container>
       <h1>All {endpointStr}</h1>
-      <Row>
-        <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />
-      </Row>
       <Row className="m-2">
         {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>
           <ContentCard {...d} />
         </Col>)}
       </Row>
       <Row>
-        <PaginationWrapper currentPage={currentPage} setCurrentPage={setCurrentPage} lastPage={lastPage} />
       </Row>
     </Container>
   )

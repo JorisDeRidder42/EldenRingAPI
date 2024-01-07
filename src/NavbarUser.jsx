@@ -19,7 +19,7 @@ const NavbarUser = () => {
   }
 
     return (
-      <Navbar expand="sm" className='bg-dark'>
+      <Navbar expand="sm">
         <Container>
         <LinkContainer to={"/"}>
                  <Navbar.Brand>

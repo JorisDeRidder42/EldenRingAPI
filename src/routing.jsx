@@ -7,28 +7,28 @@ import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
 import SignIn from './Pages/SignIn';
+import Data from './Pages/Data';
 
 const Routing = () => {
     const { authenticated } = useAuth();
     const allData = getAllAppData();
     return (
         <Routes>
-            {/* <Route exact path="/" 
+            <Route exact path="/" 
              element={<ProtectedRoute authenticated={authenticated}>
               <Home />
             </ProtectedRoute>
           }
-        /> */}
-            <Route exact path={'/'} element={<Home/>}/>
+        />
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
             <Route path={'*'} element={<PageNotFound/>}/>
-            {/* {allData.map(r => (
+            {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} />}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
-                ))} */}
+                ))}
                 {/* <Route path={'/add'} element={<AddItem/>}/> */}
         </Routes>
     )
