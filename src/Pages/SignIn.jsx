@@ -8,7 +8,7 @@ import videobg from '../assets/elden-ring-bg.webm'
 const SignIn = () => {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const { signIn, signOut } = useAuth()
+  const { signIn } = useAuth()
   const [loggedIn, setLoggedIn] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false)
@@ -19,14 +19,15 @@ const SignIn = () => {
     try {
       setError("")
       setLoading(true)
+      setLoggedIn("Login Successful! Welcome back!");
       await signIn(emailRef.current.value, passwordRef.current.value)
-      setLoggedIn("User wil be navigated to the homepage");
       navigate('/');
+
     } catch {
-      setError("Failed to sign in, try again later")
+      setError("The email or password is incorrect. Please verify or create a new account")
     }
     setLoading(false)
-    setLoggedIn(false)
+    setLoggedIn("")
   }
 
   return (
@@ -35,8 +36,8 @@ const SignIn = () => {
         <source data-src={videobg} type="video/webm" src={videobg}/>
       </video>
         <Container className="box mt-5">
-        {loggedIn && <Alert className="alert-info" variant="info">{loggedIn }</Alert>}
-        {error && <Alert className="alert-danger" variant="danger">{error}</Alert>}
+        {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
+        {error && <Alert variant="danger">{error}</Alert>}
           <Card className='card' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />

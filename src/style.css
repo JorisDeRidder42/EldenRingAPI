@@ -9,7 +9,7 @@
   color: #f7f7f7;
   transition: 0.5s ease-in-out;
 }
-
+/* Navigation */
 .nav{
   background-color: transparent;
 }
@@ -58,7 +58,7 @@
   border:solid #66532c 2px;
   transition: all 0.5s ease-in-out;
 }
-
+/* Login and register */
 .form-box{
   background-color: rgba(33, 33, 33, 0.5);
   border: solid 3px #C19D53;
@@ -110,42 +110,32 @@
 .offer{
   font-size: 0.75rem;
 }
+/* Alerts */
 .alert{
   width: 18vw;
   position: absolute;
   bottom: 0;
   right: 0;
-  color: #fff;
   border:none;
   border-radius:0%;
 }
-.alert-danger{
-  background-color: rgb(134, 0, 0);
-  color: rgb(47, 0, 0);
-}
-.alert-info{
-  background-color: rgb(0, 60, 134);
-  color: rgb(0, 2, 47);
-}
+/* Home */
 .bg{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   object-fit: cover;
 }
 .hero{
-  position: absolute; 
+  position: fixed; 
   bottom: 0;
   left: 0;
   height: 100%;
-  display: block;
   z-index: 3;
 }
 .foreg{
-  width: 100vw;
+  width: 100%;  
   height: auto;
+  bottom: 0;
   z-index: 2;
 }
 .intro{

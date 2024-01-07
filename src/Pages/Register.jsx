@@ -19,16 +19,14 @@ const Register = () => {
     try {
       setError("")
       setLoading(true)
+      setRegistered("Registration successful! Get ready to explore.")
       await signUp(emailRef.current.value, passwordRef.current.value)
-      setRegistered("User is created and you will be directed to the homepage")
-      setTimeout(() => {
-        navigate('/');
-      }, 2000);
+      navigate('/');
     } catch {
-      setError("Failed to sign up, try again later")
+      setError("Registration failed. Please check your details and try again.")
     }
     setLoading(false)
-    setSignedIn(false)
+    setRegistered("")
   }
 
   return (
@@ -41,8 +39,8 @@ const Register = () => {
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
                 <h2 className="text-center text-white">Sign up</h2>
-                {registered && <Alert variant="info">{registered}</Alert>}
-                {error && <Alert variant="danger">{error}</Alert>}
+                {registered && <Alert variant="success" className="alerts">{registered}</Alert>}
+                {error && <Alert variant="danger" className="alerts">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                 <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>
