@@ -120,11 +120,21 @@
   border-radius:0%;
 }
 /* Home */
-/* .bg{
-  position: absolute;
+.content{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  width: 100%;
   height: 100vh;
-  object-fit: cover;
   z-index: -1;
+}
+.img-txt{
+  color: #252525;
+  text-transform: uppercase;
+  letter-spacing: 5px;   
+  font-weight: bold;
+  font-size: 2em;   
+
 }
 .hero{
   position: fixed; 
@@ -133,12 +143,7 @@
   height: 100%;
   z-index: 3;
 }
-.foreg{
-  width: 100vw;  
-  height: auto;
-  bottom: 0;
-  z-index: 2;
-}
+/*
 .intro{
   display: flex;
   justify-content: center;

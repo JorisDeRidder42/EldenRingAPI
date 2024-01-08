@@ -3,8 +3,6 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Link } from 'react-router-dom';
-import ThemeContext from '../../Context/themeContext';
 
 const ContentCard = ({image, name, description, id}) => {
 
