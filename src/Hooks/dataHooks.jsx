@@ -33,7 +33,6 @@ const client = axios.create({
 
 /**
  * @param {string} endpoint
- * @param {number} limit
  */
 const getItems = (endpoint) => {
     return client.get(

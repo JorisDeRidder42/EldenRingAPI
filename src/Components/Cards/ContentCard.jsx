@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -13,7 +11,7 @@ const ContentCard = ({image, name, description, id}) => {
         <Card.Img variant="top" className='p-3' src={image} />
         <Card.Body>
           <Card.Text>
-          {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf(' ', 100)) + '...'}
+          {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf('', 100)) + '...'}
           </Card.Text>
         </Card.Body>
         <LinkContainer to={id}>

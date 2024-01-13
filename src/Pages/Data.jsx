@@ -4,13 +4,9 @@ import ContentCard from "../Components/Cards/ContentCard";
 import PaginationWrapper from "../Components/PaginationWrapper";
 import { useGetItemIds } from "../Hooks/dataHooks";
 
-const Data = ({currentPage, endpoint, setCurrentPage}) => {
-  const page = parseInt(currentPage);
+const Data = ({endpoint}) => {
   const endpointStr = endpoint.slice(1);
-  const { data: cardsData } = useGetItemIds(endpoint, page);
-  const amount = 20;
-  const result = cardsData.total / amount;
-  const lastPage = Math.floor(result);
+  const { data: cardsData } = useGetItemIds(endpoint);
 
 
   if (!cardsData) {

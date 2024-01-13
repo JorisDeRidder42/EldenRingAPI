@@ -25,7 +25,7 @@ const NavBarBootstrap = () => {
       };
 
     return (
-        <Navbar collapseOnSelect expand="sm">
+        <Navbar collapseOnSelect expand="sm" className="nav">
                 <LinkContainer to={"/"}>
                     <Navbar.Brand>
                         <Image src={logo} fluid className="logo"/>
