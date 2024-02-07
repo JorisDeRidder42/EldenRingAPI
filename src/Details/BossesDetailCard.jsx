@@ -19,7 +19,7 @@ const BossesDetailCard = ({endpoint}) => {
     const {data: bossesData} = useGetItem(endpoint, id);
 
     if(!bossesData){
-      return <h1>Bosses could not be found</h1>
+      return <h1>Bosses could not be found, try again later</h1>
     }
 
     return(

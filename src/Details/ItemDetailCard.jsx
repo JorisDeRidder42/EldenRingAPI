@@ -20,7 +20,7 @@ const ItemDetailCard = ({endpoint}) => {
     const {data: itemData} = useGetItem(endpoint, id);
     
     if(!itemData){
-        return <h1>data could not be found</h1>
+        return <h1>data could not be found, try again later</h1>
     }
     
     return(

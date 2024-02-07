@@ -24,7 +24,7 @@ const WeaponDetailCard = ({endpoint}) => {
     const {data: weaponData} = useGetItem(endpoint, id);
     
     if(!weaponData){
-        return <h1>Weapon could not be found</h1>
+        return <h1>Weapons could not be found, try again later</h1>
     }
     
     return(
