@@ -1,7 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { getAllAppData } from './Datas/AppData';
 import Home from './Pages/Home';
-import Dashboard from './Pages/Dashboard';
 import PageNotFound from './Pages/PageNotFound'
 import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
@@ -20,7 +19,6 @@ const Routing = () => {
             </ProtectedRoute>
           }
         />
-            {/* <Route exact path={'/'} element={<Home/>}/> */}
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
             <Route path={'*'} element={<PageNotFound/>}/>
@@ -30,7 +28,6 @@ const Routing = () => {
                         <Route path={':id'} element={r.detail}/>
                     </Route>
                 ))}
-                {/* <Route path={'/add'} element={<AddItem/>}/> */}
         </Routes>
     )
 }

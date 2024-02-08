@@ -2,14 +2,10 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Placeholder from 'react-bootstrap/Placeholder';
-import ThemeContext from '../Context/themeContext';
 
 const CardLoader = () => {
-    const {lightTheme} = useContext(ThemeContext)
-    const themeClassBg = lightTheme === true ? 'light' : "dark"
-    const themeClassText = lightTheme === true ? 'dark' : "light"
     return(
-        <Card className={`m-2 p-2 h-100`} bg={themeClassBg} text={themeClassText} >
+        <Card className={`m-2 p-2 h-100`}>
             <Placeholder as={Card.Title} animation="glow">
             <Placeholder xs={2} />
             </Placeholder>

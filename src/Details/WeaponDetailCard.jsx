@@ -3,7 +3,6 @@ import { Suspense } from 'react';
 import {Card, Row, Col, ListGroup, Button} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import ThemeContext from '../Context/themeContext';
 import { useGetItem } from '../Hooks/dataHooks';
 import CardLoader from '../Loader/CardLoader';
 
@@ -16,9 +15,6 @@ const WeaponDetailCard = ({endpoint}) => {
   }
 
   const WeaponDetailContent = ({endpoint}) => {
-    const {lightTheme} = useContext(ThemeContext)
-    const themeClassBg = lightTheme === true ? 'light' : "dark"
-    const themeClassText = lightTheme === true ? 'dark' : "light"
     const {id} = useParams();
     const history = useNavigate();
     const {data: weaponData} = useGetItem(endpoint, id);
