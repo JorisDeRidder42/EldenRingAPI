@@ -1,14 +1,11 @@
-/* themes */
-.light {
-  background-color: #f7f7f7;
-  color: #2c2c29;
-  transition: 0.5s ease-in-out;
+/* Colors */
+.app{
+    --cta: #C19D53;
+    --disabled: #66532c;
+    --white: #fffffe;
+    --black: rgba(34, 34, 34, 0.6);
 }
-.dark {
-  background-color: #292b2c;
-  color: #f7f7f7;
-  transition: 0.5s ease-in-out;
-}
+
 /* Navigation */
 .nav{
   background-color: transparent;
@@ -31,8 +28,9 @@
   height: 100%;
   overflow: hidden;
   z-index: -10;
-  background-color: black;
+  background-color: var(--black)
 }
+/*Buttons*/
 .cta-button{
   background-color: #C19D53;
   padding: 0.6em;
@@ -45,30 +43,30 @@
 .cta-button:hover{
   background-color: transparent;
   padding: 0.6em;
-  color:#C19D53;
-  border:solid #C19D53 2px;
+  color: var(--cta);
+  border:solid var(--cta) 2px;
   transition: all 0.5s ease-in-out;
 }
 .logout-button{
-  background-color: #66532c;
+  background-color: var(--disabled);
   padding: 0.6em;
   text-transform: uppercase;
   color:#fff;
-  border:solid #66532c 2px;
+  border:solid var(--disabled) 2px;
   border-radius: 0;
   transition: all 0.5s ease-in-out;
 }
 .logout-button:hover{
   background-color: transparent;
   padding: 0.6em;
-  color:#C19D53;
-  border:solid #66532c 2px;
+  color: var(--cta);
+  border:solid var(--disabled) 2px;
   transition: all 0.5s ease-in-out;
 }
 /* Login and register */
 .form-box{
-  background-color: rgba(33, 33, 33, 0.5);
-  border: solid 3px #C19D53;
+  background-color: var(--black);
+  border: solid 3px var(--cta);
   padding: 2em;
 }
 .box{
@@ -77,20 +75,20 @@
   align-items: center;
 }
 .form-label{
-  color: #ffffffe9;
+  color: var(--white);
   text-transform: uppercase;
 }
 .logoBig{
   width: 20em;
 }
 .inputField{
-  background-color: rgba(34,34,34,0.6);
+  background-color: var(--black);
   border-radius: 0;
   color: #ffffff;
   width: 100%;
 }
 .inputField:focus{
-  background-color: rgba(34, 34, 34, 0.6);
+  background-color: var(--black);
   color: #C19D53;
   border: solid #C19D53 1px;
 }
@@ -106,7 +104,7 @@
   filter: invert(100%);
 }
 .links a{
-  color: #C19D53;
+  color: var(--cta);
 }
 .links p {
   color: #fff;
@@ -127,25 +125,6 @@
   border-radius:0%;
 }
 /* Home */
-.content{
-  display:flex;
-  justify-content:center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
-  z-index: 0;
-}
-.img-txt{
-  color: #252525;
-  text-transform: uppercase;
-  letter-spacing: 5px;   
-  font-weight: bold;
-  margin-bottom: 3em;
-  font-size: 2em;   
-}
-.hero{
-  position: fixed; 
-  bottom: 0;
-  left: 0;
-  height: 100%;
+.cta-text{
+  color: var(--cta);
 }
