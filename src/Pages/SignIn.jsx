@@ -31,7 +31,7 @@ const SignIn = () => {
   }
 
   return (
-    <div className="video-container h-full w-full">
+    <div className="video-container">
       <video loop muted autoPlay data-loaded='true' className="bg-video">
         <source data-src={videobg} type="video/webm" src={videobg}/>
       </video>

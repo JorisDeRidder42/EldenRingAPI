@@ -3,7 +3,7 @@
     --cta: #C19D53;
     --disabled: #66532c;
     --white: #fffffe;
-    --black: rgba(34, 34, 34, 0.6);
+  --black: rgba(34, 34, 34, 0.6);
 }
 
 /* Navigation */
@@ -28,7 +28,6 @@
   height: 100%;
   overflow: hidden;
   z-index: -10;
-  background-color: var(--black)
 }
 /*Buttons*/
 .cta-button{

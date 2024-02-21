@@ -6,6 +6,8 @@ import { Suspense, useState } from 'react';
 import PageLoader from './Loader/PageLoader';
 import NavbarUser from './NavbarUser';
 import { useAuth } from './Context/authContext';
+import LanguageContext from './Context/languageContext';
+import { languages } from './i18n/languages';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -17,9 +19,11 @@ const queryClient = new QueryClient({
 })
 
 function App() {
+    const [selectedLanguage, setSelectedLanguage] = useState(languages[0])
     const { authenticated } = useAuth();
     return (
       <div className='app'>
+        <LanguageContext.Provider value={{selectedLanguage, setSelectedLanguage}}>
             <QueryClientProvider client={queryClient}>
               <Suspense fallback={<PageLoader/>}>
                 <Container>
@@ -28,6 +32,7 @@ function App() {
                   <Routing />
               </Suspense>
             </QueryClientProvider>
+            </LanguageContext.Provider>
         </div>
     )
 }

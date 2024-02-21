@@ -1,5 +1,5 @@
-import { React } from 'react';
-import { Button, Image, Nav, Navbar } from 'react-bootstrap';
+import { React, useContext } from 'react';
+import { Button, Image, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
 import { getAllAppData } from './Datas/AppData';
@@ -7,11 +7,22 @@ import { useAuth } from './Context/authContext';
 import { auth } from './config/firebase';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import {languages} from './i18n/languages.jsx'
+import LanguageContext from './Context/languageContext.jsx';
 
 const NavBarBootstrap = () => {
+    const {selectedLanguage, setSelectedLanguage} = useContext(LanguageContext)
     const { authenticated } = useAuth();
     const navigate = useNavigate();
     const allData = getAllAppData();
+
+    const dropdownItem = (l) => (
+        <NavDropdown.Item key={l.i18n} onClick={() => setSelectedLanguage(l)}>
+            {l.flag} {l.name}
+        </NavDropdown.Item>
+    )
+    
+    const title = `${selectedLanguage.flag} ${selectedLanguage.name}`
 
     const handleSignOut = async () => {
         try {
@@ -39,7 +50,11 @@ const NavBarBootstrap = () => {
                                 <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
                     </Nav>
+                    <NavDropdown title={title} menuVariant="light" align="end">
+                            {languages.map(l => dropdownItem(l))}
+                    </NavDropdown>
                 </Navbar.Collapse>
+
                 {authenticated && <button className='logout-button' onClick={handleSignOut}>Logout</button>}
         </Navbar>
     )
