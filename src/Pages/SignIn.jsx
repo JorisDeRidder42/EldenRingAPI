@@ -31,11 +31,8 @@ const SignIn = () => {
   }
 
   return (
-    <div className="video-container">
-      <video loop muted autoPlay data-loaded='true' className="bg-video">
-        <source data-src={videobg} type="video/webm" src={videobg}/>
-      </video>
-        <Container className="box mt-5">
+    <>
+        <div className="box mt-5">
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
           <Card className='card' style={{ width: '25rem' }}>
@@ -65,8 +62,8 @@ const SignIn = () => {
                 </Form>
               </Card.Body>
           </Card>
-      </Container>
       </div>
+      </>
   )
 }
 export default SignIn;

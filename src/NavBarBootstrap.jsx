@@ -21,8 +21,6 @@ const NavBarBootstrap = () => {
             {l.flag} {l.name}
         </NavDropdown.Item>
     )
-    
-    const title = `${selectedLanguage.flag} ${selectedLanguage.name}`
 
     const handleSignOut = async () => {
         try {
@@ -50,11 +48,10 @@ const NavBarBootstrap = () => {
                                 <Nav.Link>{e.title}</Nav.Link>
                             </LinkContainer>)}   
                     </Nav>
-                    <NavDropdown title={title} menuVariant="light" align="end">
+                    <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">
                             {languages.map(l => dropdownItem(l))}
                     </NavDropdown>
                 </Navbar.Collapse>
-
                 {authenticated && <button className='logout-button' onClick={handleSignOut}>Logout</button>}
         </Navbar>
     )
