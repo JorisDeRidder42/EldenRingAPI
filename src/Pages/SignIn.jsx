@@ -32,10 +32,10 @@ const SignIn = () => {
 
   return (
     <>
-        <div className="box mt-5">
+        <div className="box">
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
-          <Card className='card' style={{ width: '25rem' }}>
+          <Card className='card m-5' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
                 <h2 className="text-center text-white">Log in</h2>

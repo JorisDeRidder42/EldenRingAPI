@@ -30,9 +30,9 @@ const Register = () => {
   }
 
   return (
-    <div className="video-container">
+    <div>
       <video loop muted autoPlay data-loaded='true' className="bg-video">
-        <source data-src={videobg} type="video/webm" src={videobg}/>
+        <source data-src={videobg} type="video/webm" src={videobg} className="video"/>
       </video>
         <Container className="box mt-5">
           <Card className='card' style={{ width: '25rem' }}>

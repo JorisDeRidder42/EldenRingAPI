@@ -20,10 +20,6 @@
 .logo {
   width: 10em;
 }
-.bg-video {
-  width: 100%;
-  height: 100%;
-}
 /*Buttons*/
 .cta-button{
   background-color: #C19D53;
@@ -62,7 +58,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-image: url('https://giphy.com/embed/iAIC2nJOvoTLMcx9Vy');
+  background-size: cover;
 }
 .form-box{
   background-color: var(--black);
