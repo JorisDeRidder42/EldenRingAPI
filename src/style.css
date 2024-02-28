@@ -1,32 +1,63 @@
 /* Colors */
-.app{
+:root{
     --cta: #C19D53;
     --disabled: #66532c;
-    --white: #fffffe;
-  --black: rgba(34, 34, 34, 0.6);
+    --text: #fffe;
+    --navlink: #252525;
+    --navlinkhov: #C19D53;
+    --body: #fffe;
+    --box: rgba(34, 34, 34, 0.5);
+    --acclink: #0000FF;
+  }
+:root:has(#theme [value="☀️"]:checked) {
+  color-scheme: light;
+  --cta: #C19D53;
+  --disabled: #66532c;
+  --text: #ffffffee;
+  --navlink: #252525;
+  --body: #ffffffee;
+  --box: rgba(34, 34, 34, 0.5);
 }
-
+:root:has(#theme [value="🌑"]:checked) {
+  color-scheme: dark;
+  --cta: #C19D53;
+  --disabled: #66532c;
+  --text: #252525;
+  --navlink: #fffe;
+  --body: #252525;
+  --box: rgba(232, 232, 232, 0.5);  
+}
+.app{
+  background-color: var(--body);
+}
 /* Navigation */
 .nav{
-  background-color: transparent;
+  background-color: var(--body);
   z-index: 10;
+}
+.nav-link{
+  color: var(--navlink);
+}
+.nav-link:hover{
+  color: var(--navlinkhov);
 }
 .loader{
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: var(--cta);
 }
 .logo {
   width: 10em;
 }
 /*Buttons*/
 .cta-button{
-  background-color: #C19D53;
+  background-color: var(--cta);
   padding: 0.6em;
   text-transform: uppercase;
-  color:#fff;
-  border:solid #C19D53 2px;
+  color:var(--text);
+  border:solid var(--cta) 2px;
   border-radius: 0;
   transition: all 0.5s ease-in-out;
 }
@@ -40,6 +71,7 @@
 .logout-button{
   background-color: var(--disabled);
   padding: 0.6em;
+  margin-left: 1em;
   text-transform: uppercase;
   color:#fff;
   border:solid var(--disabled) 2px;
@@ -49,7 +81,7 @@
 .logout-button:hover{
   background-color: transparent;
   padding: 0.6em;
-  color: var(--cta);
+  color: var(--disabled);
   border:solid var(--disabled) 2px;
   transition: all 0.5s ease-in-out;
 }
@@ -58,48 +90,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url('https://giphy.com/embed/iAIC2nJOvoTLMcx9Vy');
-  background-size: cover;
 }
 .form-box{
-  background-color: var(--black);
+  background-color: var(--box);
   border: solid 3px var(--cta);
   padding: 2em;
 }
 .form-label{
-  color: var(--white);
+  color: var(--text);
   text-transform: uppercase;
 }
 .logoBig{
   width: 20em;
 }
 .inputField{
-  background-color: var(--black);
+  background-color: var(--navlink);
   border-radius: 0;
   color: #ffffff;
   width: 100%;
 }
 .inputField:focus{
-  background-color: var(--black);
+  background-color: var(--navlink);
   color: #C19D53;
   border: solid #C19D53 1px;
 }
 .inputField::placeholder{
-  color: #ffffff88;
+  color: var(--body);
   text-transform: uppercase;
   font-size: 0.8em;
 }
 .inputField:not(:focus) {
-  color: #ffffff;
+  color: var(--body) ;
 }
 .inputField::-ms-reveal {
   filter: invert(100%);
 }
 .links a{
-  color: var(--cta);
+  color: var(--acclink);
 }
 .links p {
-  color: #fff;
+  color: var(--body);
 }
 .card{
   background-color: transparent;
@@ -121,5 +151,5 @@
   color: var(--cta);
 }
 .dropdown-toggle{
-  color: var(--black)
+  color: var(--navlink)
 }
