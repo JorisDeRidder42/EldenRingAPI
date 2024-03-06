@@ -6,7 +6,7 @@
     --navlink: #252525;
     --navlinkhov: #C19D53;
     --body: #fffe;
-    --box: rgba(34, 34, 34, 0.5);
+    --box: rgba(47, 47, 47, 0.5);
     --acclink: #0000FF;
   }
 :root:has(#theme [value="☀️"]:checked) {
@@ -37,6 +37,7 @@
 }
 .nav-link{
   color: var(--navlink);
+  z-index: 10;
 }
 .nav-link:hover{
   color: var(--navlinkhov);
@@ -47,6 +48,12 @@
   align-items: center;
   height: 100vh;
   color: var(--cta);
+}
+.bg-video{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
 }
 .logo {
   width: 10em;
@@ -90,6 +97,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 90vh;
+  max-height: 90vh;
 }
 .form-box{
   background-color: var(--box);

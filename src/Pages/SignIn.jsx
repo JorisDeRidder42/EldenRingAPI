@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
 import videobg from '../assets/elden-ring-bg.webm'
+import useLanguage from "../Hooks/useLanguage";
 
 const SignIn = () => {
   const emailRef = useRef()
@@ -13,6 +14,7 @@ const SignIn = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
+  const {text} = useLanguage()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -33,12 +35,15 @@ const SignIn = () => {
   return (
     <>
         <div className="box">
+          <video loop muted autoPlay data-loaded='true' className="bg-video">
+            <source data-src={videobg} type="video/webm" src={videobg}/>
+          </video>
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
           <Card className='card m-5' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
-                <h2 className="text-center text-white">Log in</h2>
+                <h2 className="text-center text-white">{text['login']}</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>
@@ -53,10 +58,10 @@ const SignIn = () => {
                   </Button>
                   <div className="links">
                       <p className="w-100 text-center mt-3">
-                      <Link to="/forgot-password">Forgot Password?</Link>
+                      <Link to="/forgot-password">{text['forgot']}</Link>
                     </p>
-                    <p className="w-100 text-center mt-2">
-                      Need an account? <Link to="/register">Sign Up</Link>
+                    <p className="w-100 text-center mt-2">{text['info']}
+                      <Link to="/register">{text['sign-up']}</Link>
                     </p> 
                   </div>
                 </Form>

@@ -34,7 +34,7 @@ const NavBarBootstrap = () => {
       };
 
     return (
-        <Navbar collapseOnSelect expand="sm" className="nav">
+        <Navbar expand="sm" className="nav">
                 <LinkContainer to={"/"}>
                     <Navbar.Brand>
                         <Image src={logo} fluid className="logo"/>
@@ -52,7 +52,7 @@ const NavBarBootstrap = () => {
                             {languages.map(l => dropdownItem(l))}
                     </NavDropdown>
                 </Navbar.Collapse>
-                <select data-theme-picker name="themepicker" id="theme">
+                <select data-theme-picker name="themepicker" id="theme" className='theme'>
                     <option value="☀️">Light</option>
                     <option value="🌑">Dark</option>
                 </select>
