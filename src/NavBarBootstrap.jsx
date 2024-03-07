@@ -52,10 +52,6 @@ const NavBarBootstrap = () => {
                             {languages.map(l => dropdownItem(l))}
                     </NavDropdown>
                 </Navbar.Collapse>
-                <select data-theme-picker name="themepicker" id="theme" className='theme'>
-                    <option value="☀️">Light</option>
-                    <option value="🌑">Dark</option>
-                </select>
                 {authenticated && <button className='logout-button' onClick={handleSignOut}>Logout</button>}
         </Navbar>
     )

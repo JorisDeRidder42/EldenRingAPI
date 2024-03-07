@@ -9,32 +9,10 @@
     --box: rgba(47, 47, 47, 0.5);
     --acclink: #0000FF;
   }
-:root:has(#theme [value="☀️"]:checked) {
-  color-scheme: light;
-  --cta: #C19D53;
-  --disabled: #66532c;
-  --text: #ffffffee;
-  --navlink: #252525;
-  --body: #ffffffee;
-  --box: rgba(34, 34, 34, 0.5);
-}
-:root:has(#theme [value="🌑"]:checked) {
-  color-scheme: dark;
-  --cta: #C19D53;
-  --disabled: #66532c;
-  --text: #252525;
-  --navlink: #fffe;
-  --body: #252525;
-  --box: rgba(232, 232, 232, 0.5);  
-}
 .app{
   background-color: var(--body);
 }
 /* Navigation */
-.nav{
-  background-color: var(--body);
-  z-index: 10;
-}
 .nav-link{
   color: var(--navlink);
   z-index: 10;

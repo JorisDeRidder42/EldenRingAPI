@@ -5,6 +5,7 @@ import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
 import videobg from '../assets/elden-ring-bg.webm'
 import useLanguage from "../Hooks/useLanguage";
+import useTheme from "../Hooks/useTheme";
 
 const SignIn = () => {
   const emailRef = useRef()
@@ -15,6 +16,7 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const {text} = useLanguage()
+  const [theme, toggleTheme] = useTheme();
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -34,10 +36,12 @@ const SignIn = () => {
 
   return (
     <>
-        <div className="box">
-          <video loop muted autoPlay data-loaded='true' className="bg-video">
+      {theme}
+        <div className={`bg-${theme}`}/>
+        <div className="box" >
+          {/* <video loop muted autoPlay data-loaded='true' className="bg-video">
             <source data-src={videobg} type="video/webm" src={videobg}/>
-          </video>
+          </video> */}
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
           <Card className='card m-5' style={{ width: '25rem' }}>
