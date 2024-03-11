@@ -6,15 +6,13 @@ import elden from '../assets/404.jpg'
 import LanguageContext from '../Context/languageContext';
 import useLanguage from '../Hooks/useLanguage';
 import { useContext } from 'react';
-import useTheme from '../Hooks/useTheme';
 
 const Home = () => {
   const {text} = useLanguage()
     const {selectedLanguage} = useContext(LanguageContext)
-    const [theme, toggleTheme] = useTheme();
   return(
       <>
-      <Container className={theme == 'bg-light' ? 'bg-dark' : 'bg-light'}>
+      <Container>
         <Row>
           <Col  md={4}>
             <Image src={elden} alt={'Knight fighting a dragon'}/>

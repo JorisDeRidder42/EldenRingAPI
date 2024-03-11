@@ -7,11 +7,9 @@ import logo from "./assets/Elden_Ring_logo.png";
 import { useNavigate } from 'react-router-dom';
 import {languages} from './i18n/languages.jsx'
 import LanguageContext from './Context/languageContext';
-import useTheme from './Hooks/useTheme.jsx';
 
 const NavbarUser = () => {
   const {selectedLanguage, setSelectedLanguage} = useContext(LanguageContext)
-  const [theme, toggleTheme] = useTheme();
   const navigate = useNavigate();
 
   const signInAsQuest = async () => {
@@ -37,10 +35,9 @@ const NavbarUser = () => {
         </Navbar.Brand>
       </LinkContainer>
         <Navbar className='flex-end nav-space'>
-        <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">                       
+        <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end" className="mr-2">                       
           {languages.map(l => dropdownItem(l))}           
         </NavDropdown>        
-        <Button onClick={toggleTheme}>Toggle Theme {theme}</Button>   
         <Button className='cta-button ml-2' onClick={signInAsQuest}>LOGIN AS GUEST</Button>
         </Navbar>
       </Container>
