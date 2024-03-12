@@ -3,7 +3,6 @@ import { Form, Button, Card, Alert, Container, Image } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
-import videobg from '../assets/elden-ring-bg.webm'
 import useLanguage from "../Hooks/useLanguage";
 
 const SignIn = () => {

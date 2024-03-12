@@ -6,10 +6,9 @@
     --text: #fffe;
     --navlink: #252525;
     --navlinkhov: #C19D53;
-    --body: #fffe;
+    --white: #fffe;
     --input: rgba(255, 255, 255, 0.5);
     --box: rgba(47, 47, 47, 0.5);
-    --acclink: #0000FF;
   }
 .app{
   background-color: var(--navlink);
@@ -25,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 78.4px);
   color: var(--cta);
 }
 .logo {
@@ -70,7 +69,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('./assets/wallpaper.jpg') no-repeat center center;
+  background: url('./assets/Login.jpg') center center no-repeat;
+  height: calc(100vh - 78.4px);
 }
 .form-box{
   background-color: var(--box);
@@ -100,13 +100,13 @@
   font-size: 0.8em;
 }
 .inputField:not(:focus) {
-  color: var(--body) ;
+  color: var(--white) ;
 }
 .inputField::-ms-reveal {
   filter: invert(100%);
 }
 .links a{
-  color: var(--acclink);
+  color: var(--cta);
 }
 .links p {
   color: var(--text);
@@ -130,6 +130,7 @@
 .cta-text{
   color: var(--cta);
 }
-.dropdown-toggle{
-  color: var(--navlink)
+.dropdown-toggle::after{
+  color: var(--white);
+  margin-right: 1em;
 }

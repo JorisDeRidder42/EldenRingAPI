@@ -3,7 +3,6 @@ import { Form, Button, Card, Alert, Container, ProgressBar } from "react-bootstr
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
-import videobg from '../assets/elden-ring-bg.webm'
 
 const Register = () => {
   const emailRef = useRef()
@@ -30,11 +29,7 @@ const Register = () => {
   }
 
   return (
-    <div>
-      <video loop muted autoPlay data-loaded='true' className="bg-video">
-        <source data-src={videobg} type="video/webm" src={videobg} className="video"/>
-      </video>
-        <Container className="box mt-5">
+    <div className="box">
           <Card className='card' style={{ width: '25rem' }}>
               <Card.Body className="form-box">
                 <Card.Img variant="top" src={logoBig} />
@@ -61,7 +56,6 @@ const Register = () => {
                 </Form>
               </Card.Body>
           </Card>
-      </Container>
       </div>
   )
 }

@@ -35,7 +35,7 @@ const NavbarUser = () => {
         </Navbar.Brand>
       </LinkContainer>
         <Navbar className='flex-end nav-space'>
-        <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end" className="mr-2">                       
+        <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">                       
           {languages.map(l => dropdownItem(l))}           
         </NavDropdown>        
         <Button className='cta-button ml-2' onClick={signInAsQuest}>LOGIN AS GUEST</Button>
