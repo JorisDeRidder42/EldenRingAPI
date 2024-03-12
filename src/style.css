@@ -11,14 +11,19 @@
     --box: rgba(47, 47, 47, 0.5);
   }
 .app{
-  background-color: var(--navlink);
+  background-color: var(--body);
 }
 /* Navigation */
 .nav-link{
-  color: var(--text);
+  color: var(--navlink);
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: var(--disabled);
+  text-decoration: underline;
 }
 .nav-link:hover{
   color: var(--navlinkhov);
+  text-decoration: underline;
 }
 .loader{
   display: flex;
@@ -131,6 +136,6 @@
   color: var(--cta);
 }
 .dropdown-toggle::after{
-  color: var(--white);
+  color: var(--navlink);
   margin-right: 1em;
 }

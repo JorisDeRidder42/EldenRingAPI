@@ -24,7 +24,7 @@ const WeaponDetailCard = ({endpoint}) => {
     }
     
     return(
-    <Card className={"mx-4"} bg={`${themeClassBg}`} variant={`${themeClassText}`}>
+    <Card className={"mx-4"}>
         <div className='backLink' onClick={() => history(-1)}>Back</div>
       <Card.Img variant="top" src={weaponData?.image} className="w-25 center"/>
     <Card.Body>
@@ -36,13 +36,13 @@ const WeaponDetailCard = ({endpoint}) => {
           <Col xs={12} sm={6} md={3}>
           <p>Attack</p>
           <ListGroup>
-            {weaponData?.attack.map(a => <ListGroup.Item key={a.name} action variant={`${themeClassBg}`}>{a.name} - {a.amount}</ListGroup.Item>)}
+            {weaponData?.attack.map(a => <ListGroup.Item key={a.name} action>{a.name} - {a.amount}</ListGroup.Item>)}
           </ListGroup>
           </Col>
           <Col xs={12} sm={6} md={3}>
           <p>Defence</p>
           <ListGroup>
-          {weaponData?.defence.map(d => <ListGroup.Item key={d.name} action variant={`${themeClassBg}`}>{d.name} - {d.amount}</ListGroup.Item>)}
+          {weaponData?.defence.map(d => <ListGroup.Item key={d.name} action>{d.name} - {d.amount}</ListGroup.Item>)}
           </ListGroup>
           </Col>
       </Row>
