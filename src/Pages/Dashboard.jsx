@@ -9,15 +9,15 @@ const Dashboard = ({endpoint}) => {
   const strEndpoint = endpoint.slice(1);
 
     return(
+      <Container fluid className="bg-img">
         <Container>
           <h2>{strEndpoint}</h2>
             <Row>
-                <div className="card-deck" style={{ overflowX: 'auto' }}>
                   {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>
                 <ContentCard {...d} />
                   </Col>)}
-                </div>
             </Row>
+          </Container>
           </Container>
     )
 }

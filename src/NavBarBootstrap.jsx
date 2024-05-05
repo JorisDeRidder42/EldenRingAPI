@@ -21,6 +21,13 @@ const NavBarBootstrap = () => {
             {l.flag} {l.name}
         </NavDropdown.Item>
     )
+    const dropdownLinks = (l) => (
+        <NavDropdown.Item key={l.id}>
+            <LinkContainer to={l.endpoint} endpoint={l.endpoint}>
+                <Nav.Link>{l.title}</Nav.Link>
+            </LinkContainer>
+        </NavDropdown.Item>
+    )
 
     const handleSignOut = async () => {
         try {
@@ -43,9 +50,12 @@ const NavBarBootstrap = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                        <LinkContainer to="/dashboard" endpoint="/weapons">
-                            <Nav.Link>Dashboard</Nav.Link>
-                        </LinkContainer>
+                    <LinkContainer to={'/builder'}>
+                        <Nav.Link>Builder</Nav.Link>
+                    </LinkContainer>
+                    <NavDropdown title={'Data'} menuVariant="light" align="end">
+                            {allData.map(l => dropdownLinks(l))}
+                    </NavDropdown>
                     </Nav>
                     <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">
                             {languages.map(l => dropdownItem(l))}

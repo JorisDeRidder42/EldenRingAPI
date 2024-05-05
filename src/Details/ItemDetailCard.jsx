@@ -31,7 +31,6 @@ const ItemDetailCard = ({endpoint}) => {
       <Card.Title>{itemData?.name}</Card.Title>
       <Card.Text>
         {itemData?.description}
-
       </Card.Text>
         <Row>
           <Col xs={12} sm={6} md={3}>
