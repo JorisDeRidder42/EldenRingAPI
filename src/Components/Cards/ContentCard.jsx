@@ -6,9 +6,9 @@ const ContentCard = ({image, name, description, id}) => {
 
     return( 
     <LinkContainer to={id}>
-      <Card className="my-3" style={{ height: '33rem' }}>
+      <Card className="my-3 card">
         <Card.Title className='m-3 text-center'>{name}</Card.Title>
-        <Card.Img variant="top" className='p-3' src={image} />
+        <Card.Img variant="top" className='p-3 card-img' src={image} />
         <Card.Body>
           <Card.Text>
           {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf('', 100)) + '...'}

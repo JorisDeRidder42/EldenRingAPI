@@ -43,11 +43,11 @@ const SignIn = () => {
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>
-                    <Form.Control type="email" placeholder="EMAIL" className="inputField" ref={emailRef} required />
+                    <Form.Control type="email" placeholder={text['email']} className="inputField" ref={emailRef} required />
                   </Form.Group>
                   <Form.Group id="password">
                     <Form.Label>PASSWORD</Form.Label>
-                    <Form.Control type="password" placeholder="PASSWORD" className="inputField" ref={passwordRef} required />
+                    <Form.Control type="password" placeholder={text['password']} className="inputField" ref={passwordRef} required />
                   </Form.Group>
                   <Button disabled={loading} className="cta-button w-100 mt-3" type="submit">
                     {text['login']}

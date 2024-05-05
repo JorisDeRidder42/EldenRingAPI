@@ -6,11 +6,11 @@ import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
 import SignIn from './Pages/SignIn';
-import Data from './Pages/Data';
+import Dashboard from './Pages/Dashboard';
+import WeaponDetailCard from './Details/WeaponDetailCard';
 
 const Routing = () => {
     const { authenticated } = useAuth();
-    const allData = getAllAppData();
     return (
         <Routes>
             <Route exact path="/" 
@@ -21,13 +21,21 @@ const Routing = () => {
         />
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
+            <Route path={'/dashboard'} element={<Outlet/>}>
+                <Route index element={<Dashboard endpoint={'/weapons'} />}/>
+                <Route path={':id'} element={<WeaponDetailCard/>}/>
+            </Route>
+
+
+
+
             <Route path={'*'} element={<PageNotFound/>}/>
-            {allData.map(r => (
+            {/* {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
                         <Route index element={<Data endpoint={r.endpoint} />}/>
                         <Route path={':id'} element={r.detail}/>
                     </Route>
-                ))}
+                ))} */}
         </Routes>
     )
 }

@@ -43,10 +43,9 @@ const NavBarBootstrap = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                         {allData.map(e => 
-                            <LinkContainer key={e.id} to={`${e.endpoint}`}>
-                                <Nav.Link>{e.title}</Nav.Link>
-                            </LinkContainer>)}   
+                        <LinkContainer to="/dashboard" endpoint="/weapons">
+                            <Nav.Link>Dashboard</Nav.Link>
+                        </LinkContainer>
                     </Nav>
                     <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">
                             {languages.map(l => dropdownItem(l))}

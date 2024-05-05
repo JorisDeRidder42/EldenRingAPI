@@ -116,9 +116,6 @@
 .links p {
   color: var(--text);
 }
-.card{
-  background-color: transparent;
-}
 .offer{
   font-size: 0.75rem;
 }
@@ -138,4 +135,18 @@
 .dropdown-toggle::after{
   color: var(--navlink);
   margin-right: 1em;
+}
+.card-deck{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.card{
+  background-color: transparent;
+  border:none;
+  width: 15em;
+
+}
+.card-img{
+  width: 100%;
 }

@@ -6,7 +6,9 @@
       "register": "Sign up",
       "forgot":"Forgot password?",
       "info": "Need an account? ",
-      "sign-up":"Sign-up"
+      "sign-up":"Sign-up",
+      "email": "Email",
+      "password": "password"
     },
     "nl": {
       "intro": "De Gouden Orde is verbroken",
@@ -15,7 +17,9 @@
       "register": "registreer",
       "forgot":"Passwoord vergeten?",
       "info": "Een account nodig? ",
-      "sign-up":"Registreer"
+      "sign-up":"Registreer",
+      "email": "Email",
+      "password": "passwoord"
     }
   }
   
