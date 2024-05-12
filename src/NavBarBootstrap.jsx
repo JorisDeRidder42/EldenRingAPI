@@ -28,7 +28,6 @@ const NavBarBootstrap = () => {
             </LinkContainer>
         </NavDropdown.Item>
     )
-
     const handleSignOut = async () => {
         try {
           await signOut(auth);

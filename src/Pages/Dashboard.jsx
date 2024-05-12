@@ -4,6 +4,7 @@ import { useGetItemIds } from "../Hooks/dataHooks";
 import { useState } from "react";
 
 const Dashboard = ({endpoint}) => {
+  
   console.log('endpoint', endpoint)
   const { data: cardsData } = useGetItemIds(endpoint);
   const strEndpoint = endpoint.slice(1);

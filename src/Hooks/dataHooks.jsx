@@ -15,7 +15,7 @@ export const useGetItemIds = (endpoint, query) => {
 export const useGetItem = (endpoint, id) => {
     return useQuery(
         ['id', id, endpoint],
-        async () => (await getItemById(endpoint, id))?.data.data,
+        async () => (await getItemById(endpoint, id))?.data,
         {
             staleTime: Infinity,
             cacheTime: Infinity

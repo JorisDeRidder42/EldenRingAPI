@@ -8,6 +8,7 @@ import NavbarUser from './NavbarUser';
 import { useAuth } from './Context/authContext';
 import LanguageContext from './Context/languageContext';
 import { languages } from './i18n/languages';
+import {DndContext} from '@dnd-kit/core';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,6 +24,7 @@ function App() {
     const { authenticated } = useAuth();
     return (
       <div className='app'>
+         <DndContext>
         <LanguageContext.Provider value={{selectedLanguage, setSelectedLanguage}}>
             <QueryClientProvider client={queryClient}>
               <Suspense fallback={<PageLoader/>}>
@@ -33,6 +35,7 @@ function App() {
               </Suspense>
             </QueryClientProvider>
             </LanguageContext.Provider>
+            </DndContext>
         </div>
     )
 }

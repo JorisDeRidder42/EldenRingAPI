@@ -23,7 +23,7 @@ const Routing = () => {
         />
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
-            <Route path={'/Builder'} element = {<Builder/>}/>
+            <Route path={'/builder'} element = {<Builder endpoint={'/weapons'}/>}/>
              {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
                         <Route index element={<Dashboard endpoint={r.endpoint} />}/>
