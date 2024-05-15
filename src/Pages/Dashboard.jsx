@@ -12,7 +12,7 @@ const Dashboard = ({endpoint}) => {
     return(
       <Container fluid className="bg-img">
         <Container>
-          <h2>{strEndpoint}</h2>
+          <h2 className="header text-white">All {strEndpoint}</h2>
             <Row>
                   {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>
                 <ContentCard {...d} />
