@@ -12,7 +12,7 @@ const Home = () => {
     const {selectedLanguage} = useContext(LanguageContext)
   return(
       <>
-      <Container>
+      <Container >
         <Row>
           <Col  md={4}>
             <Image src={elden} alt={'Knight fighting a dragon'}/>

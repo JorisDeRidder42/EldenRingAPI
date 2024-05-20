@@ -1,19 +1,20 @@
 /* Colors */
 
 :root{
+    --bg: #212529;
     --cta: #C19D53;
     --disabled: #66532c;
-    --text: #fffe;
-    --navlink: #252525;
+    --text-color: #fffe;
+    --navlink: #fffe;
     --navlinkhov: #C19D53;
     --white: #fffe;
     --input: rgba(255, 255, 255, 0.5);
     --box: rgba(36, 36, 36, 0.5); 
     --text: "EB Garamond", serif;
   }
-/* .app{
-  background-color: var(--box);
-} */
+.app{
+  background-color: var(--bg);
+}
 /* Navigation */
 .nav-link{
   color: var(--navlink);
@@ -23,7 +24,7 @@
   /* text-decoration: underline; */
 }
 .nav-link:hover{
-  color: var(--navlinkhov);
+  color: var(--cta);
   /* text-decoration: underline; */
 }
 .loader{
@@ -78,13 +79,9 @@
   background: url('./assets/Login.jpg') center center no-repeat;
   height: calc(100vh - 78.4px);
 }
-.form-box{
-  background-color: var(--box);
-  border: solid 3px var(--cta);
-  padding: 2em;
-}
 .form-label{
-  color: var(--text);
+  color: var(--text-color);
+  font-family: var(--text);
   text-transform: uppercase;
 }
 .logoBig{
@@ -94,11 +91,6 @@
   background-color: var(--input);
   border-radius: 0;
   width: 100%;
-}
-.inputField:focus{
-  background-color: var(--input);
-  color: #C19D53;
-  border: solid #C19D53 1px;
 }
 .inputField::placeholder{
   color: var(--navlink);
@@ -115,7 +107,7 @@
   color: var(--cta);
 }
 .links p {
-  color: var(--text);
+  color: var(--text-color);
 }
 .offer{
   font-size: 0.75rem;

@@ -40,7 +40,7 @@ const NavBarBootstrap = () => {
       };
 
     return (
-        <Navbar expand="sm" className="nav">
+        <Navbar expand="sm"  className="nav navbar navbar-dark bg-dark">
                 <LinkContainer to={"/"}>
                     <Navbar.Brand>
                         <Image src={logo} fluid className="logo"/>
@@ -52,11 +52,11 @@ const NavBarBootstrap = () => {
                     <LinkContainer to={'/builder'}>
                         <Nav.Link>Builder</Nav.Link>
                     </LinkContainer>
-                    <NavDropdown title={'Data'} menuVariant="light" align="end">
+                    <NavDropdown title={'Data'} menuVariant="dark" align="end">
                             {allData.map(l => dropdownLinks(l))}
                     </NavDropdown>
                     </Nav>
-                    <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">
+                    <NavDropdown title={selectedLanguage.flag} menuVariant="dark" align="end">
                             {languages.map(l => dropdownItem(l))}
                     </NavDropdown>
                 </Navbar.Collapse>
