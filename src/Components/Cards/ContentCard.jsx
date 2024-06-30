@@ -16,7 +16,7 @@ const ContentCard = ({image, name, description, id}) => {
         </Card.Body>
         <LinkContainer to={id}>
           <div className='text-center py-4'>
-            <Button className='cta-button'>Details</Button>
+            <Button className='cta-button-secondary'>Details</Button>
           </div>
         </LinkContainer>
       </Card>
