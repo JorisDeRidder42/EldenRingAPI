@@ -11,6 +11,7 @@
   --input: rgba(255, 255, 255, 0.5);
   --box: rgba(6, 6, 6, 0.6); 
   --text: "EB Garamond", serif;
+  --pop: "Poppins", sans-serif
 }
 .app{
 background-color: transparent;
@@ -64,7 +65,7 @@ color:var(--text);
 border:solid var(--cta) 2px;
 border-radius: 0;
 transition: all 0.5s ease-in-out;
-font-family: "Poppins", sans-serif;
+font-family: var(--pop)
 }
 .cta-button:hover{
 background-color: transparent;
@@ -72,7 +73,7 @@ padding: 0.6em;
 color: var(--cta);
 border:solid var(--cta) 2px;
 transition: all 0.5s ease-in-out;
-font-family: "Poppins", sans-serif;
+font-family: var(--pop);
 }
 .logout-button{
 background-color: var(--disabled);
@@ -165,8 +166,21 @@ font-family: var(--text);
   width: 20em;
 }
 .bg-img{
-background: url('./assets/bg.jpg') top center no-repeat;
-background-size: cover;
+  background: url('./assets/parallax/Bg-parallax.jpg') center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100dvh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+}
+.hero{
+  width: 100vw;
+  height: 100dvh;
+  position: absolute;
+  bottom: 0;
+  z-index: 5;
 }
 .header{
 font-family:var(--text)
