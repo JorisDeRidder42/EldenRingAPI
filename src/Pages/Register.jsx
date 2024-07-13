@@ -1,8 +1,9 @@
 import React, { useRef, useState } from "react"
-import { Form, Button, Card, Alert, Container, ProgressBar } from "react-bootstrap"
+import { Form, Button, Card, Alert } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
+import useLanguage from "../Hooks/useLanguage";
 
 const Register = () => {
   const emailRef = useRef()
@@ -12,6 +13,7 @@ const Register = () => {
   const [registered, setRegistered] = useState("");
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
+  const {text} = useLanguage()
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -30,10 +32,10 @@ const Register = () => {
 
   return (
     <div className="box">
-          <Card className='card' style={{ width: '25rem' }}>
+          <Card className='card'>
               <Card.Body className="form-box">
-                <Card.Img variant="top" src={logoBig} />
-                <h2 className="text-center text-white">Sign up</h2>
+              <Card.Img variant="top" className='p-3 card-img' src={logoBig} />
+                <h2 className="text-center text-white mt-3">{text['register']}</h2>
                 {registered && <Alert variant="success" className="alerts">{registered}</Alert>}
                 {error && <Alert variant="danger" className="alerts">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>

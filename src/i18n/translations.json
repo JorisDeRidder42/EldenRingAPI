@@ -2,23 +2,23 @@
     "en": {
       "intro": "The Golden Order has been broken.",
       "eldenLord": "Become the elden lord",
-      "login": "Sign in",
-      "register": "Sign up",
+      "login": "SIGN IN",
+      "register": "SIGN UP",
       "forgot":"Forgot password?",
       "info": "Need an account? ",
-      "sign-up":"Sign-up",
       "email": "Email",
+      "sign-up": "Create an account",
       "password": "password"
     },
     "nl": {
       "intro": "De Gouden Orde is verbroken",
       "eldenLord": "Word de eldenheer",
-      "login": "Inloggen",
-      "register": "registreer",
+      "login": "INLOGGEN",
+      "register": "REGISTREREN",
       "forgot":"Passwoord vergeten?",
       "info": "Een account nodig? ",
-      "sign-up":"Registreer",
       "email": "Email",
+      "sign-up": "Maak een account",
       "password": "passwoord"
     }
   }

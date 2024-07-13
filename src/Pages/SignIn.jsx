@@ -36,10 +36,10 @@ const SignIn = () => {
         <div className="box">
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
-          <Card className='card m-5' style={{ width: '25rem' }}>
+          <Card className='card m-5'>
               <Card.Body className="form-box">
-                <Card.Img variant="top" src={logoBig} />
-                <h2 className="text-center text-white">{text['login']}</h2>
+                <Card.Img variant="top" className='p-3 card-img' src={logoBig} />
+                <h2 className="text-center text-white mt-3">{text['login']}</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
                     <Form.Label>EMAIL</Form.Label>
@@ -53,12 +53,12 @@ const SignIn = () => {
                     {text['login']}
                   </Button>
                   <div className="links">
-                      <p className="w-100 text-center mt-3">
+                    <p className="w-100 text-center mt-3">
                       <Link to="/forgot-password">{text['forgot']}</Link>
                     </p>
-                    <p className="w-100 text-center mt-2">{text['info']}
+                    <p className="w-100 text-center mt-3">
                       <Link to="/register">{text['sign-up']}</Link>
-                    </p> 
+                    </p>
                   </div>
                 </Form>
               </Card.Body>

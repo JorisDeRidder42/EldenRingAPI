@@ -40,7 +40,7 @@ const NavBarBootstrap = () => {
       };
 
     return (
-        <Navbar expand="sm"  className="nav navbar navbar-dark bg-dark">
+        <Navbar expand="sm"  className="nav navbar">
                 <LinkContainer to={"/"}>
                     <Navbar.Brand>
                         <Image src={logo} fluid className="logo"/>
