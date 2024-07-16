@@ -166,21 +166,35 @@ font-family: var(--text);
   width: 20em;
 }
 .bg-img{
-  background: url('./assets/parallax/Bg-parallax.jpg') center center no-repeat;
-  background-size: cover;
   width: 100%;
   height: 100dvh;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -2;
+  z-index: -5;
 }
 .hero{
-  width: 100vw;
-  height: 100dvh;
-  position: absolute;
+  height: 100vh;
+  position: fixed;
   bottom: 0;
   z-index: 5;
+}
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.title{
+  font-family: var(--text);
+  font-size: 3em;
+  text-shadow: 2px 2px 4px #606060ae;
+  margin-bottom: 1em;
+  font-weight: bold;
+}
+.about{
+  background-color:#212529;
+  height: 100vh;
 }
 .header{
 font-family:var(--text)
