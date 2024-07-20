@@ -2,23 +2,17 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const ContentCard = ({image, name, description, id}) => {
+const ContentCard = ({image, name, description, id ,gridView}) => {
 
     return( 
     <LinkContainer to={id}>
-      <Card className="my-3 card">
-        <Card.Title className='m-3 text-white text-center'>{name}</Card.Title>
-        <Card.Img variant="top" className='p-3 card-img' src={image} />
-        <Card.Body>
-          <Card.Text className='text-white'>
+      <Card className='mt-4 pe-auto'>
+        {gridView && <Card.Img variant="top" className='card-img-small' src={image} /> }
+        <Card.Title className='card-title'>{name}</Card.Title>
+          <Card.Text className='card-text'>
           {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf('', 100)) + '...'}
           </Card.Text>
-        </Card.Body>
-        <LinkContainer to={id}>
-          <div className='text-center py-4'>
-            <Button className='cta-button-secondary'>Details</Button>
-          </div>
-        </LinkContainer>
+        {gridView && <Button className='button-tertiairy'>Details</Button>}
       </Card>
     </LinkContainer>
   );
