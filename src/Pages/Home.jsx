@@ -7,6 +7,7 @@ import { useContext } from 'react';
 import { Parallax } from 'react-parallax';
 import HomeAbout from './HomeAbout';
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
+import HomeText from './HomeText';
 
 const Home = () => {
   const {text} = useLanguage()
@@ -23,6 +24,7 @@ const Home = () => {
         </div>
       </Parallax>
       <HomeAbout/>
+      <HomeText/>
     </>
   ) 
 }

@@ -16,7 +16,7 @@ const Dashboard = ({endpoint}) => {
       <>
         <Container> 
             <h2 className="header text-white">All {strEndpoint}</h2>
-            <button className="button-tertiairy" onClick={() => { setGridView(!gridView)}}>{gridView ? <BsListUl style={IconStyle} /> : <BsFillGrid3X3GapFill style={IconStyle} /> }</button>
+            <button className="button" onClick={() => { setGridView(!gridView)}}>{gridView ? <BsListUl style={IconStyle} /> : <BsFillGrid3X3GapFill style={IconStyle} /> }</button>
             {gridView ? 
             (<Row>
                   {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>

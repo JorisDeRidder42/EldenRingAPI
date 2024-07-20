@@ -10,9 +10,9 @@ const ContentCard = ({image, name, description, id ,gridView}) => {
         {gridView && <Card.Img variant="top" className='card-img-small' src={image} /> }
         <Card.Title className='card-title'>{name}</Card.Title>
           <Card.Text className='card-text'>
-          {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf('', 100)) + '...'}
+          {description.slice(0,description.indexOf('.')) + '...' && description.slice(0,description.indexOf('', 150)) + '...'}
           </Card.Text>
-        {gridView && <Button className='button-tertiairy'>Details</Button>}
+        {gridView && <Button className='button'>Details</Button>}
       </Card>
     </LinkContainer>
   );
