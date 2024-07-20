@@ -14,7 +14,7 @@
   --pop: "Poppins", sans-serif
 }
 .app{
-background-color: transparent;
+background-color: var(--bg);
 /* background-color: var(--bg); */
 }
 /* Navigation */

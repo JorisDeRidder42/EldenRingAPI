@@ -2,24 +2,37 @@ import { Col, Container, Row } from "react-bootstrap";
 import ContentCard from "../Components/Cards/ContentCard";
 import { useGetItemIds } from "../Hooks/dataHooks";
 import { useState } from "react";
+import { BsListUl,BsFillGrid3X3GapFill } from "react-icons/bs";
 
 const Dashboard = ({endpoint}) => {
+  const [gridView, setGridView] = useState(false);
+  {console.log('gridView',gridView)}
   
-  console.log('endpoint', endpoint)
   const { data: cardsData } = useGetItemIds(endpoint);
+  const IconStyle = { color: "white", fontSize: '1.5em'};
   const strEndpoint = endpoint.slice(1);
 
     return(
-      <Container fluid className="bg-img">
-        <Container>
-          <h2 className="header text-white">All {strEndpoint}</h2>
-            <Row>
+      <>
+        <Container> 
+            <h2 className="header text-white">All {strEndpoint}</h2>
+            <button className="cta-button-secondary" onClick={() => { setGridView(!gridView)}}>{gridView ? <BsListUl style={IconStyle} /> : <BsFillGrid3X3GapFill style={IconStyle} /> }</button>
+            {gridView ? 
+            (<Row>
                   {cardsData?.data.map(d => <Col xs={12} sm={6} md={4} lg={3} key={d.id}>
                 <ContentCard {...d} />
                   </Col>)}
-            </Row>
+            </Row>)
+            :
+            (
+              <>
+                {cardsData?.data.map(d => <div key={d.id} className="list">
+                  <ContentCard {...d} />
+                </div>)}
+              </>
+            )}
           </Container>
-          </Container>
+          </>
     )
 }
 export default Dashboard;

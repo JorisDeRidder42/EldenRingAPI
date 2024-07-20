@@ -12,7 +12,7 @@ const Home = () => {
   const {text} = useLanguage()
     const {selectedLanguage} = useContext(LanguageContext)
   return(
-      <div className='bg-img'>
+      <>
       <Parallax blur={2} bgImage={bg} strength={-200}>
         <div className='center'>
         <h1 className='text-white title'>The Golden Order has been broken.</h1>
@@ -23,7 +23,7 @@ const Home = () => {
         </div>
       </Parallax>
       <HomeAbout/>
-    </div>
+    </>
   ) 
 }
 export default Home;
