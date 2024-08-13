@@ -26,7 +26,6 @@ const HomeText = () => {
                     </Col>
                 </Row>
             </Row>
-            <div className="line-cta"></div>
         </Container>
         </>
     )
