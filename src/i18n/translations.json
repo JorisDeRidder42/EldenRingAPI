@@ -2,24 +2,36 @@
     "en": {
       "intro": "The Golden Order has been broken.",
       "eldenLord": "Become the elden lord",
+      "textIntro": "In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erdtree, has been shattered. Marika's offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will. And now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring.",
+      "buyNow": "Buy now ",
+      "tarnished": "Tarnished of the Lands Between",
+      "tarnishedText" : "The Golden Order has been shattered. Throughout the Lands Between, Demigods holding shards of the Elden Ring squabble and make war over the ruins of a perfect realm, now abandoned by the golden guidance of the Greater Will. As the echoes of this conflict thunder in the distance, an outcast arrives. Once, their ancestors called the Lands Between home, but the blessed light of grace was lost to their tribe long ago and they were expelled from the kingdom. They are the Tarnished, and they have returned to claim the Elden Lordship promised to them by legend. This is the world of ELDEN RING. As a Tarnished, the Lands Between await your exploration. You will ride through the vast fields, gallop over rolling hills, and leap to the top of rocky crags on your ephemeral steed, revealing a world teeming with life and danger. In the grand fields where your journey begins, mythic creatures prowl the veldts, ineffable horrors lurk in the bogs and marshes, and all manner of soldiers and itinerant warriors are waiting for those who wander unawares. Shy creatures nibble on sweet grasses or scuttle through the underbrush. Those few inhabitants who are not mad or hostile linger near the broken remnants of cities left behind by the Shattering. They may have answers for you, if you help them. Above them all, ensconced in vast legacies bristling with traps, secrets, and guardians, the Demigods – warped Lords who began as members of a royal and noble family – rule their domains with the unyielding power granted by shards of the Elden Ring.",
       "login": "SIGN IN",
       "register": "SIGN UP",
       "forgot":"Forgot password?",
       "info": "Need an account? ",
       "email": "Email",
       "sign-up": "Create an account",
-      "password": "password"
+      "alreadyAccount" : "Already have an account? ",
+      "password": "password",
+      "sign-in": "inloggen"
     },
     "nl": {
       "intro": "De Gouden Orde is verbroken",
       "eldenLord": "Word de eldenheer",
+      "textIntro": "In de Tussenlanden, geregeerd door Koningin Marika de Eeuwige, is de Elden Ring, de bron van de Erdtree, verbrijzeld. Marika's nakomelingen, allemaal halfgoden, eisten de scherven van de Elden Ring op die bekend staan als de Grote Runen, en de waanzinnige smet van hun pas ontdekte kracht veroorzaakte een oorlog: De Versplintering. Een oorlog die betekende dat de Grotere Wil in de steek werd gelaten. En nu zal de leiding van genade worden gebracht aan de Bezoedelden die werden afgewezen door de genade van goud en verbannen uit de Tussenlanden. Gij doden die nog leeft, uw genade lang verloren, volg het pad naar de Tussenlanden voorbij de mistige zee om voor de Ring der Ouden te staan.",
+      "buyNow": "Koop nu ",
+      "tarnished": "Bezoedeld door de landen tussen",
+      "tarnishedText": "De Gouden Orde is verbrijzeld. Overal in het Tussenland ruziën en vechten halfgoden die scherven van de Ring van Elden bezitten over de ruïnes van een volmaakt rijk, dat nu verlaten is door de gouden leiding van de Grotere Wil. Terwijl de echo's van dit conflict in de verte weerklinken, arriveert er een verschoppeling. Ooit noemden hun voorouders de Lands Between hun thuis, maar het gezegende licht van genade is lang geleden voor hun stam verloren gegaan en ze zijn uit het koninkrijk verdreven. Zij zijn de Tarnished en ze zijn teruggekeerd om het Elden Lordship op te eisen dat hen door de legende is beloofd. Dit is de wereld van ELDEN RING. Als een Tarnished wachten de Tussenlanden op jouw verkenningstocht. Je rijdt door de uitgestrekte velden, galoppeert over glooiende heuvels en springt naar de top van rotswanden op je vergankelijke ros, waardoor je een wereld te zien krijgt die wemelt van leven en gevaar. In de uitgestrekte velden waar je reis begint, sluipen mythische wezens rond, liggen onuitsprekelijke verschrikkingen op de loer in de moerassen en moerassen, en wachten allerlei soldaten en rondtrekkende krijgers op wie onverwachts ronddwaalt. Verlegen wezens knabbelen aan zoete grassen of kruipen door het kreupelhout. De weinige inwoners die niet gek of vijandig zijn, hangen rond bij de kapotte overblijfselen van steden die door de Versplintering zijn achtergelaten. Ze hebben misschien antwoorden voor je, als je ze helpt. Boven hen allen, genesteld in uitgestrekte erfenissen boordevol vallen, geheimen en beschermers, heersen de Demigods - verwrongen Lords die begonnen als leden van een koninklijke en adellijke familie - over hun domeinen met de onverzettelijke macht die wordt verleend door scherven van de Elden Ring.",
       "login": "INLOGGEN",
       "register": "REGISTREREN",
       "forgot":"Passwoord vergeten?",
       "info": "Een account nodig? ",
       "email": "Email",
       "sign-up": "Maak een account",
-      "password": "passwoord"
+      "alreadyAccount" : "Heb je al een account? ",
+      "password": "passwoord",
+      "sign-in": "inloggen"
     }
   }
   

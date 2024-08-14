@@ -52,7 +52,7 @@ const Register = () => {
                   </Button>
                   <div className="links">
                     <p className="w-100 text-center mt-2">
-                      Already have an account? <Link to="/signIn">Sign in</Link>
+                      {text['alreadyAccount']}<Link to="/signIn">{text['sign-in']}</Link>
                     </p> 
                   </div>
                 </Form>

@@ -6,7 +6,7 @@ const ContentCard = ({image, name, description, id ,gridView}) => {
 
     return( 
     <LinkContainer to={id}>
-      <Card className='mt-4 pe-auto'>
+      <Card className='mt-4 content-card'>
         {gridView && <Card.Img variant="top" className='card-img-small' src={image} /> }
         <Card.Title className='card-title'>{name}</Card.Title>
           <Card.Text className='card-text'>

@@ -34,8 +34,8 @@ const appData = [
     },
     {
         id: 4,
-        title: 'Bosses',
-        endpoint: '/bosses',
-        detail: <BossesDetailCard endpoint={'/bosses'}/>
+        title: 'Armors',
+        endpoint: '/armors',
+        detail: <ItemDetailCard endpoint={'/armors'}/>
     }
 ]

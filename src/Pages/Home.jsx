@@ -1,7 +1,6 @@
 
 import hero from '../assets/parallax/charachter.png';
 import bg from '../assets/parallax/Bg-parallax.jpg';
-import LanguageContext from '../Context/languageContext';
 import useLanguage from '../Hooks/useLanguage';
 import { useContext } from 'react';
 import { Parallax } from 'react-parallax';
@@ -11,12 +10,11 @@ import HomeText from './HomeText';
 
 const Home = () => {
   const {text} = useLanguage()
-    const {selectedLanguage} = useContext(LanguageContext)
   return(
       <>
       <Parallax blur={2} bgImage={bg} strength={-200}>
         <div className='center'>
-        <h1 className='text-white title'>The Golden Order has been broken.</h1>
+        <h1 className='text-white title'>{text['intro']}</h1>
         <img src={hero} className='hero' alt="hero" />
         </div>
         <div className='icon'>
