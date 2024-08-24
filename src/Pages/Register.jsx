@@ -32,9 +32,9 @@ const Register = () => {
 
   return (
     <div className="box">
-          <Card className='card'>
+          <Card className='kaart'>
               <Card.Body className="form-box">
-              <Card.Img variant="top" className='p-3 card-img' src={logoBig} />
+              <Card.Img variant="top" className='p-3 kaart-img' src={logoBig} />
                 <h2 className="text-center text-white mt-3">{text['register']}</h2>
                 {registered && <Alert variant="success" className="alerts">{registered}</Alert>}
                 {error && <Alert variant="danger" className="alerts">{error}</Alert>}

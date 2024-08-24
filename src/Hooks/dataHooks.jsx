@@ -37,7 +37,7 @@ const client = axios.create({
  */
 const getItems = (endpoint) => {
     return client.get(
-        `${endpoint}`
+        `${endpoint}?limit=200`
     )
 }
 

@@ -36,9 +36,9 @@ const SignIn = () => {
         <div className="box">
         {loggedIn && <Alert variant="success" className="alert">{loggedIn }</Alert>}
         {error && <Alert variant="danger">{error}</Alert>}
-          <Card className='card m-5'>
+          <Card className='kaart m-5'>
               <Card.Body className="form-box">
-                <Card.Img variant="top" className='p-3 card-img' src={logoBig} />
+                <Card.Img variant="top" className='p-3 kaart-img' src={logoBig} />
                 <h2 className="text-center text-white mt-3">{text['login']}</h2>
                 <Form onSubmit={handleSubmit}>
                   <Form.Group id="email">
