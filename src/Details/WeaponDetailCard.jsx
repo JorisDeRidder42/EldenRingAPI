@@ -32,12 +32,14 @@ const WeaponDetailCard = ({endpoint}) => {
           <div> 
             <h3 className='text-white text-center'>{weaponData?.data.name}</h3>
             <Row>
-            <Col md={4}>
-            <Card.Img variant="top" src={weaponData?.data.image} className="w-2"/>
-            </Col>
-            <Col md={6}>
-                <p className='text-white'><FaWeightHanging /> {weaponData?.data.category}</p>
-                <p className='text-white'><PiSword/> {weaponData?.data.weight}</p>
+              <Col md={4}>
+              <Card.Img variant="top" src={weaponData?.data.image}  className="pt-3 flex justify-center text-center"/>
+              </Col>
+            </Row>
+            <Row>
+            <Col className='text-center'>
+                <span className='mr-3 text-white'><FaWeightHanging className='mr-3'/> {weaponData?.data.category}</span>
+                <span className='mr-3 text-white'><PiSword className='mr-3'/> {weaponData?.data.weight}</span>
             </Col>
             </Row>
             <Card.Body>
