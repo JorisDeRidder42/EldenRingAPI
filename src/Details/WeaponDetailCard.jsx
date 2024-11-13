@@ -28,19 +28,15 @@ const WeaponDetailCard = ({endpoint}) => {
     return(
       <Container>
         <Row>
-          <Col md={{  span: 6, offset: 3 }}>
           <div> 
             <h3 className='text-white text-center'>{weaponData?.data.name}</h3>
-            <Row>
-              <Col md={4}>
-              <Card.Img variant="top" src={weaponData?.data.image}  className="pt-3 flex justify-center text-center"/>
+            <Row className="flex justify-center">
+              <Col md={2} className="flex justify-center items-center">
+                <Card.Img variant="top" src={weaponData?.data.image} />
               </Col>
             </Row>
             <Row>
-            <Col className='text-center'>
-                <span className='mr-3 text-white'><FaWeightHanging className='mr-3'/> {weaponData?.data.category}</span>
-                <span className='mr-3 text-white'><PiSword className='mr-3'/> {weaponData?.data.weight}</span>
-            </Col>
+            
             </Row>
             <Card.Body>
                    <Card.Text className='text-white'>
@@ -48,7 +44,7 @@ const WeaponDetailCard = ({endpoint}) => {
                   </Card.Text>
               </Card.Body>
           </div>
-          </Col>
+
         </Row>
       </Container>
 
