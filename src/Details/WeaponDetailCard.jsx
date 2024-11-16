@@ -28,23 +28,27 @@ const WeaponDetailCard = ({endpoint}) => {
     return(
       <Container>
         <Row>
-          <div> 
             <h3 className='text-white text-center'>{weaponData?.data.name}</h3>
-            <Row className="flex justify-center">
-              <Col md={2} className="flex justify-center items-center">
-                <Card.Img variant="top" src={weaponData?.data.image} />
+            <Row className="d-flex justify-content-center align-items-center">
+              <Col md={2} className="d-flex justify-content-center">
+                <Card.Img variant="top" src={weaponData?.data.image} className="img-fluid"/>
               </Col>
             </Row>
-            <Row>
-            
-            </Row>
+            <div className="text-white flex">
+              <p className="flex text-center">
+                <FaWeightHanging /> 
+                <span>{weaponData?.data.weight}</span>
+                <PiSword /> 
+                <span>{weaponData?.data.category}</span>
+              </p>
+            </div>
+          <Col className="flex justify-content-center" md={4}>
             <Card.Body>
                    <Card.Text className='text-white'>
                      {weaponData?.data.description}
                   </Card.Text>
               </Card.Body>
-          </div>
-
+          </Col>
         </Row>
       </Container>
 
