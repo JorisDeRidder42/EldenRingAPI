@@ -34,51 +34,50 @@ const WeaponDetailCard = ({endpoint}) => {
                 <Card.Img variant="top" src={weaponData?.data.image} className="img-fluid"/>
               </Col>
             </Row>
-            <div className="text-white flex">
-              <p className="flex text-center">
-                <FaWeightHanging /> 
-                <span>{weaponData?.data.weight}</span>
-                <PiSword /> 
-                <span>{weaponData?.data.category}</span>
-              </p>
-            </div>
-          <Col className="flex justify-content-center" md={4}>
-            <Card.Body>
-                   <Card.Text className='text-white'>
-                     {weaponData?.data.description}
-                  </Card.Text>
-              </Card.Body>
-          </Col>
-        </Row>
-      </Container>
+            <Row className="d-flex justify-content-center align-items-center">
+              <Col md={6} className="text-white flex justify-center">
+                <p className="flex text-center">
+                  <FaWeightHanging /> 
+                  <span>{weaponData?.data.weight}</span>
+                  <PiSword /> 
+                  <span>{weaponData?.data.category}</span>
+                </p>  
+                <Card.Body>
+                      <Card.Text className='text-white'>
+                        {weaponData?.data.description}
+                      </Card.Text>
+                  </Card.Body>
+                </Col>
+              </Row>
+          </Row>
 
-          // <Col md={3}>
-          // <h5 className='text-white'>Attack</h5>
-          // <ListGroup>
-          //   {weaponData?.data.attack.map(a => <ListGroup.Item key={a.name} action>{a.name} - {a.amount}</ListGroup.Item>)}
-          // </ListGroup>
-          // </Col>
-          // <Col md={3}>
-          // <h5 className='text-white'>Defence</h5>
-          // <ListGroup>
-          // {weaponData?.data.defence.map(d => <ListGroup.Item key={d.name} action>{d.name} - {d.amount}</ListGroup.Item>)}
-          // </ListGroup>
-          // </Col>
-          // <Col md={3}>
-          // <h6 className='text-white'>ScalesWith</h6>
-          // <ListGroup>
-          // {weaponData?.data.scalesWith.map(s => <ListGroup.Item key={s.name}>{s.name} - {s.scaling}</ListGroup.Item>)}
-          // </ListGroup>
-          // <Col xs={12} sm={6} md={12}>
-          // <h6 className='text-white mt-3'>requiredAttributes</h6>
-          // <ListGroup>
-          // {weaponData?.data.requiredAttributes.map(r => <ListGroup.Item key={r.name}>{r.name} - {r.amount}</ListGroup.Item>)}
-          // </ListGroup>
-          // </Col>
-          // </Col>
-          // </Row>
-          // </Container>
-          // </Card>
+          <Row className="mb-5">
+          <Col md={4} xs={12}>
+          <h5 className='text-white'>Attack</h5>
+          <ListGroup variant="flush">
+            {weaponData?.data.attack.map(a => <ListGroup.Item key={a.name} action>{a.name} - {a.amount}</ListGroup.Item>)}
+          </ListGroup>
+          </Col>
+          <Col md={4} xs={12}>
+            <h6 className='text-white mt-3'>required</h6>
+            <ListGroup variant="flush">
+            {weaponData?.data.requiredAttributes.map(r => <ListGroup.Item key={r.name}>{r.name} - {r.amount}</ListGroup.Item>)}
+            </ListGroup>
+          <Col md={12} className='mt-3'>
+            <h6 className='text-white'>Scales</h6>
+          <ListGroup variant="flush">
+          {weaponData?.data.scalesWith.map(s => <ListGroup.Item key={s.name}>{s.name} - {s.scaling}</ListGroup.Item>)}
+          </ListGroup>
+          </Col>
+          </Col>
+          <Col md={4} xs={12}>
+          <h5 className='text-white'>Guard</h5>
+          <ListGroup variant="flush">
+          {weaponData?.data.defence.map(d => <ListGroup.Item key={d.name} action>{d.name} - {d.amount}</ListGroup.Item>)}
+          </ListGroup>
+          </Col>
+          </Row>
+          </Container>
     )
   }
 export default WeaponDetailCard;
