@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { useGetItem } from '../Hooks/dataHooks';
 import CardLoader from '../Loader/CardLoader';
 import { FaWeightHanging } from "react-icons/fa";
-import { PiSword } from "react-icons/pi";
+import { PiSword,PiShield, PiHand,PiHandFist, PiArrowLeft,PiArrowRight  } from "react-icons/pi";
 
 const WeaponDetailCard = ({endpoint}) => {
     return(
@@ -28,6 +28,11 @@ const WeaponDetailCard = ({endpoint}) => {
     return(
       <Container>
         <Row>
+            <Col md={4} className='text-white'>
+            <button className='btn' onClick={() => history(-1)}>
+              <h6><PiArrowLeft/>Back</h6>
+            </button>
+            </Col>
             <h3 className='text-white text-center'>{weaponData?.data.name}</h3>
             <Row className="d-flex justify-content-center align-items-center">
               <Col md={2} className="d-flex justify-content-center">
@@ -53,29 +58,36 @@ const WeaponDetailCard = ({endpoint}) => {
 
           <Row className="mb-5">
           <Col md={4} xs={12}>
-          <h5 className='text-white'>Attack</h5>
+          <h5 className='text-white'><PiSword/>Attack</h5>
           <ListGroup variant="flush">
             {weaponData?.data.attack.map(a => <ListGroup.Item key={a.name} action>{a.name} - {a.amount}</ListGroup.Item>)}
           </ListGroup>
           </Col>
           <Col md={4} xs={12}>
-            <h6 className='text-white mt-3'>required</h6>
+            <h6 className='text-white mt-3'><PiHand/>Required</h6>
             <ListGroup variant="flush">
             {weaponData?.data.requiredAttributes.map(r => <ListGroup.Item key={r.name}>{r.name} - {r.amount}</ListGroup.Item>)}
             </ListGroup>
           <Col md={12} className='mt-3'>
-            <h6 className='text-white'>Scales</h6>
+            <h6 className='text-white'><PiHandFist/>Scales</h6>
           <ListGroup variant="flush">
           {weaponData?.data.scalesWith.map(s => <ListGroup.Item key={s.name}>{s.name} - {s.scaling}</ListGroup.Item>)}
           </ListGroup>
           </Col>
           </Col>
           <Col md={4} xs={12}>
-          <h5 className='text-white'>Guard</h5>
+          <h5 className='text-white'><PiShield/>Guard</h5>
           <ListGroup variant="flush">
           {weaponData?.data.defence.map(d => <ListGroup.Item key={d.name} action>{d.name} - {d.amount}</ListGroup.Item>)}
           </ListGroup>
           </Col>
+          </Row>
+          <Row className='text-white'>
+          <Col md={4}>
+            <button className='btn text-white' onClick={() => history(-1)}>
+              <h6><PiArrowLeft/>Back</h6>
+            </button>
+            </Col>
           </Row>
           </Container>
     )
