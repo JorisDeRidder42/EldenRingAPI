@@ -6,7 +6,6 @@ import { BsListUl,BsFillGrid3X3GapFill } from "react-icons/bs";
 
 const Dashboard = ({endpoint}) => {
   const [gridView, setGridView] = useState(true);
-  {console.log('gridView 1',gridView)}
   
   const { data: cardsData } = useGetItemIds(endpoint);
   const IconStyle = { color: "white", fontSize: '1.5em'};

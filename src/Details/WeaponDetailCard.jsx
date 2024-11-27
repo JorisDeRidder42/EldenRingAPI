@@ -27,12 +27,12 @@ const WeaponDetailCard = ({endpoint}) => {
     
     return(
       <Container>
-        <Row>
-            <Col md={4} className='text-white'>
-            <button className='btn' onClick={() => history(-1)}>
+        <Col md={4}>
+            <button className='btn text-white' onClick={() => history(-1)}>
               <h6><PiArrowLeft/>Back</h6>
             </button>
             </Col>
+        <Row>
             <h3 className='text-white text-center'>{weaponData?.data.name}</h3>
             <Row className="d-flex justify-content-center align-items-center">
               <Col md={2} className="d-flex justify-content-center">
@@ -41,11 +41,10 @@ const WeaponDetailCard = ({endpoint}) => {
             </Row>
             <Row className="d-flex justify-content-center align-items-center">
               <Col md={6} className="text-white flex justify-center">
-                <p className="flex text-center">
-                  <FaWeightHanging /> 
-                  <span>{weaponData?.data.weight}</span>
-                  <PiSword /> 
-                  <span>{weaponData?.data.category}</span>
+                <p className="text-center d-flex justify-content-around detail-text">  
+                  <span><FaWeightHanging /> {weaponData?.data.weight}kg</span>
+
+                  <span><PiSword />{weaponData?.data.category}</span>
                 </p>  
                 <Card.Body>
                       <Card.Text className='text-white'>
