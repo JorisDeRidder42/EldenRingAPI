@@ -49,9 +49,6 @@ const NavBarBootstrap = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                    <LinkContainer to={'/builder'}>
-                        <Nav.Link>Builder</Nav.Link>
-                    </LinkContainer>
                     <NavDropdown title={'Data'} menuVariant="dark" align="end">
                             {allData.map(l => dropdownLinks(l))}
                     </NavDropdown>

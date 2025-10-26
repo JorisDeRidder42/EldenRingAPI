@@ -7,8 +7,6 @@ import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
 import SignIn from './Pages/SignIn';
 import Dashboard from './Pages/Dashboard';
-import WeaponDetailCard from './Details/WeaponDetailCard';
-import Builder from './Pages/Builder';
 
 const Routing = () => {
     const { authenticated } = useAuth();
@@ -23,7 +21,6 @@ const Routing = () => {
         />
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
-            <Route path={'/builder'} element = {<Builder endpoint={'weapons'}/>}/>
              {allData.map(r => (
                     <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
                         <Route index element={<Dashboard endpoint={r.endpoint} />}/>
