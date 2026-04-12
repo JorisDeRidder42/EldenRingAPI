@@ -53,6 +53,11 @@ const NavBarBootstrap = () => {
                             {allData.map(l => dropdownLinks(l))}
                     </NavDropdown>
                     </Nav>
+                    <Nav>
+                        <LinkContainer to={'/builder'}>
+                            <Nav.Link>Builder</Nav.Link>
+                        </LinkContainer>
+                    </Nav>
                     <NavDropdown title={selectedLanguage.flag} menuVariant="dark" align="end">
                             {languages.map(l => dropdownItem(l))}
                     </NavDropdown>

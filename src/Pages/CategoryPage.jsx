@@ -1,0 +1,6 @@
+import WeaponDetailCard  from '../Details/WeaponDetailCard';
+
+const CategoryPage = ({ endpoint }) => {
+  if (endpoint === "/weapons") return <WeaponDetailCard />;
+}
+export default CategoryPage;

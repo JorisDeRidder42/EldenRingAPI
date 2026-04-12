@@ -6,6 +6,8 @@ import {ProtectedRoute} from './ProtectedRoute';
 import { useAuth } from './Context/authContext';
 import Register from './Pages/Register';
 import SignIn from './Pages/SignIn';
+import CategoryPage from './Pages/CategoryPage';
+import BuilderPage from './features/builder/BuilderPage';
 import Dashboard from './Pages/Dashboard';
 
 const Routing = () => {
@@ -21,15 +23,13 @@ const Routing = () => {
         />
             <Route path={'/signIn'} element={<SignIn/>}/>
             <Route path={'/register'} element={<Register/>}/>
-             {allData.map(r => (
-                    <Route key={r.id} path={`${r.endpoint}`} element={<Outlet/>}>
-                        <Route index element={<Dashboard endpoint={r.endpoint} />}/>
-                        <Route path={':id'} element={r.detail}/>
+              {allData.map(r => (
+                    <Route key={r.id} path={`${r.endpoint}`} element={<Dashboard endpoint={r.endpoint}/>}>
+                        {/* <Route index element={<Dashboard endpoint={r.endpoint} />}/> */}
+                        {/* <Route path={':id'} element={r.detail}/> */}
                     </Route>
                 ))}
-
-
-
+            <Route path={'/builder'} element={<BuilderPage/>}/>
 
             <Route path={'*'} element={<PageNotFound/>}/>
         </Routes>
