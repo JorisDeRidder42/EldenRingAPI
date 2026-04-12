@@ -12,18 +12,19 @@ function Slot({ label, item, onClick, active }) {
         color: active ? "white" : "black",
       }}
     >
-      <strong>{label}</strong>
+       <strong>{label}</strong>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 5 }}>
+            {item?.image && (
+              <img
+                src={item.image}
+                alt={item.name}
+                style={{ width: 30, height: 30 }}
+              />
+            )}
 
-      <div style={{ marginTop: 5 }}>
-        {item ? (
-          <div>
-            <div>{item.name}</div>
+            <span>{item?.name || "Empty"}</span>
           </div>
-        ) : (
-          <span style={{ opacity: 0.5 }}>Empty</span>
-        )}
-      </div>
-    </div>
+        </div>
   );
 }
 
