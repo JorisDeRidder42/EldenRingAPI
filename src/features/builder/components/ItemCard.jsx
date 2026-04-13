@@ -1,11 +1,11 @@
-const ItemCard = ({ item, onClick, isSelected }) => {
+const ItemCard = ({ item, onClick }) => {
   return (
     <div className="item" onClick={onClick}>
       {item?.image && (
         <img
           src={item.image}
           alt={item.name}
-          style={{ width: 40, height: 40 }}
+          style={{ width: 30, height: 30 }}
         />
       )}
 

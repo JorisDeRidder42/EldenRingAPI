@@ -55,7 +55,7 @@ const BuilderPage = () => {
         <h2>Weapons</h2>
         {items.length === 0 && <h2>No items available</h2>}
         {items?.map(item => (
-          <ItemCard className="item-kaart"
+          <ItemCard className="item-card"
             item={item}
             key={item.id}
             onClick={() => equip(item)}

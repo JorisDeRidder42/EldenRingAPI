@@ -2,16 +2,42 @@ export const calculateStats = (build) => {
   const items = Object.values(build).filter(Boolean);
 
 
-      let attack = 0;
-      let defense = 0;
-      let weight = 0;
-
-      items.forEach((item) => {
-        attack += item?.attack?.physical ?? item?.attack ?? 0;
-        defense += item?.defense?.physical ?? item?.defense ?? 0;
-        weight += item?.weight ?? 0;
+  const stats = {
+    attack: {
+      phy: 0,
+      mag: 0,
+      fire: 0,
+      light: 0,
+      holy: 0,
+      crit: 0,
+    },
+    defense: {
+      phy: 0,
+      mag: 0,
+      fire: 0,
+      light: 0,
+      holy: 0,
+      boost: 0,
+    },
+    weight: 0,
+  };
+    items.forEach((item) => {
+      item.attack?.forEach((a) => {
+        const key = a.name.toLowerCase();
+        if (stats.attack[key] !== undefined) {
+          stats.attack[key] += a.amount;
+        }
       });
-      const stats = { attack, defense, weight };
+
+    item.defence?.forEach((d) => {
+      const key = d.name.toLowerCase();
+      if (stats.defense[key] !== undefined) {
+        stats.defense[key] += d.amount;
+      }
+    });
+
+    stats.weight += item.weight ?? 0;
+  });
       console.log('stats', stats);
       return stats;
 };

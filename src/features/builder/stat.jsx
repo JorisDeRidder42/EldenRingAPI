@@ -1,8 +1,8 @@
-const Stat = ({ label, value }) => {
+const Stat = ({ label, value, className }) => {
   return (
-    <div className="row">
+    <div className="statRow">
       <span>{label}</span>
-      <span>{value}</span>
+      <span className={className}>{value}</span>
     </div>
   );
 };
