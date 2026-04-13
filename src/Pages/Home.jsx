@@ -1,12 +1,12 @@
 
 import hero from '../assets/parallax/charachter.png';
 import bg from '../assets/parallax/Bg-parallax.jpg';
-import useLanguage from '../Hooks/useLanguage';
 import { useContext } from 'react';
 import { Parallax } from 'react-parallax';
 import HomeAbout from './HomeAbout';
 import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import HomeText from './HomeText';
+import useLanguage from "../i18n/useLanguage";
 
 const Home = () => {
   const {text} = useLanguage()

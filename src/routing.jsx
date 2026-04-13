@@ -1,5 +1,5 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
-import { getAllAppData } from './Datas/AppData';
+import { getAllAppData } from './api/AppData';
 import Home from './Pages/Home';
 import PageNotFound from './Pages/PageNotFound'
 import {ProtectedRoute} from './ProtectedRoute';

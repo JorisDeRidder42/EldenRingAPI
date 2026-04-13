@@ -1,78 +1,79 @@
 import { useBuilder } from "./useBuilder";
-import { useWeapons } from "../../Hooks/path/useWeapons";
-import { useArmors } from "../../Hooks/useArmors";
-import Slot from "../builder/slots";
-import ItemCard from "../../Components/ItemCard";
+import Slot from "../builder/components/slots";
+import ItemCard from "../builder/components/ItemCard";
+import StatsPanel from "./StatsPanel";
+import { useItems } from "./hooks/useItems";
 
-export default function BuilderPage() {
-  const { data: weaponsData } = useWeapons();
-  const { data: armorData } = useArmors();
+const BuilderPage = () => {
+  const { data: weaponsData } = useItems("/weapons");
+  const { data: armorsData } = useItems("/armors");
 
-  // FIX: juiste data extractie
-const weapons = weaponsData?.data ?? [];
-const armors = armorData?.data ?? [];
 
+  const weapons = weaponsData.data ?? [];
+  const armors = armorsData.data ?? [];  
+  
   const { build, selectedSlot, selectSlot, equip } = useBuilder();
 
 
-const isArmorSlot = ["head", "chest", "legs"].includes(selectedSlot);
+    const items = (() => {
+    switch (selectedSlot) {
+      case "rightHand":
+      case "leftHand":
+        return weapons;
 
-const items = isArmorSlot ? armors : weapons;
+    case "head":
+      return armors.filter(item =>
+        item.category?.toLowerCase().includes("helm")
+        
+      );
 
+    case "chest":
+      return armors.filter(item =>
+        item.category?.toLowerCase().includes("chest")
+      );
+
+    case "legs":
+      return armors.filter(item =>
+        item.category?.toLowerCase().includes("leg")
+      );
+      case "hands":
+      return armors.filter(item =>
+        item.category?.toLowerCase().includes("gauntlet")
+      );
+
+    default:
+      return [];
+  }
+})();
+  console.log('items', items);
+  
   return (
-    <div style={{ display: "flex", gap: 20, padding: 20 }}>
+    <div className="build-slot">
 
       {/* LEFT: ITEMS */}
-      <div
-        style={{
-          flex: 1,
-          background: "#2a2a2a",
-          color: "white",
-          padding: 20,
-          borderRadius: 10,
-          minHeight: "100vh",
-          overflowY: "auto",
-        }}
-      >
+      <div className="left">
         <h2>Weapons</h2>
-
+        {items.length === 0 && <h2>No items available</h2>}
         {items?.map(item => (
-          <ItemCard
+          <ItemCard className="item-kaart"
             item={item}
             key={item.id}
             onClick={() => equip(item)}
-            style={{
-              border: "1px solid gray",
-              padding: 10,
-              marginBottom: 10,
-              cursor: "pointer",
-              borderRadius: 6,
-              background: "#2a2a2a",
-            }}
-          >
+            isSelected={build[selectedSlot]?.id === item.id}
+            >
             <strong>{item.name}</strong>
             <img
               src={item.image}
               alt={item.name}
-              style={{ width: 40, height: 40, marginRight: 10 }}
             />
           </ItemCard>
         ))}
       </div>
 
       {/* RIGHT: BUILD */}
-      <div
-        style={{
-          flex: 1,
-          background: "#2a2a2a",
-          color: "white",
-          padding: 20,
-          borderRadius: 10,
-          minHeight: "100vh",
-        }}
-      >
+      <div className="right">
         <h2>Build</h2>
-        <h3>Selected slot: {selectedSlot}</h3>
+        <h5>Selected slot: {selectedSlot || "None"}</h5>
 
         <Slot
           label="Right Hand"
@@ -86,6 +87,12 @@ const items = isArmorSlot ? armors : weapons;
           active={selectedSlot === "leftHand"}
           onClick={() => selectSlot("leftHand")}
           item={build.leftHand}
+        />
+        <Slot
+          label="Hands"
+          active={selectedSlot === "hands"}
+          onClick={() => selectSlot("hands")}
+          item={build.hands}
         />
 
         <Slot
@@ -109,6 +116,9 @@ const items = isArmorSlot ? armors : weapons;
           item={build.legs}
         />
       </div>
+      <StatsPanel build={build}/>
     </div>
   );
 }
+
+export default BuilderPage;

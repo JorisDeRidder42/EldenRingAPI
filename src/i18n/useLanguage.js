@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import LanguageContext from '../Context/languageContext';
-import internationalText from '../i18n/translations.json'
+import internationalText from './translations.json'
 
 const useLanguage = () => {
    const {selectedLanguage} = useContext(LanguageContext)
@@ -12,3 +12,4 @@ const useLanguage = () => {
 
 export default useLanguage
 
+   

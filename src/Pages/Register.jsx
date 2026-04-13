@@ -3,7 +3,7 @@ import { Form, Button, Card, Alert } from "react-bootstrap"
 import { Link, useNavigate } from "react-router-dom"
 import { useAuth } from '../Context/authContext';
 import logoBig from '../assets/Elden_Ring_logo.png';
-import useLanguage from "../Hooks/useLanguage";
+import useLanguage from "../i18n/useLanguage";
 
 const Register = () => {
   const emailRef = useRef()

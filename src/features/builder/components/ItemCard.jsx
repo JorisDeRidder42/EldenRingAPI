@@ -1,20 +1,6 @@
 const ItemCard = ({ item, onClick, isSelected }) => {
   return (
-    <div
-      onClick={onClick}
-      style={{
-        display: "flex",
-        alignItems: "center",
-        gap: 10,
-        padding: 10,
-        marginBottom: 10,
-        borderRadius: 8,
-        cursor: "pointer",
-        background: "#2a2a2a",
-        border: isSelected ? "2px solid gold" : "1px solid #444",
-        transition: "0.2s",
-      }}
-    >
+    <div className="item" onClick={onClick}>
       {item?.image && (
         <img
           src={item.image}
@@ -27,7 +13,7 @@ const ItemCard = ({ item, onClick, isSelected }) => {
         <div style={{ fontWeight: 600 }}>{item.name}</div>
 
         {/* mini stats preview (optioneel) */}
-        <div style={{ fontSize: 12, opacity: 0.8 }}>
+        <div className="mini-stats">
           {item.attack?.map((atk) => (
             <span key={atk.name} style={{ marginRight: 8 }}>
               {atk.name.slice(0, 3)}: {atk.amount}

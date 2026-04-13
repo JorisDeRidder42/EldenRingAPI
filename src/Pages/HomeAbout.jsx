@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import dragon from '../assets/dragon.jpg';
 import { FaShoppingCart,FaXbox,FaSteam, } from "react-icons/fa";
 import { SiPlaystation4,SiPlaystation5 } from "react-icons/si";
-import useLanguage from "../Hooks/useLanguage";
+import useLanguage from "../i18n/useLanguage";
 
 const HomeAbout = () => {
     const {text} = useLanguage()

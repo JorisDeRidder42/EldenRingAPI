@@ -2,7 +2,7 @@ import { React, useContext } from 'react';
 import { Button, Image, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from "./assets/Elden_Ring_logo.png";
-import { getAllAppData } from './Datas/AppData';
+import { getAllAppData } from './api/AppData.jsx';
 import { useAuth } from './Context/authContext';
 import { auth } from './config/firebase';
 import { useNavigate } from 'react-router-dom';

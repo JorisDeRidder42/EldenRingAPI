@@ -3,10 +3,10 @@ import { Suspense } from 'react';
 import {Card, Row, Col, ListGroup, Button, Container} from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useGetItem } from '../Hooks/dataHooks';
-import CardLoader from '../Loader/CardLoader';
+import CardLoader from '../../loader/CardLoader';
 import { FaWeightHanging } from "react-icons/fa";
 import { PiSword,PiShield, PiHand,PiHandFist, PiArrowLeft,PiArrowRight  } from "react-icons/pi";
+import { useItems } from '../builder/hooks/useItems';
 
 const WeaponDetailCard = ({endpoint}) => {
     return(
@@ -19,7 +19,7 @@ const WeaponDetailCard = ({endpoint}) => {
   const WeaponDetailContent = ({endpoint}) => {
     const {id} = useParams();
     const history = useNavigate();
-    const {data: weaponData} = useGetItem(endpoint, id);
+    const {data: weaponData} = useItems(endpoint, id);
     
     if(!weaponData){
         return <h1>Weapon could not be found, try again later</h1>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export function useBuilder() {
+
   const [selectedSlot, setSelectedSlot] = useState("rightHand");
 
   const [build, setBuild] = useState({
@@ -9,6 +10,7 @@ export function useBuilder() {
     head: null,
     chest: null,
     legs: null,
+    hands: null,
   });
 
   function selectSlot(slot) {
@@ -29,6 +31,7 @@ export function useBuilder() {
       head: null,
       chest: null,
       legs: null,
+      hands: null,
     });
   }
 

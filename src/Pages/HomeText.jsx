@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import screen1 from '../assets/images/screen1.png';
 import screen2 from '../assets/images/screen2.png';
 import screen3 from '../assets/images/screen3.png';
-import useLanguage from "../Hooks/useLanguage";
+import useLanguage from "../i18n/useLanguage";
 
 const HomeText = () => {
     const {text} = useLanguage();

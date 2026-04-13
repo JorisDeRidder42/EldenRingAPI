@@ -308,3 +308,93 @@ font-family:var(--gar)
   color: var(--white);
   font-size: 1.2em;
 }
+
+.item{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #2a2a2a;
+  transition: 0.2s;
+  border: var(--bg) 2px solid;
+}
+
+.mini-stats{
+  font-size: 12;
+  opacity: 0.8;
+}
+
+.item-kaart{
+   width: 40px; 
+   height: 40px;
+   margin-right: 10px;
+}
+.build-slot{
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  align-items: flex-start;
+}
+.left{
+  flex: 1;
+  position: sticky;
+  top:20px;
+  background: #2a2a2a;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.right{
+    flex:2;
+    background: #2a2a2a;
+    color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 100vh;
+}
+
+.item-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background: #2a2a2a;
+  border: 1px solid #444;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.item-card:hover {
+  background: var(--box);
+}
+
+.item-card.selected {
+  border: 2px solid var(--cta);
+  transform: scale(1.02);
+}
+.slot {
+  border: 1px solid var(--disabled);
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  background-color: transparent;
+  color: black;
+  transition: 0.2s;
+}
+
+.slot.active {
+  border: 2px solid var(--cta);
+  background-color: var(--bg);
+  color: var(--white);  
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+.stats{
+  margin-top: 20px;
+  color:var(--white);
+}

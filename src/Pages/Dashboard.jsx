@@ -1,13 +1,14 @@
 import { Col, Container, Row } from "react-bootstrap";
-import ContentCard from "../Components/Cards/ContentCard";
-import { useGetItemIds } from "../Hooks/dataHooks";
+import ContentCard from "../features/shared/ContentCard";
 import { useState } from "react";
 import { BsListUl,BsFillGrid3X3GapFill } from "react-icons/bs";
+import { useItems } from "../features/builder/hooks/useItems";
 
 const Dashboard = ({endpoint}) => {
   const [gridView, setGridView] = useState(true);
   
-  const { data: cardsData } = useGetItemIds(endpoint);
+  const { data: cardsData } = useItems(endpoint);
+  console.log('cardsData',cardsData);
   const IconStyle = { color: "white", fontSize: '1.5em'};
   const strEndpoint = endpoint.slice(1);
 
