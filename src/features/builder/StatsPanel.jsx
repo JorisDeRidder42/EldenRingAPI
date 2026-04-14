@@ -5,6 +5,8 @@ const StatsPanel = ({build}) => {
     const stats = calculateStats(build);
     const MAX_WEIGHT = 50;
     const isOver = stats.weight > MAX_WEIGHT;
+    const roundedWeight = stats.weight.toFixed(1);
+    console.log('rounded',roundedWeight)
 
     return(
         <div className="statsPanel">
@@ -38,7 +40,7 @@ const StatsPanel = ({build}) => {
   <div className="statsSection">
     <h3>Weight</h3>
    <Stat label="Equip Load"
-      value={stats.weight}
+      value={roundedWeight}
       className={isOver ? "weight over" : "weight"} />
   </div>
 
