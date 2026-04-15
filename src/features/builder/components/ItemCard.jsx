@@ -1,21 +1,18 @@
 const ItemCard = ({ item, onClick }) => {
   return (
     <div className="item" onClick={onClick}>
-      {item?.image && (
-        <img
+      <div>
+        <div className="item-name">{item.name}</div>
+        {item?.image && (
+        <img className="item-img"
           src={item.image}
           alt={item.name}
-          style={{ width: 30, height: 30 }}
         />
       )}
-
-      <div>
-        <div style={{ fontWeight: 600 }}>{item.name}</div>
-
         {/* mini stats preview (optioneel) */}
         <div className="mini-stats">
           {item.attack?.map((atk) => (
-            <span key={atk.name} style={{ marginRight: 8 }}>
+            <span key={atk.name} className="item-span">
               {atk.name.slice(0, 3)}: {atk.amount}
             </span>
           ))}

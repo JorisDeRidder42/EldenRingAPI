@@ -4,22 +4,20 @@ import ItemCard from "../builder/components/ItemCard";
 import StatsPanel from "./StatsPanel";
 import { useItems } from "./hooks/useItems";
 import Search from "./components/Search";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useFilter } from "./hooks/useFilter";
 
 const BuilderPage = () => {
   const { data: weaponsData } = useItems("/weapons");
   const { data: armorsData } = useItems("/armors");
 
-  const [search, setSearch] = useState('');  
-  
-  
-  const weapons = weaponsData.data ?? [];
+    const weapons = weaponsData.data ?? [];
   const armors = armorsData.data ?? [];  
   
   const { build, selectedSlot, selectSlot, equip } = useBuilder();
+  const [search, setSearch] = useState('');  
 
-  
+
     const titleMap = {
         rightHand: "Weapons",
         leftHand: "Weapons",
@@ -64,13 +62,11 @@ const BuilderPage = () => {
 
   return (
     <>
-    <Search search={search} setSearch={setSearch} className="search"/>
       <div className="build-slot">
 
-
-        {/* LEFT: ITEMS */}
         <div className="left">
           <div className="item-list">
+            <Search search={search} setSearch={setSearch} className="search" />
             {!selectedSlot && <p>Choose a slot to start</p>}
             <h2>{titleMap[selectedSlot] || "Select a slot"}</h2>
             {filteredItems.length === 0 ? <p>No items available</p> : <h5>{filteredItems.length} items available</h5>}

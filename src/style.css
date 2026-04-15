@@ -1,22 +1,23 @@
-/* Colors */
-
 /* =======================
    ROOT / THEME
 ======================= */
 :root {
-  --bg: #212529;
-  --panel: #202325;
+    --bg: #18191a;
+  --panel: #1f2023;
 
-  --accent: #C19D53;
-  --accent-soft: rgba(193, 157, 83, 0.3);
-  --disabled: #66532c;
+  --card: #26282b;
+  --card-hover: #2f3136;
 
-  --card: #2a2e30;
-  --card-hover: #323638;
+  --accent: #bfa76a; /* matte gold */
+  --accent-strong: #e0c27a;
+  --accent-soft: rgba(191, 167, 106, 0.25);
 
-  --text: #f1f1f1;
-  --muted: rgba(255, 255, 255, 0.6);
-  --border: rgba(255, 255, 255, 0.08);
+  --text: #e8e6e3;
+  --muted: rgba(232, 230, 227, 0.6);
+
+  --border: rgba(255, 255, 255, 0.06);
+
+  --danger: #ef4444;
 
   --gar: "EB Garamond", serif;
   --pop: "Poppins", sans-serif;
@@ -32,7 +33,7 @@
 /* =======================
    BASE
 ======================= */
-body {
+.app {
   font-family: var(--pop);
   background: var(--bg);
   color: var(--text);
@@ -40,16 +41,15 @@ body {
 
 h1, h2, h3 {
   font-family: var(--gar);
-  letter-spacing: 0.5px;
+  letter-spacing:1px;
+  text-transform: uppercase;
 }
 
 h2 {
-  font-size: 20px;
-  margin-bottom: var(--space-sm);
+  color: var(--accent);
 }
 
 h3 {
-  font-size: 14px;
   color: var(--muted);
 }
 /* =======================
@@ -69,9 +69,9 @@ color: var(--disabled);
 /* =======================
    BUTTONS
 ======================= */
-.button,.cta-button,
+.cta-button,
 .cta-button-secondary{
-padding: 0.6em;
+padding: 1em;
 text-align: center;
 text-transform: uppercase;
 border:solid var(--accent) 2px;
@@ -108,6 +108,25 @@ color:var(--text);
   color:var(--accent);
 }
 
+.scrollTopBtn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 10px var(--accent-soft);
+  transition: 0.2s ease;
+}
+
+.scrollTopBtn:hover {
+  transform: translateY(-2px);
+  border: 1px solid var(--accent);
+}
+
 /* =======================
    LOADERS & LOGO
 ======================= */
@@ -133,13 +152,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 background: url('./assets/Login.jpg') center center no-repeat;
-/* height: calc(100vh - 78.4px); */
 position: absolute;
 width: 100%;
-height: 100dvh;
+height: 100vh;
 top: 0;
-left: 0;
-z-index: -1;
+z-index: -100;
+background-size: cover;
 }
 .form-label{
 color: var(--text);
@@ -291,26 +309,59 @@ font-family:var(--gar)
 .build-slot {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
 /* LEFT PANEL*/
 .left {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding:var(--space-lg);
-  gap:var(--space-lg);
-  overflow: hidden;
+  height: 100vh;
+  background: var(--bg);
+  padding:var(--space-xl);
+  overflow-y:auto;
+  position: relative;
 }
 
 /* RIGHT PANEL */
 .right {
   flex:1;
-  gap:var(--space-lg);
-  padding:var(var(--space-lg));
-  border-left: 1px solid var(--accent);
   background: var(--bg);
+  gap:var(--space-lg);
+  padding:var(--space-lg);
+  overflow: hidden;
 }
+.item{
+  background: var(--card);
+  border-radius: 8px;
+  padding: var(--space-md);
+  margin:var(--space-md);
+}
+.item-list{
+  overflow-y: auto;
+  min-height: 0;
+}
+.left,
+.right,
+.statspanel {
+  min-height: 0;
+}
+/* =======================
+   ITEMS LIST
+======================= */
+/* SCROLLBAR */
+/* .left::-webkit-scrollbar {
+  width: 10px;
+  padding:var(--space-xs)
+} */
+
+/* .left::-webkit-scrollbar-thumb {
+   background: linear-gradient(
+    180deg,
+    #cbb074,
+    #6b5a2e
+  );
+  border-radius: 4px;
+} */
 
 /* =======================
    SEARCH
@@ -318,43 +369,43 @@ font-family:var(--gar)
 .search {
   padding: var(--space-lg);
   border-radius: 6px;
-  border: 1px solid var(--border);
-  background: var(--card);
+  border: 2px solid var(--border);
+  background: linear-gradient(
+    180deg,
+    #2a2b2f,
+    #222326
+  );
   color: var(--text);
   font-size: 1em;
+  width: 100%;
 }
-.search:focus {
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 10px var(--accent-soft);
-  outline: none;
-}
-/* =======================
-   ITEMS LIST
-======================= */
-.items-list {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: var(--space-sm);
-}
-/* SCROLLBAR */
-.items-list::-webkit-scrollbar {
-  width: 8px;
+.search:focus, .search:active{
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 8px var(--accent-soft);
 }
 
-.items-list::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #c9a34a, #5a471f);
-  border-radius: 4px;
-}
-
-.items-list::-webkit-scrollbar-track {
-  background: transparent;
-}
 /* =======================
    ITEM CARD
 ======================= */
-.item-card {
-  display: flex;
-  align-items: center;
+.item-name{
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.item-img{
+  width: 4em;
+  height: auto;
+}
+.item-span{
+  font-size: 0.8em;
+  margin-right: var(--space-md);
+}
+
+.item-card, .slot, .statsSection {
+   background: linear-gradient(
+    180deg,
+    #2a2b2f 0%,
+    #232427 100%
+  );
   gap: var(--space-lg);
 
 
@@ -367,20 +418,21 @@ font-family:var(--gar)
   border: 1px solid transparent;
   cursor: pointer;
 
-  transition: 0.2s ease;
-    box-shadow: 0 2px 4px var(--muted);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
 }
 
 .item-card:hover {
-  border: 1px solid var(--card-hover);
   border: 1px solid var(--accent);
-  transform: scale(1.02);
+ box-shadow: 
+    inset 0 0 0 1px rgba(255,255,255,0.05), 0 0 6px var(--accent-soft);
 }
 
 /* SELECTED ITEM */
-.item-card.selected {
+.item-card.selected, .slot.active {
   border: 2px solid var(--accent);
-  box-shadow: 0 0 10px var(--accent-soft);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 0 10px var(--accent-soft);
 }
 .item-card strong{
   color: var(--text);
@@ -391,11 +443,14 @@ font-family:var(--gar)
   transform: scale(1.02);
 }
 
+.item-card img{
+  filter: drop-shadow(0 0 3px rgba(0,0,0,0.6));
+}
+
 /* =======================
    SLOTS
 ======================= */
 .slot {
-  background: var(--card);
   border: 1px solid var(--border);
   padding: var(--space-md);
   margin-bottom: var(--space-sm);
@@ -417,21 +472,17 @@ font-family:var(--gar)
    STATS PANEL
 ======================= */
 .statsPanel {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-
+  gap: var(--space-xl);
+  background: var(--bg);
   padding: var(--space-md);
   border-radius: 10px;
-
-  background: var(--panel);
-  box-shadow: 0 4px 12px var(--muted);
+  flex:0.8;
 }
+
 /* section blocks */
 .statsSection {
-  padding: var(--space-md);
+  padding: var(--space-lg);
   border-radius: 8px;
-  background: var(--card);
 }
 /* titles */
 .statsPanel h2 {
@@ -449,7 +500,6 @@ font-family:var(--gar)
 
   padding: var(--space-xs) 0;
   font-size: 14px;
-  color:var(--muted);
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 .statRow span:last-child {
@@ -474,10 +524,15 @@ font-family:var(--gar)
   .build-slot {
     flex-direction: column;
   }
-
   .right {
-    width: 100%;
-    border-left: none;
-    border-top: 1px solid var(--border);
+    order: 1;
+    }
+
+  .left {
+    order: 2;
+  }
+
+  .statspanel {
+    order: 3;
   }
 }

@@ -38,7 +38,7 @@ const NavbarUser = () => {
         <NavDropdown title={selectedLanguage.flag} menuVariant="light" align="end">                       
           {languages.map(l => dropdownItem(l))}           
         </NavDropdown>        
-        <Button className='cta-button ml-2' onClick={signInAsQuest}>LOGIN AS GUEST</Button>
+        <Button className='cta-button' onClick={signInAsQuest}>LOGIN AS GUEST</Button>
         </Navbar>
       </Container>
     </Navbar>

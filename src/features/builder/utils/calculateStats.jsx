@@ -38,7 +38,6 @@ export const calculateStats = (build) => {
 
     stats.weight += item.weight ?? 0;
   });
-      console.log('stats', stats);
       return stats;
 };
 
