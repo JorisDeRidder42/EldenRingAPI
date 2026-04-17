@@ -5,7 +5,7 @@ import logo from "./assets/Elden_Ring_logo.png";
 import { getAllAppData } from './api/AppData.jsx';
 import { useAuth } from './Context/authContext';
 import { auth } from './config/firebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import {languages} from './i18n/languages.jsx'
 import LanguageContext from './Context/languageContext.jsx';
@@ -23,9 +23,7 @@ const NavBarBootstrap = () => {
     )
     const dropdownLinks = (l) => (
         <NavDropdown.Item key={l.id}>
-            <LinkContainer to={l.endpoint} endpoint={l.endpoint}>
-                <Nav.Link>{l.title}</Nav.Link>
-            </LinkContainer>
+                <Nav.Link as={Link} to={l.endpoint} endpoint={l.endpoint}>{l.title}</Nav.Link>
         </NavDropdown.Item>
     )
     const handleSignOut = async () => {
@@ -41,22 +39,18 @@ const NavBarBootstrap = () => {
 
     return (
         <Navbar expand="sm"  className="nav navbar navbar-dark bg-dark">
-                <LinkContainer to={"/"}>
-                    <Navbar.Brand>
+                    <Navbar.Brand as={Link} to={'/'}>
                         <Image src={logo} fluid className="logo"/>
                     </Navbar.Brand>              
-                </LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
-                    <NavDropdown title={'Data'} menuVariant="dark" align="end">
-                            {allData.map(l => dropdownLinks(l))}
-                    </NavDropdown>
+                        <NavDropdown title={'Data'} menuVariant="dark" align="end">
+                                {allData.map(l => dropdownLinks(l))}
+                        </NavDropdown>
                     </Nav>
                     <Nav>
-                        <LinkContainer to={'/builder'}>
-                            <Nav.Link>Builder</Nav.Link>
-                        </LinkContainer>
+                            <Nav.Link as={Link} to={'/builder'}>Builder</Nav.Link>
                     </Nav>
                     <NavDropdown title={selectedLanguage.flag} menuVariant="dark" align="end">
                             {languages.map(l => dropdownItem(l))}

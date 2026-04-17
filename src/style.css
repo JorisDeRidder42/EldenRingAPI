@@ -5,6 +5,7 @@
     --bg: #18191a;
   --panel: #1f2023;
 
+  --card-transparant:rgba(24, 23, 29, 0.8);
   --card: #26282b;
   --card-hover: #2f3136;
 
@@ -155,7 +156,6 @@ background: url('./assets/Login.jpg') center center no-repeat;
 position: absolute;
 width: 100%;
 height: 100vh;
-top: 0;
 z-index: -100;
 background-size: cover;
 }
@@ -201,7 +201,7 @@ color: var(--text);
 margin-right: 1em;
 }
 .card{
-  background-color: var(--card);
+  background-color: var(--card-transparant);
   border: solid 3px var(--accent);
   padding: 2em;
   font-family: var(--text);
@@ -345,23 +345,6 @@ font-family:var(--gar)
 .statspanel {
   min-height: 0;
 }
-/* =======================
-   ITEMS LIST
-======================= */
-/* SCROLLBAR */
-/* .left::-webkit-scrollbar {
-  width: 10px;
-  padding:var(--space-xs)
-} */
-
-/* .left::-webkit-scrollbar-thumb {
-   background: linear-gradient(
-    180deg,
-    #cbb074,
-    #6b5a2e
-  );
-  border-radius: 4px;
-} */
 
 /* =======================
    SEARCH
