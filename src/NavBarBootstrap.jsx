@@ -22,8 +22,12 @@ const NavBarBootstrap = () => {
         </NavDropdown.Item>
     )
     const dropdownLinks = (l) => (
-        <NavDropdown.Item key={l.id}>
-                <Nav.Link as={Link} to={l.endpoint} endpoint={l.endpoint}>{l.title}</Nav.Link>
+        <NavDropdown.Item 
+            key={l.id} 
+            as={Link} 
+            to={l.endpoint}
+        >
+            {l.title}
         </NavDropdown.Item>
     )
     const handleSignOut = async () => {
